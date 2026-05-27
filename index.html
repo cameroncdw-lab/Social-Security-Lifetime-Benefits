@@ -5,139 +5,236 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Social Security Benefit Calculator</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%233C3B6E'/><text x='16' y='22' font-size='18' text-anchor='middle' fill='%23C9A84C' font-family='serif' font-weight='bold'>$</text></svg>">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#f4f4f6;padding:20px;min-height:100vh;}
+
 :root{
-  --color-background-primary:#ffffff;
-  --color-background-secondary:#f1f0f8;
-  --color-text-primary:#1a1a2e;
-  --color-text-secondary:#555570;
-  --color-text-tertiary:#8888a0;
-  --color-border-tertiary:rgba(0,0,0,0.1);
-  --color-border-secondary:rgba(0,0,0,0.18);
-  --border-radius-md:8px;
-  --border-radius-lg:12px;
   --usa-red:#B22234;
   --usa-blue:#3C3B6E;
+  --usa-navy:#1a1940;
   --usa-gold:#C9A84C;
-  --usa-red-light:#F9EDED;
-  --usa-blue-light:#EEEDF8;
-  --usa-red-mid:#E05555;
-  --usa-blue-mid:#5B59A0;
-  --font-sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  --usa-gold-light:#f0d98a;
+  --usa-cream:#fdf8ee;
+  --usa-red-light:rgba(178,34,52,0.08);
+  --usa-blue-light:rgba(60,59,110,0.08);
+  --bg-primary:#fdf8ee;
+  --bg-card:rgba(255,252,240,0.92);
+  --bg-card-solid:#fffcf0;
+  --text-primary:#1a1940;
+  --text-secondary:#4a4870;
+  --text-muted:#7a78a0;
+  --border-light:rgba(201,168,76,0.25);
+  --border-mid:rgba(201,168,76,0.45);
+  --radius-md:8px;
+  --radius-lg:12px;
 }
-@media(prefers-color-scheme:dark){
-  :root{
-    --color-background-primary:#1e1e2e;
-    --color-background-secondary:#2a2a3e;
-    --color-text-primary:#e8e8f0;
-    --color-text-secondary:#9999b8;
-    --color-text-tertiary:#666688;
-    --color-border-tertiary:rgba(255,255,255,0.1);
-    --color-border-secondary:rgba(255,255,255,0.18);
-    --usa-red-light:#2a1515;
-    --usa-blue-light:#1a1a2e;
-  }
+
+body{
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  min-height:100vh;
+  background-color:#1a1940;
+  background-image:
+    radial-gradient(ellipse at 20% 50%, rgba(60,59,110,0.6) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(178,34,52,0.15) 0%, transparent 50%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='500' viewBox='0 0 900 500'%3E%3Cdefs%3E%3Cfilter id='g'%3E%3CfeGaussianBlur stdDeviation='1.5'/%3E%3C/filter%3E%3C/defs%3E%3Crect width='900' height='500' fill='%231a1940'/%3E%3Crect x='0' y='0' width='900' height='500' fill='rgba(201,168,76,0.03)'/%3E%3Cg opacity='0.13'%3E%3Crect x='40' y='60' width='110' height='380' fill='none' stroke='%23C9A84C' stroke-width='1.2'/%3E%3Crect x='55' y='45' width='80' height='15' fill='%23C9A84C'/%3E%3Cpolygon points='95,10 55,45 135,45' fill='%23C9A84C'/%3E%3Crect x='62' y='80' width='12' height='280' fill='%23C9A84C'/%3E%3Crect x='89' y='80' width='12' height='280' fill='%23C9A84C'/%3E%3Crect x='116' y='80' width='12' height='280' fill='%23C9A84C'/%3E%3Crect x='30' y='440' width='130' height='18' rx='2' fill='%23C9A84C'/%3E%3C/g%3E%3Cg opacity='0.11' transform='translate(360,40)'%3E%3Cellipse cx='90' cy='90' rx='88' ry='88' fill='none' stroke='%23C9A84C' stroke-width='1.5'/%3E%3Cellipse cx='90' cy='90' rx='60' ry='60' fill='none' stroke='%23C9A84C' stroke-width='0.8'/%3E%3Cpolygon points='90,30 105,75 155,75 115,100 130,145 90,120 50,145 65,100 25,75 75,75' fill='none' stroke='%23C9A84C' stroke-width='1'/%3E%3Cline x1='90' y1='2' x2='90' y2='178' stroke='%23C9A84C' stroke-width='0.6' opacity='0.5'/%3E%3Cline x1='2' y1='90' x2='178' y2='90' stroke='%23C9A84C' stroke-width='0.6' opacity='0.5'/%3E%3C/g%3E%3Cg opacity='0.12' transform='translate(700,80)'%3E%3Crect x='10' y='30' width='150' height='100' rx='3' fill='none' stroke='%23C9A84C' stroke-width='1.2'/%3E%3Crect x='0' y='130' width='170' height='20' rx='2' fill='%23C9A84C' opacity='0.6'/%3E%3Cpath d='M10 30 Q85 0 160 30' stroke='%23C9A84C' stroke-width='1.2' fill='none'/%3E%3Crect x='25' y='30' width='4' height='100' fill='%23C9A84C' opacity='0.5'/%3E%3Crect x='83' y='30' width='4' height='100' fill='%23C9A84C' opacity='0.5'/%3E%3Crect x='141' y='30' width='4' height='100' fill='%23C9A84C' opacity='0.5'/%3E%3Cellipse cx='85' cy='80' rx='30' ry='30' fill='none' stroke='%23C9A84C' stroke-width='0.8' opacity='0.7'/%3E%3C/g%3E%3Cg opacity='0.07'%3E%3Crect x='100' y='130' width='700' height='260' rx='8' fill='none' stroke='%23C9A84C' stroke-width='2'/%3E%3Crect x='100' y='130' width='700' height='260' rx='8' fill='none' stroke='%23C9A84C' stroke-width='0.5' stroke-dasharray='4,8'/%3E%3Ccircle cx='230' cy='260' r='70' fill='none' stroke='%23C9A84C' stroke-width='1'/%3E%3Ccircle cx='230' cy='260' r='45' fill='none' stroke='%23C9A84C' stroke-width='0.6'/%3E%3Cline x1='160' y1='260' x2='300' y2='260' stroke='%23C9A84C' stroke-width='0.5'/%3E%3Cline x1='230' y1='190' x2='230' y2='330' stroke='%23C9A84C' stroke-width='0.5'/%3E%3Ccircle cx='670' cy='260' r='70' fill='none' stroke='%23C9A84C' stroke-width='1'/%3E%3Cpath d='M640 240 L660 220 L680 240 L700 220 L720 240' stroke='%23C9A84C' stroke-width='1' fill='none'/%3E%3Ctext x='450' y='175' font-size='22' text-anchor='middle' fill='%23C9A84C' font-family='serif' font-weight='bold' opacity='0.8'%3EONE DOLLAR%3C/text%3E%3Ctext x='450' y='360' font-size='14' text-anchor='middle' fill='%23C9A84C' font-family='serif' opacity='0.6'%3ETHE UNITED STATES OF AMERICA%3C/text%3E%3C/g%3E%3Cg opacity='0.06'%3E%3Crect x='0' y='0' width='900' height='12' fill='%23B22234'/%3E%3Crect x='0' y='488' width='900' height='12' fill='%23B22234'/%3E%3Crect x='0' y='24' width='900' height='8' fill='%23B22234' opacity='0.5'/%3E%3Crect x='0' y='468' width='900' height='8' fill='%23B22234' opacity='0.5'/%3E%3C/g%3E%3C/svg%3E");
+  background-size:cover;
+  background-attachment:fixed;
+  padding:20px;
 }
-input[type=range]{-webkit-appearance:none;appearance:none;height:4px;border-radius:2px;background:var(--color-border-secondary);outline:none;cursor:pointer;flex:1;}
-input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--usa-blue);cursor:pointer;border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,0.2);}
-input[type=number],input[type=text]{height:36px;padding:0 10px;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);background:var(--color-background-primary);color:var(--color-text-primary);font-size:14px;font-family:var(--font-sans);}
-input[type=number]:focus,input[type=text]:focus{outline:none;box-shadow:0 0 0 2px rgba(60,59,110,0.25);}
-input[type=checkbox]{width:15px;height:15px;cursor:pointer;accent-color:var(--usa-blue);}
-button{height:32px;padding:0 14px;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);background:transparent;color:var(--color-text-primary);font-size:13px;font-family:var(--font-sans);cursor:pointer;display:inline-flex;align-items:center;gap:5px;}
-button:hover{background:var(--color-background-secondary);}
+
+.app-wrap{max-width:900px;margin:0 auto;}
+
+.hero{
+  border:1px solid var(--usa-gold);
+  border-radius:var(--radius-lg);
+  background:var(--usa-navy);
+  padding:16px 22px;
+  margin-bottom:14px;
+  display:flex;align-items:center;gap:16px;
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:repeating-linear-gradient(90deg,transparent 0,transparent 34px,rgba(201,168,76,0.06) 34px,rgba(201,168,76,0.06) 36px);
+  pointer-events:none;
+}
+.hero-seal{flex-shrink:0;}
+.hero-title{font-size:18px;font-weight:600;color:var(--usa-gold-light);letter-spacing:.02em;}
+.hero-sub{font-size:12px;color:rgba(201,168,76,0.55);margin-top:3px;}
+.hero-right{margin-left:auto;text-align:right;}
+.est-badge{font-size:10px;color:rgba(201,168,76,0.45);letter-spacing:.08em;text-transform:uppercase;}
+.flag-dots{display:flex;gap:4px;justify-content:flex-end;margin-bottom:4px;}
+.fdot-flag{width:11px;height:11px;border-radius:50%;}
+
+.stripe-rule{
+  height:5px;border-radius:3px;margin-bottom:14px;
+  background:repeating-linear-gradient(90deg,var(--usa-red) 0,var(--usa-red) 18px,rgba(255,255,255,0.7) 18px,rgba(255,255,255,0.7) 26px,var(--usa-blue) 26px,var(--usa-blue) 44px,rgba(255,255,255,0.7) 44px,rgba(255,255,255,0.7) 52px);
+  opacity:.65;
+}
+
+.two-col{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:14px;align-items:start;}
+
+.panel{
+  background:var(--bg-card);
+  border:1px solid var(--border-mid);
+  border-radius:var(--radius-lg);
+  padding:14px 16px;
+  margin-bottom:12px;
+  backdrop-filter:blur(4px);
+}
+.panel-title{
+  font-size:12px;font-weight:600;color:var(--usa-blue);
+  margin:0 0 10px;
+  display:flex;align-items:center;gap:6px;
+  border-bottom:2px solid var(--usa-red);
+  padding-bottom:7px;
+  text-transform:uppercase;letter-spacing:.05em;
+}
+.panel-title i{font-size:14px;}
+
+input[type=range]{
+  -webkit-appearance:none;appearance:none;
+  height:3px;border-radius:2px;
+  background:rgba(60,59,110,0.2);
+  outline:none;cursor:pointer;flex:1;
+}
+input[type=range]::-webkit-slider-thumb{
+  -webkit-appearance:none;width:16px;height:16px;border-radius:50%;
+  background:var(--usa-blue);cursor:pointer;
+  border:2px solid var(--usa-gold);
+}
+input[type=number]{
+  height:34px;padding:0 8px;
+  border:1px solid var(--border-mid);
+  border-radius:var(--radius-md);
+  background:rgba(255,252,240,0.9);
+  color:var(--text-primary);font-size:13px;
+  font-family:inherit;
+}
+input[type=number]:focus{outline:none;border-color:var(--usa-blue);box-shadow:0 0 0 2px rgba(60,59,110,0.15);}
+input[type=checkbox]{width:14px;height:14px;cursor:pointer;accent-color:var(--usa-blue);}
+select{
+  height:34px;padding:0 8px;
+  border:1px solid var(--border-mid);
+  border-radius:var(--radius-md);
+  background:rgba(255,252,240,0.9);
+  color:var(--text-primary);font-size:13px;
+  font-family:inherit;cursor:pointer;
+}
+select:focus{outline:none;border-color:var(--usa-blue);}
+
+button{
+  height:30px;padding:0 12px;
+  border:1px solid var(--border-mid);
+  border-radius:var(--radius-md);
+  background:transparent;color:var(--text-primary);
+  font-size:12px;font-family:inherit;cursor:pointer;
+  display:inline-flex;align-items:center;gap:4px;
+}
+button:hover{background:rgba(201,168,76,0.12);}
 button:active{transform:scale(0.98);}
-.ss-app{padding:0.75rem 0;max-width:860px;margin:0 auto;}
-.hero-banner{background:var(--usa-blue);border-radius:var(--border-radius-lg);padding:14px 20px;margin-bottom:16px;display:flex;align-items:center;gap:16px;}
-.hero-title{font-size:17px;font-weight:500;color:#fff;margin:0;}
-.hero-sub{font-size:12px;color:rgba(255,255,255,0.65);margin:2px 0 0;}
-.stripe-bar{height:4px;border-radius:2px;background:repeating-linear-gradient(90deg,var(--usa-red) 0px,var(--usa-red) 20px,#fff 20px,#fff 28px,var(--usa-blue) 28px,var(--usa-blue) 48px,#fff 48px,#fff 56px);margin-bottom:14px;opacity:.7;}
-.two-col{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:16px;align-items:start;}
-.panel{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1rem 1.25rem;}
-.panel-title{font-size:13px;font-weight:500;color:var(--usa-blue);margin:0 0 10px;display:flex;align-items:center;gap:6px;border-bottom:1.5px solid var(--usa-red);padding-bottom:7px;}
-.inp-row{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
-.age-inp{width:58px;}
-.ben-inp{width:90px;}
-.del-btn{padding:3px 6px;font-size:12px;border-color:rgba(178,34,52,.25);color:var(--usa-red);}
+
+.inp-row{display:flex;align-items:center;gap:7px;margin-bottom:7px;}
+.age-inp{width:56px;}
+.ben-inp{width:86px;}
+.del-btn{padding:2px 6px;border-color:rgba(178,34,52,0.3);color:var(--usa-red);height:28px;}
 .del-btn:hover{background:var(--usa-red-light);}
-.ctrl-row{display:flex;align-items:center;gap:8px;margin-bottom:9px;}
-.ctrl-lbl{font-size:12px;color:var(--color-text-secondary);min-width:106px;}
-.ctrl-val{font-size:13px;font-weight:500;min-width:50px;color:var(--usa-blue);}
-.note-txt{font-size:11px;color:var(--color-text-tertiary);margin:2px 0 8px;}
-.toggle-row{display:flex;align-items:center;gap:8px;margin:6px 0;cursor:pointer;}
-.toggle-row span{font-size:13px;color:var(--color-text-primary);}
-.divider{border:none;border-top:0.5px solid var(--color-border-tertiary);margin:10px 0;}
-.res-row{display:flex;align-items:center;gap:8px;margin-bottom:10px;}
-.res-age{font-size:13px;font-weight:500;color:var(--color-text-primary);min-width:50px;}
-.bar-track{flex:1;background:var(--color-background-secondary);border-radius:4px;height:26px;overflow:hidden;}
-.res-bar{height:100%;border-radius:4px;display:flex;align-items:center;padding:0 8px;font-size:11px;font-weight:500;transition:width .4s ease;}
-.res-total{font-size:13px;font-weight:500;min-width:84px;text-align:right;color:var(--color-text-primary);}
-.best-badge{font-size:11px;padding:2px 7px;border-radius:var(--border-radius-md);background:var(--usa-red-light);color:var(--usa-red);border:0.5px solid rgba(178,34,52,.2);min-width:34px;text-align:center;}
-.summary-note{font-size:12px;color:var(--color-text-secondary);margin-top:4px;}
-.fact-card{border-radius:var(--border-radius-lg);overflow:hidden;border:0.5px solid var(--color-border-tertiary);}
-.fact-header{background:var(--usa-blue);padding:10px 14px;display:flex;align-items:center;gap:8px;}
-.fact-header-txt{font-size:13px;font-weight:500;color:#fff;}
-.fact-body{padding:14px;background:var(--color-background-primary);}
-.fact-cat-pill{display:inline-block;font-size:10px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;background:var(--usa-red-light);color:var(--usa-red);border:0.5px solid rgba(178,34,52,.2);border-radius:var(--border-radius-md);padding:2px 8px;margin-bottom:8px;}
-.fact-text{font-size:13px;line-height:1.65;color:var(--color-text-primary);margin:0 0 10px;}
-.fact-src{font-size:11px;color:var(--color-text-tertiary);margin:0;border-left:2px solid var(--usa-gold);padding-left:7px;}
-.fact-footer{border-top:0.5px solid var(--color-border-tertiary);padding:8px 14px;display:flex;align-items:center;justify-content:space-between;background:var(--color-background-primary);}
-.fact-nav-btn{padding:3px 10px;font-size:12px;}
-.fact-dots{display:flex;gap:4px;align-items:center;}
-.fdot{width:5px;height:5px;border-radius:50%;background:var(--color-border-secondary);cursor:pointer;transition:background .2s;}
-.fdot.on{background:var(--usa-blue);width:12px;border-radius:3px;}
-.fact-inner{transition:opacity .5s ease;}
-.monument-strip{display:flex;gap:8px;padding:8px 0 2px;overflow:hidden;}
-.monument{flex:1;text-align:center;}
-.mon-lbl{font-size:10px;color:var(--color-text-tertiary);display:block;margin-top:2px;}
-@media(max-width:600px){.two-col{grid-template-columns:1fr;}}
+
+.ctrl-row{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
+.ctrl-lbl{font-size:11px;color:var(--text-secondary);min-width:108px;}
+.ctrl-val{font-size:12px;font-weight:600;min-width:48px;color:var(--usa-blue);}
+.note-small{font-size:10px;color:var(--text-muted);margin:1px 0 7px;}
+
+.toggle-row{display:flex;align-items:center;gap:7px;margin:5px 0;cursor:pointer;}
+.toggle-row span{font-size:12px;color:var(--text-primary);}
+
+.divider{border:none;border-top:1px solid var(--border-light);margin:9px 0;}
+
+.res-row{display:flex;align-items:center;gap:7px;margin-bottom:9px;}
+.res-age{font-size:12px;font-weight:600;color:var(--text-primary);min-width:48px;}
+.bar-track{flex:1;background:rgba(60,59,110,0.08);border-radius:3px;height:24px;overflow:hidden;border:0.5px solid var(--border-light);}
+.res-bar{height:100%;border-radius:3px;display:flex;align-items:center;padding:0 7px;font-size:10px;font-weight:600;transition:width .4s ease;white-space:nowrap;overflow:hidden;}
+.res-total{font-size:12px;font-weight:600;min-width:80px;text-align:right;color:var(--text-primary);}
+.res-aftertax{font-size:10px;color:var(--text-muted);min-width:72px;text-align:right;}
+.best-badge{font-size:10px;padding:2px 6px;border-radius:var(--radius-md);background:rgba(178,34,52,0.1);color:var(--usa-red);border:0.5px solid rgba(178,34,52,0.25);min-width:32px;text-align:center;}
+.summary-note{font-size:11px;color:var(--text-secondary);margin-top:3px;line-height:1.5;}
+
+/* Tax section */
+.tax-panel-inner{background:rgba(60,59,110,0.04);border:1px solid var(--border-light);border-radius:var(--radius-md);padding:10px 12px;margin-top:8px;}
+.tax-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.tax-field label{font-size:10px;color:var(--text-muted);display:block;margin-bottom:3px;}
+.tax-info-box{background:rgba(178,34,52,0.06);border:0.5px solid rgba(178,34,52,0.2);border-radius:var(--radius-md);padding:8px 10px;margin-top:8px;}
+.tax-tiers{display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px;margin-top:7px;}
+.tier-card{background:rgba(255,252,240,0.7);border:0.5px solid var(--border-light);border-radius:var(--radius-md);padding:6px 8px;text-align:center;}
+.tier-pct{font-size:14px;font-weight:700;color:var(--usa-blue);}
+.tier-lbl{font-size:9px;color:var(--text-muted);line-height:1.4;margin-top:2px;}
+
+/* Fact card */
+.fact-card{border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--usa-gold);background:var(--bg-card);backdrop-filter:blur(4px);}
+.fact-header{background:var(--usa-navy);padding:10px 14px;display:flex;align-items:center;gap:8px;border-bottom:2px solid var(--usa-gold);}
+.fact-header-txt{font-size:12px;font-weight:600;color:var(--usa-gold-light);text-transform:uppercase;letter-spacing:.05em;}
+.fact-body{padding:12px 14px;background:var(--bg-card-solid);}
+.fact-cat-pill{display:inline-block;font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:rgba(178,34,52,0.1);color:var(--usa-red);border:0.5px solid rgba(178,34,52,0.25);border-radius:var(--radius-md);padding:2px 7px;margin-bottom:7px;}
+.fact-text{font-size:12px;line-height:1.65;color:var(--text-primary);margin:0 0 9px;}
+.fact-src{font-size:10px;color:var(--text-muted);margin:0;border-left:2px solid var(--usa-gold);padding-left:6px;line-height:1.4;}
+.fact-footer{border-top:1px solid var(--border-light);padding:7px 12px;display:flex;align-items:center;justify-content:space-between;background:rgba(255,252,240,0.6);}
+.fact-nav-btn{padding:2px 10px;font-size:12px;border-color:var(--border-mid);color:var(--usa-blue);}
+.fdot-row{display:flex;gap:4px;align-items:center;}
+.dot-fact{width:5px;height:5px;border-radius:50%;background:rgba(60,59,110,0.2);cursor:pointer;transition:all .2s;}
+.dot-fact.on{background:var(--usa-blue);width:12px;border-radius:3px;}
+.fact-inner{transition:opacity .5s;}
+
+.info-note{margin-top:10px;padding:9px 11px;border-radius:var(--radius-md);border:0.5px solid rgba(178,34,52,0.25);background:rgba(178,34,52,0.06);font-size:10px;color:var(--usa-red);line-height:1.55;}
+
+@media(max-width:600px){
+  .two-col{grid-template-columns:1fr;}
+  .tax-grid{grid-template-columns:1fr;}
+}
 </style>
 </head>
 <body>
+<div class="app-wrap">
 
-<div class="ss-app">
-
-<div class="hero-banner">
-  <div>
-    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <rect x="4" y="28" width="40" height="14" rx="2" fill="rgba(255,255,255,0.15)"/>
-      <rect x="4" y="6" width="40" height="10" rx="2" fill="rgba(255,255,255,0.15)"/>
-      <rect x="16" y="16" width="3" height="12" fill="rgba(255,255,255,0.5)"/>
-      <rect x="23" y="16" width="3" height="12" fill="rgba(255,255,255,0.5)"/>
-      <rect x="30" y="16" width="3" height="12" fill="rgba(255,255,255,0.5)"/>
-      <circle cx="24" cy="3" r="2.5" fill="#C9A84C"/>
-      <rect x="22" y="5" width="4" height="2" fill="#C9A84C"/>
+<div class="hero">
+  <div class="hero-seal" aria-hidden="true">
+    <svg width="52" height="52" viewBox="0 0 52 52" fill="none">
+      <circle cx="26" cy="26" r="24" fill="none" stroke="#C9A84C" stroke-width="1.2"/>
+      <circle cx="26" cy="26" r="17" fill="none" stroke="#C9A84C" stroke-width="0.7" opacity=".5"/>
+      <polygon points="26,8 29.5,19 41,19 32,26 35.5,37 26,30 16.5,37 20,26 11,19 22.5,19" fill="none" stroke="#C9A84C" stroke-width="1" opacity=".7"/>
+      <circle cx="26" cy="26" r="4" fill="#C9A84C" opacity=".5"/>
+      <line x1="26" y1="2" x2="26" y2="50" stroke="#C9A84C" stroke-width="0.4" opacity=".3"/>
+      <line x1="2" y1="26" x2="50" y2="26" stroke="#C9A84C" stroke-width="0.4" opacity=".3"/>
     </svg>
   </div>
-  <div style="flex:1;">
-    <p class="hero-title">Social Security benefit calculator</p>
-    <p class="hero-sub">Enter your statement amounts · adjust life expectancy · see lifetime totals</p>
+  <div>
+    <div class="hero-title">Social Security Benefit Calculator</div>
+    <div class="hero-sub">Enter your statement amounts · set life expectancy · compare lifetime totals</div>
   </div>
-  <div style="text-align:right;">
-    <div style="display:flex;gap:3px;justify-content:flex-end;">
-      <span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#B22234;"></span>
-      <span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#fff;border:0.5px solid rgba(0,0,0,.1);"></span>
-      <span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#3C3B6E;"></span>
+  <div class="hero-right">
+    <div class="flag-dots">
+      <span class="fdot-flag" style="background:#B22234;"></span>
+      <span class="fdot-flag" style="background:#fff;border:0.5px solid rgba(0,0,0,.15);"></span>
+      <span class="fdot-flag" style="background:#3C3B6E;"></span>
     </div>
-    <p style="font-size:10px;color:rgba(255,255,255,.5);margin:4px 0 0;">Est. 1935</p>
+    <div class="est-badge">Est. 1935</div>
   </div>
 </div>
 
-<div class="stripe-bar"></div>
+<div class="stripe-rule"></div>
 
 <div class="two-col">
-
 <div>
-  <div class="panel" style="margin-bottom:12px;">
-    <p class="panel-title"><i class="ti ti-file-dollar" aria-hidden="true" style="font-size:15px;"></i> Your monthly benefits by claiming age</p>
-    <p style="font-size:11px;color:var(--color-text-tertiary);margin:0 0 10px;">Copy amounts directly from your SS statement.</p>
+
+  <div class="panel">
+    <p class="panel-title"><i class="ti ti-file-dollar"></i> Monthly benefits by claiming age</p>
+    <p style="font-size:10px;color:var(--text-muted);margin:0 0 9px;">Copy each amount from your Social Security statement.</p>
     <div id="input-rows"></div>
-    <button onclick="addRow()" style="font-size:12px;margin-top:2px;border-color:rgba(60,59,110,.3);color:var(--usa-blue);"><i class="ti ti-plus" aria-hidden="true"></i> Add age</button>
+    <button onclick="addRow()" style="border-color:rgba(60,59,110,0.35);color:var(--usa-blue);margin-top:3px;"><i class="ti ti-plus" aria-hidden="true"></i> Add age</button>
   </div>
 
-  <div class="panel" style="margin-bottom:12px;">
-    <p class="panel-title"><i class="ti ti-sliders" aria-hidden="true" style="font-size:15px;"></i> Settings</p>
+  <div class="panel">
+    <p class="panel-title"><i class="ti ti-sliders"></i> Settings</p>
 
     <div class="ctrl-row">
       <span class="ctrl-lbl">Life expectancy</span>
@@ -150,166 +247,168 @@ button:active{transform:scale(0.98);}
       <input type="range" id="cola" min="0" max="6" step="0.1" value="2.5" oninput="recalc()">
       <span class="ctrl-val" id="cola-v">2.5%</span>
     </div>
-    <p class="note-txt">2026 COLA = 2.8% · historical avg ≈ 2.6% · Source: SSA</p>
+    <p class="note-small">2026 COLA = 2.8% · historical avg ≈ 2.6% · Source: SSA</p>
 
     <label class="toggle-row">
       <input type="checkbox" id="inv-on" onchange="recalc()">
       <span>Add investment return on early checks</span>
     </label>
-
-    <div id="inv-wrap" style="display:none;margin-top:6px;">
-      <div class="ctrl-row" style="margin-bottom:3px;">
+    <div id="inv-wrap" style="display:none;margin-top:5px;">
+      <div class="ctrl-row" style="margin-bottom:2px;">
         <span class="ctrl-lbl">Annual return rate</span>
         <input type="range" id="inv-rate" min="0.1" max="12" step="0.1" value="5" oninput="recalc()">
         <span class="ctrl-val" id="inv-v">5.0%</span>
       </div>
-      <p class="note-txt">Each check received earlier compounds for more time. Each dollar grows from when it's received through your life expectancy date.</p>
+      <p class="note-small">Each check compounds from when received through your life expectancy.</p>
     </div>
   </div>
 
   <div class="panel">
-    <p class="panel-title"><i class="ti ti-chart-bar" aria-hidden="true" style="font-size:15px;"></i> Lifetime totals</p>
-    <div id="results"><p style="font-size:13px;color:var(--color-text-secondary);">Enter benefit amounts above.</p></div>
+    <p class="panel-title"><i class="ti ti-receipt-tax"></i> Federal tax on SS benefits</p>
+
+    <p style="font-size:10px;color:var(--text-muted);margin:0 0 8px;">The IRS taxes SS benefits based on your <em>provisional income</em> — your other income plus 50% of your SS benefit. Up to 85% of your benefit can be taxable.</p>
+
+    <div class="tax-tiers">
+      <div class="tier-card">
+        <div class="tier-pct">0%</div>
+        <div class="tier-lbl">Single &lt;$25K<br>Joint &lt;$32K</div>
+      </div>
+      <div class="tier-card">
+        <div class="tier-pct" style="color:var(--usa-red);">50%</div>
+        <div class="tier-lbl">Single $25–34K<br>Joint $32–44K</div>
+      </div>
+      <div class="tier-card">
+        <div class="tier-pct" style="color:#8B1A1A;">85%</div>
+        <div class="tier-lbl">Single &gt;$34K<br>Joint &gt;$44K</div>
+      </div>
+    </div>
+
+    <p style="font-size:9px;color:var(--text-muted);margin:6px 0 8px;">These thresholds haven't been inflation-adjusted since 1994. Source: IRS Pub. 915; SmartAsset 2026.</p>
+
+    <label class="toggle-row">
+      <input type="checkbox" id="tax-on" onchange="recalc()">
+      <span>Show after-tax estimates</span>
+    </label>
+
+    <div id="tax-wrap" style="display:none;" class="tax-panel-inner">
+      <div class="tax-grid">
+        <div class="tax-field">
+          <label>Filing status</label>
+          <select id="filing" onchange="recalc()">
+            <option value="single">Single</option>
+            <option value="joint">Married filing jointly</option>
+          </select>
+        </div>
+        <div class="tax-field">
+          <label>Other annual income (non-SS)</label>
+          <input type="number" id="other-income" value="20000" min="0" step="1000" style="width:100%;" oninput="recalc()">
+        </div>
+        <div class="tax-field">
+          <label>Your marginal tax rate</label>
+          <select id="tax-rate" onchange="recalc()">
+            <option value="0.10">10%</option>
+            <option value="0.12">12%</option>
+            <option value="0.22" selected>22%</option>
+            <option value="0.24">24%</option>
+            <option value="0.32">32%</option>
+            <option value="0.35">35%</option>
+            <option value="0.37">37%</option>
+          </select>
+        </div>
+        <div class="tax-field">
+          <label>Tax-exempt interest income</label>
+          <input type="number" id="tax-exempt" value="0" min="0" step="500" style="width:100%;" oninput="recalc()">
+        </div>
+      </div>
+      <p class="note-small" style="margin-top:7px;line-height:1.5;">Provisional income = other income + tax-exempt interest + 50% of annual SS benefit. Taxable portion × marginal rate = estimated annual SS tax. This is an estimate — consult a tax advisor for your actual liability.</p>
+    </div>
   </div>
+
+  <div class="panel">
+    <p class="panel-title"><i class="ti ti-chart-bar"></i> Lifetime totals</p>
+    <div id="results"><p style="font-size:12px;color:var(--text-muted);">Enter benefit amounts above.</p></div>
+  </div>
+
 </div>
 
 <div>
   <div class="fact-card">
     <div class="fact-header">
-      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-        <rect x="1" y="4" width="18" height="12" rx="1.5" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.4)" stroke-width="0.75"/>
-        <circle cx="10" cy="10" r="3.5" stroke="rgba(255,255,255,0.7)" stroke-width="0.75"/>
-        <ellipse cx="10" cy="10" rx="1.5" ry="3.5" stroke="rgba(255,255,255,0.5)" stroke-width="0.75"/>
-        <line x1="4" y1="10" x2="16" y2="10" stroke="rgba(255,255,255,0.5)" stroke-width="0.75"/>
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+        <rect x="1" y="3.5" width="16" height="11" rx="1.5" fill="rgba(201,168,76,0.15)" stroke="#C9A84C" stroke-width="0.8"/>
+        <circle cx="9" cy="9" r="3" stroke="#C9A84C" stroke-width="0.8"/>
+        <line x1="3.5" y1="9" x2="14.5" y2="9" stroke="#C9A84C" stroke-width="0.5" opacity=".5"/>
+        <ellipse cx="9" cy="9" rx="1.3" ry="3" stroke="#C9A84C" stroke-width="0.6" opacity=".6"/>
       </svg>
       <span class="fact-header-txt">Did you know?</span>
-      <span style="margin-left:auto;font-size:10px;color:rgba(255,255,255,.4);" id="fact-counter">1 / 18</span>
+      <span style="margin-left:auto;font-size:10px;color:rgba(201,168,76,0.4);" id="fact-counter">1 / 18</span>
     </div>
-
     <div class="fact-body">
-      <div class="monument-strip" aria-hidden="true">
-        <div class="monument">
-          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-            <rect x="12" y="4" width="8" height="22" fill="none" stroke="#C9A84C" stroke-width="1"/>
-            <polygon points="16,2 12,4 20,4" fill="#C9A84C"/>
-            <rect x="8" y="26" width="16" height="3" rx="1" fill="#C9A84C" opacity=".7"/>
-          </svg>
-          <span class="mon-lbl">Monument</span>
-        </div>
-        <div class="monument">
-          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-            <rect x="5" y="10" width="22" height="14" rx="1" fill="none" stroke="#3C3B6E" stroke-width="1"/>
-            <rect x="3" y="24" width="26" height="3" rx="1" fill="#3C3B6E" opacity=".6"/>
-            <line x1="9" y1="10" x2="9" y2="24" stroke="#3C3B6E" stroke-width="0.75" opacity=".6"/>
-            <line x1="16" y1="10" x2="16" y2="24" stroke="#3C3B6E" stroke-width="0.75" opacity=".6"/>
-            <line x1="23" y1="10" x2="23" y2="24" stroke="#3C3B6E" stroke-width="0.75" opacity=".6"/>
-            <path d="M5 10 Q16 4 27 10" stroke="#3C3B6E" stroke-width="1" fill="none" opacity=".7"/>
-          </svg>
-          <span class="mon-lbl">Capitol</span>
-        </div>
-        <div class="monument">
-          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-            <rect x="9" y="14" width="14" height="12" rx="1" fill="none" stroke="#B22234" stroke-width="1"/>
-            <path d="M6 14 L16 5 L26 14" stroke="#B22234" stroke-width="1" fill="none"/>
-            <rect x="13" y="20" width="6" height="6" rx="0.5" fill="#B22234" opacity=".4"/>
-            <rect x="6" y="26" width="20" height="2" rx="1" fill="#B22234" opacity=".5"/>
-          </svg>
-          <span class="mon-lbl">Treasury</span>
-        </div>
-        <div class="monument">
-          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-            <circle cx="16" cy="14" r="8" fill="none" stroke="#C9A84C" stroke-width="1"/>
-            <circle cx="16" cy="14" r="5" fill="none" stroke="#C9A84C" stroke-width="0.75" opacity=".5"/>
-            <line x1="16" y1="7" x2="16" y2="21" stroke="#C9A84C" stroke-width="0.75" opacity=".6"/>
-            <line x1="9" y1="14" x2="23" y2="14" stroke="#C9A84C" stroke-width="0.75" opacity=".6"/>
-            <rect x="13" y="22" width="6" height="5" rx="0.5" fill="#C9A84C" opacity=".4"/>
-          </svg>
-          <span class="mon-lbl">Seal</span>
-        </div>
-        <div class="monument">
-          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-            <rect x="6" y="6" width="20" height="14" rx="1.5" fill="none" stroke="#3C3B6E" stroke-width="1"/>
-            <circle cx="11" cy="13" r="3.5" fill="none" stroke="#3C3B6E" stroke-width="0.75"/>
-            <line x1="16" y1="10" x2="23" y2="10" stroke="#3C3B6E" stroke-width="0.75" opacity=".6"/>
-            <line x1="16" y1="13" x2="23" y2="13" stroke="#3C3B6E" stroke-width="0.75" opacity=".6"/>
-            <line x1="16" y1="16" x2="20" y2="16" stroke="#3C3B6E" stroke-width="0.75" opacity=".4"/>
-            <rect x="6" y="20" width="20" height="3" rx="0.5" fill="#3C3B6E" opacity=".15"/>
-          </svg>
-          <span class="mon-lbl">Currency</span>
-        </div>
-      </div>
-
-      <div style="border-top:0.5px solid var(--color-border-tertiary);margin:10px 0;"></div>
-
-      <div id="fact-inner" class="fact-inner">
-        <div class="fact-cat-pill" id="f-cat">Loading...</div>
+      <div class="fact-inner" id="fact-inner">
+        <div class="fact-cat-pill" id="f-cat"></div>
         <p class="fact-text" id="f-text"></p>
         <p class="fact-src" id="f-src"></p>
       </div>
     </div>
-
     <div class="fact-footer">
       <button class="fact-nav-btn" onclick="prevFact()" aria-label="Previous"><i class="ti ti-arrow-left" aria-hidden="true"></i></button>
-      <div class="fact-dots" id="fact-dots"></div>
+      <div class="fdot-row" id="fact-dots"></div>
       <button class="fact-nav-btn" onclick="nextFact()" aria-label="Next"><i class="ti ti-arrow-right" aria-hidden="true"></i></button>
     </div>
   </div>
 
-  <div style="margin-top:10px;padding:10px 12px;border-radius:var(--border-radius-md);border:0.5px solid rgba(178,34,52,.2);background:var(--usa-red-light);">
-    <p style="font-size:11px;color:var(--usa-red);margin:0;line-height:1.5;"><i class="ti ti-info-circle" aria-hidden="true" style="font-size:13px;vertical-align:-2px;margin-right:4px;"></i>Calculator uses your statement benefit amounts. COLA compounds yearly. Investment mode grows each check from when it's received through your life expectancy date.</p>
+  <div class="info-note" style="margin-top:10px;">
+    <i class="ti ti-info-circle" style="font-size:12px;vertical-align:-2px;margin-right:3px;" aria-hidden="true"></i>
+    COLA compounds monthly. Investment mode grows each check forward from receipt date to life expectancy. Tax estimate uses IRS provisional income formula (Pub. 915) — not a substitute for professional tax advice.
   </div>
 </div>
-
 </div>
 </div>
 
 <script>
 const FACTS=[
-  {cat:"Claiming age",text:"Age 62 is the most popular time to claim — about half of new retirees still claim before their full retirement age, despite permanently reducing their monthly benefit by up to 30%.",src:"Source: SSA benefit data; Motley Fool analysis"},
+  {cat:"Claiming age",text:"Age 62 is the most popular time to claim — about half of new retirees still claim before full retirement age, despite permanently reducing their monthly benefit by up to 30%.",src:"Source: SSA benefit data; Motley Fool analysis"},
   {cat:"Optimal timing",text:"A 2022 National Bureau of Economic Research study found over 90% of workers aged 45–62 would maximize lifetime benefits by waiting until age 70. Yet fewer than 1% actually do.",src:"Source: NBER Working Paper, 2022"},
-  {cat:"COLA history",text:"The biggest recent COLA was 8.7% in 2023 — the largest since 1981. The 2026 COLA is 2.8%, marking five straight years at 2.5% or higher, something not seen in nearly 30 years.",src:"Source: SSA COLA announcements, ssa.gov"},
-  {cat:"How COLA works",text:"COLA is based on the Consumer Price Index for Urban Wage Earners (CPI-W), measured Q3 to Q3 each year. In years with zero inflation growth, no COLA is applied — this happened in 2010, 2011, and 2016.",src:"Source: SSA.gov; Congress.gov"},
-  {cat:"What you pay in",text:"Workers pay 6.2% of wages into Social Security; employers match it for a combined 12.4%. Self-employed workers pay the full 12.4% themselves. The 2026 taxable wage cap is $184,500.",src:"Source: SSA; Congress.gov (IF11747)"},
-  {cat:"Who receives",text:"About 72.9 million Americans receive some form of Social Security benefit — not just retirees, but disabled workers, surviving spouses, and dependents of deceased workers.",src:"Source: SSA Fast Facts & Figures 2025"},
-  {cat:"Average benefit",text:"The average Social Security retirement benefit crossed $2,000/month for the first time in 2025. Those who claimed at 62 average around $1,373/month; those who waited to 70 average about $2,139/month.",src:"Source: SSA benefit data, December 2024; Motley Fool"},
-  {cat:"Maximum benefit",text:"The maximum SS benefit in 2024 was $4,873/month — only for those who earned at or above the taxable cap for 35 years AND waited until age 70. Fewer than 1–2% of workers qualify.",src:"Source: SSA; CBS News, December 2023"},
-  {cat:"Program history",text:"Social Security was signed into law by President Roosevelt on August 14, 1935. The first monthly retirement checks were issued in January 1940. The first recipient, Ida May Fuller of Vermont, paid in about $24.75 and collected nearly $23,000 over her lifetime.",src:"Source: SSA historical records, ssa.gov/history"},
-  {cat:"Trust fund",text:"The combined Social Security trust funds are projected to be depleted around 2035. At that point, incoming payroll taxes would still cover roughly 83% of scheduled benefits — a reduction, not a shutdown.",src:"Source: 2025 SSA Trustees Report"},
-  {cat:"Worker ratio",text:"In 2024, about 2.7 workers paid SS taxes for every person collecting benefits. By 2035 that ratio is projected to fall to 2.3 to 1, as the baby boom generation continues retiring.",src:"Source: 2025 SSA Trustees Report"},
-  {cat:"Delaying = 8%/yr",text:"For every month past your full retirement age you delay (up to age 70), your benefit grows by 2/3 of 1% — which is 8% per year. This guaranteed growth is hard to beat with any other investment.",src:"Source: SSA benefit calculation rules"},
-  {cat:"Indiana",text:"Indiana has about 1.4 million Social Security beneficiaries. The average retired worker in Indiana receives roughly $1,850/month — slightly below the national average, reflecting the state's lifetime earnings patterns.",src:"Source: SSA state-level benefit data"},
-  {cat:"International: Netherlands",text:"The Netherlands consistently ranks among the world's best pension systems. Employees and employers pay up to 17.9% toward social security — nearly triple the U.S. rate — and retirees receive a significantly higher income replacement rate.",src:"Source: GoBalanceAM; Yahoo Finance"},
-  {cat:"International: Canada",text:"Canada's retirement system has three pillars: Old Age Security (government-funded), the Canada Pension Plan (payroll-funded at 4.95%), and private workplace pensions. The lower tax rate is partly offset by broader employer pension coverage.",src:"Source: Alliance Asset Management"},
-  {cat:"International: Nordic",text:"Denmark, Sweden, Norway, and Finland are widely considered world leaders in social protection. They combine broad public benefits, high coverage rates, and well-funded pension systems — though they also carry much higher income tax rates.",src:"Source: DisabilityHelp.org; OECD"},
-  {cat:"Global reach",text:"More than 170 countries have some form of social security or old-age pension program. The U.S. has 'totalization agreements' with about 30 countries, letting workers combine credits from both systems to qualify for benefits.",src:"Source: SSA international programs; ISSA"},
-  {cat:"Spousal benefit",text:"A spouse who never worked can claim up to 50% of the working spouse's full retirement age (FRA) benefit. The spousal benefit is calculated off the FRA amount — not the delayed benefit — so delaying past FRA doesn't raise the spousal check.",src:"Source: SSA spousal benefit rules, ssa.gov"},
+  {cat:"COLA history",text:"The largest recent COLA was 8.7% in 2023 — the highest since 1981. The 2026 COLA is 2.8%, marking five straight years at 2.5%+, not seen in nearly 30 years.",src:"Source: SSA COLA announcements, ssa.gov"},
+  {cat:"How COLA works",text:"COLA is based on the CPI-W index, measured Q3 to Q3 each year. In years with no inflation growth, there is no COLA — this happened in 2010, 2011, and 2016.",src:"Source: SSA.gov; Congress.gov"},
+  {cat:"What you pay in",text:"Workers pay 6.2% of wages into SS; employers match for a combined 12.4%. Self-employed pay the full 12.4%. The 2026 taxable wage cap is $184,500.",src:"Source: SSA; Congress.gov (IF11747)"},
+  {cat:"Who receives",text:"About 72.9 million Americans receive Social Security — not just retirees, but disabled workers, surviving spouses, and dependents of deceased workers.",src:"Source: SSA Fast Facts & Figures 2025"},
+  {cat:"Average benefit",text:"The average SS retirement benefit crossed $2,000/month for the first time in 2025. Those who claimed at 62 average ~$1,373/month; those who waited to 70 average ~$2,139/month.",src:"Source: SSA benefit data, December 2024"},
+  {cat:"Maximum benefit",text:"The maximum SS benefit in 2024 was $4,873/month — only for those who earned at/above the taxable cap for 35 years AND waited until age 70. Fewer than 1–2% qualify.",src:"Source: SSA; CBS News, 2023"},
+  {cat:"Program history",text:"Social Security was signed by President Roosevelt on August 14, 1935. The first monthly checks were issued January 1940. The first recipient, Ida May Fuller of Vermont, paid in ~$24.75 and collected nearly $23,000 over her lifetime.",src:"Source: SSA historical records, ssa.gov/history"},
+  {cat:"Trust fund",text:"The combined SS trust funds are projected to be depleted around 2035. At that point, payroll taxes would still cover roughly 83% of scheduled benefits — a reduction, not a shutdown.",src:"Source: 2025 SSA Trustees Report"},
+  {cat:"Worker ratio",text:"In 2024, about 2.7 workers paid SS taxes for each person collecting benefits. By 2035 that's projected to fall to 2.3 to 1, as baby boomers continue retiring.",src:"Source: 2025 SSA Trustees Report"},
+  {cat:"Delaying = 8%/yr",text:"For every month past your full retirement age you delay (up to 70), your benefit grows 2/3 of 1% — that's 8% per year, guaranteed. Hard to match with any other investment.",src:"Source: SSA benefit calculation rules"},
+  {cat:"SS taxation",text:"Up to 85% of your Social Security benefit may be federally taxable if your provisional income (AGI + tax-exempt interest + 50% of SS) exceeds $34,000 single / $44,000 joint. These thresholds haven't changed since 1994.",src:"Source: IRS Publication 915; SmartAsset 2026"},
+  {cat:"Indiana",text:"Indiana has about 1.4 million SS beneficiaries. The average retired worker in Indiana receives roughly $1,850/month — slightly below the national average.",src:"Source: SSA state-level benefit data"},
+  {cat:"International: Netherlands",text:"The Netherlands consistently ranks among the world's top pension systems. Combined employee/employer SS taxes run up to 17.9% — nearly triple the U.S. rate — with a higher income replacement rate.",src:"Source: GoBalanceAM; Yahoo Finance"},
+  {cat:"International: Canada",text:"Canada's retirement system has three pillars: Old Age Security (gov-funded), Canada Pension Plan (4.95% payroll), and private workplace pensions. The lower payroll rate is offset by broader employer pension coverage.",src:"Source: Alliance Asset Management"},
+  {cat:"International: Nordic",text:"Denmark, Sweden, Norway, and Finland are world leaders in social protection — broad public benefits, high coverage, well-funded pensions — but also carry much higher income tax rates.",src:"Source: DisabilityHelp.org; OECD"},
+  {cat:"Spousal benefit",text:"A non-working spouse can claim up to 50% of the working spouse's full retirement age (FRA) benefit. Delaying past FRA doesn't increase the spousal benefit — it's capped at 50% of the FRA amount.",src:"Source: SSA spousal benefit rules, ssa.gov"},
 ];
 
-let factIdx=0,factTimer=null;
+let factIdx=0, factTimer=null;
 function showFact(i){
   factIdx=(i+FACTS.length)%FACTS.length;
-  const inner=document.getElementById('fact-inner');
-  inner.style.opacity=0;
+  const el=document.getElementById('fact-inner');
+  el.style.opacity=0;
   setTimeout(()=>{
     document.getElementById('f-cat').textContent=FACTS[factIdx].cat;
     document.getElementById('f-text').textContent=FACTS[factIdx].text;
     document.getElementById('f-src').textContent=FACTS[factIdx].src;
     document.getElementById('fact-counter').textContent=(factIdx+1)+' / '+FACTS.length;
-    buildDots();
-    inner.style.opacity=1;
+    buildDots(); el.style.opacity=1;
   },300);
 }
 function buildDots(){
-  const d=document.getElementById('fact-dots');
-  d.innerHTML='';
+  const d=document.getElementById('fact-dots'); d.innerHTML='';
   const show=Math.min(FACTS.length,9);
   const start=Math.max(0,Math.min(factIdx-4,FACTS.length-show));
   for(let i=start;i<start+show;i++){
-    const dot=document.createElement('span');
-    dot.className='fdot'+(i===factIdx?' on':'');
-    const idx=i;
-    dot.onclick=()=>{clearInterval(factTimer);showFact(idx);startTimer();};
-    d.appendChild(dot);
+    const s=document.createElement('span');
+    s.className='dot-fact'+(i===factIdx?' on':'');
+    const idx=i; s.onclick=()=>{clearInterval(factTimer);showFact(idx);startTimer();};
+    d.appendChild(s);
   }
 }
 function nextFact(){clearInterval(factTimer);showFact(factIdx+1);startTimer();}
@@ -323,97 +422,151 @@ const DEFAULT=[
 ];
 let rowCount=0;
 function addRow(age,benefit){
-  const c=document.getElementById('input-rows');
-  const i=rowCount++;
-  const d=document.createElement('div');
-  d.className='inp-row';d.id='r'+i;
-  d.innerHTML=`<span style="font-size:12px;color:var(--color-text-secondary);min-width:26px;">Age</span>
+  const c=document.getElementById('input-rows'),i=rowCount++;
+  const d=document.createElement('div'); d.className='inp-row'; d.id='r'+i;
+  d.innerHTML=`<span style="font-size:11px;color:var(--text-muted);min-width:24px;">Age</span>
     <input type="number" class="age-inp" id="a${i}" value="${age||''}" min="55" max="75" step="0.5" oninput="recalc()">
-    <span style="font-size:12px;color:var(--color-text-secondary);">$</span>
+    <span style="font-size:11px;color:var(--text-muted);">$</span>
     <input type="number" class="ben-inp" id="b${i}" value="${benefit||''}" min="0" step="1" placeholder="monthly" oninput="recalc()">
-    <button class="del-btn" onclick="delRow(${i})" aria-label="Remove row"><i class="ti ti-x" aria-hidden="true"></i></button>`;
+    <button class="del-btn" onclick="delRow(${i})" aria-label="Remove"><i class="ti ti-x" aria-hidden="true"></i></button>`;
   c.appendChild(d);
 }
 function delRow(i){const e=document.getElementById('r'+i);if(e)e.remove();recalc();}
 function getData(){
   const rows=[];
   for(let i=0;i<rowCount;i++){
-    const ae=document.getElementById('a'+i);
-    const be=document.getElementById('b'+i);
+    const ae=document.getElementById('a'+i),be=document.getElementById('b'+i);
     if(!ae||!be)continue;
     const a=parseFloat(ae.value),b=parseFloat(be.value);
     if(!isNaN(a)&&!isNaN(b)&&b>0)rows.push({age:a,benefit:b});
   }
   return rows.sort((a,b)=>a.age-b.age);
 }
-function calcTotal(claimAge,monthly,deathAge,colaRate,useInvest,invRate){
+
+/* ── Core math ── */
+function calcTotal(claimAge, monthly, deathAge, colaRate, useInvest, invRate){
   if(deathAge<=claimAge)return 0;
   const totalMonths=Math.round((deathAge-claimAge)*12);
-  const colaMonthly=Math.pow(1+colaRate/100,1/12)-1;
-  let ssTotal=0,check=monthly;
-  for(let mo=0;mo<totalMonths;mo++){
-    ssTotal+=check;
-    check*=(1+colaMonthly);
+  const colaM=Math.pow(1+colaRate/100,1/12)-1;
+  const invM=Math.pow(1+invRate/100,1/12)-1;
+
+  if(!useInvest){
+    let total=0, check=monthly;
+    for(let mo=0;mo<totalMonths;mo++){ total+=check; check*=(1+colaM); }
+    return total;
   }
-  if(!useInvest)return ssTotal;
-  const invMonthly=Math.pow(1+invRate/100,1/12)-1;
-  let investedValue=0,check2=monthly;
+
+  /* Investment mode: each check grows from date received to death age.
+     Month 0 check compounds for (totalMonths-1) more months, etc. */
+  let fv=0, check=monthly;
   for(let mo=0;mo<totalMonths;mo++){
-    const monthsToGrow=totalMonths-1-mo;
-    investedValue+=check2*Math.pow(1+invMonthly,monthsToGrow);
-    check2*=(1+colaMonthly);
+    fv += check * Math.pow(1+invM, totalMonths-1-mo);
+    check *= (1+colaM);
   }
-  return investedValue;
+  return fv;
 }
-const BAR_COLORS=['#3C3B6E','#B22234','#5B59A0','#8B1A1A','#2A2870','#C9A84C','#1a472a'];
-const BAR_TEXT=['#E6E5F5','#FDEAEA','#EAE9F8','#FDE8E8','#E0DFFB','#FEF6E0','#E0F0E6'];
+
+/* ── SS tax estimate (IRS Pub 915 provisional income formula) ── */
+function calcAnnualTax(annualSS, otherIncome, taxExemptInt, filing, marginalRate){
+  const half=annualSS*0.5;
+  const provisional=otherIncome+taxExemptInt+half;
+  const t1=filing==='joint'?32000:25000;
+  const t2=filing==='joint'?44000:34000;
+  const capAmt=filing==='joint'?6000:4500;
+
+  let taxable=0;
+  if(provisional<=t1){ taxable=0; }
+  else if(provisional<=t2){
+    taxable=Math.min(0.5*annualSS, 0.5*(provisional-t1));
+  } else {
+    const tier2base=Math.min(capAmt, 0.5*annualSS);
+    const tier2extra=0.85*(provisional-t2);
+    taxable=Math.min(0.85*annualSS, tier2base+tier2extra);
+  }
+  return taxable * marginalRate;
+}
+
+const BAR_COLORS=['#3C3B6E','#B22234','#5B59A0','#8B1A1A','#2A2870','#7a5c00','#1a472a'];
+const BAR_TEXT  =['#e8e6ff','#ffe8e8','#e5e3ff','#ffe0e0','#d8d5ff','#fff4cc','#d6f0de'];
+
 function fmt(n){return'$'+Math.round(n).toLocaleString();}
+function ageStr(a){return Number.isInteger(a)?String(a):a.toFixed(1);}
+
 function recalc(){
   const lifeAge=parseFloat(document.getElementById('life').value);
   document.getElementById('life-v').textContent=Number.isInteger(lifeAge)?lifeAge:lifeAge.toFixed(1);
+
   const cola=parseFloat(document.getElementById('cola').value);
   document.getElementById('cola-v').textContent=cola.toFixed(1)+'%';
+
   const useInvest=document.getElementById('inv-on').checked;
   document.getElementById('inv-wrap').style.display=useInvest?'':'none';
   const invRate=parseFloat(document.getElementById('inv-rate').value)||5;
-  document.getElementById('inv-v').textContent=invRate.toFixed(1)+'%';
+  if(document.getElementById('inv-v'))document.getElementById('inv-v').textContent=invRate.toFixed(1)+'%';
+
+  const useTax=document.getElementById('tax-on').checked;
+  document.getElementById('tax-wrap').style.display=useTax?'':'none';
+
+  const otherIncome=useTax?parseFloat(document.getElementById('other-income').value)||0:0;
+  const taxExempt=useTax?parseFloat(document.getElementById('tax-exempt').value)||0:0;
+  const filing=useTax?document.getElementById('filing').value:'single';
+  const marginalRate=useTax?parseFloat(document.getElementById('tax-rate').value):0;
+
   const rows=getData();
   if(!rows.length)return;
-  const totals=rows.map(r=>({age:r.age,benefit:r.benefit,total:calcTotal(r.age,r.benefit,lifeAge,cola,useInvest,invRate)}));
-  const maxT=Math.max(...totals.map(t=>t.total));
+
+  const results=rows.map(r=>{
+    const gross=calcTotal(r.age,r.benefit,lifeAge,cola,useInvest,invRate);
+    const years=Math.max(0,lifeAge-r.age);
+    const annualSS=r.benefit*12;
+    const annualTax=useTax?calcAnnualTax(annualSS,otherIncome,taxExempt,filing,marginalRate):0;
+    const totalTax=annualTax*years;
+    return{age:r.age,benefit:r.benefit,gross,net:gross-totalTax,annualTax,years};
+  });
+
+  const compareVal=r=>useTax?r.net:r.gross;
+  const maxVal=Math.max(...results.map(compareVal));
+
   let html='';
-  totals.forEach((t,i)=>{
-    if(t.total<=0){
-      html+=`<div class="res-row"><span class="res-age">Age ${Number.isInteger(t.age)?t.age:t.age.toFixed(1)}</span><div class="bar-track" style="flex:1;"></div><span class="res-total" style="color:var(--color-text-tertiary);">—</span><span style="min-width:34px;"></span></div>`;
+  results.forEach((r,i)=>{
+    if(r.gross<=0){
+      html+=`<div class="res-row"><span class="res-age">Age ${ageStr(r.age)}</span><div class="bar-track" style="flex:1;"></div><span class="res-total" style="color:var(--text-muted);">—</span>${useTax?'<span class="res-aftertax"></span>':''}<span style="min-width:32px;"></span></div>`;
       return;
     }
-    const pct=maxT>0?(t.total/maxT*100):0;
-    const isWinner=Math.abs(t.total-maxT)<1;
+    const val=compareVal(r);
+    const pct=maxVal>0?(val/maxVal*100):0;
+    const isWin=Math.abs(val-maxVal)<1;
     const bc=BAR_COLORS[i%BAR_COLORS.length];
     const tc=BAR_TEXT[i%BAR_TEXT.length];
-    const ageStr=Number.isInteger(t.age)?t.age:t.age.toFixed(1);
     html+=`<div class="res-row">
-      <span class="res-age">Age ${ageStr}</span>
-      <div class="bar-track"><div class="res-bar" style="width:${pct.toFixed(1)}%;background:${bc};color:${tc};">${pct>32?'$'+t.benefit.toLocaleString()+'/mo':''}</div></div>
-      <span class="res-total">${fmt(t.total)}</span>
-      ${isWinner?'<span class="best-badge">best</span>':'<span style="min-width:34px;"></span>'}
+      <span class="res-age">Age ${ageStr(r.age)}</span>
+      <div class="bar-track"><div class="res-bar" style="width:${pct.toFixed(1)}%;background:${bc};color:${tc};">${pct>30?'$'+r.benefit.toLocaleString()+'/mo':''}</div></div>
+      <span class="res-total">${fmt(r.gross)}</span>
+      ${useTax?`<span class="res-aftertax">${fmt(r.net)} after tax</span>`:''}
+      ${isWin?'<span class="best-badge">best</span>':'<span style="min-width:32px;"></span>'}
     </div>`;
   });
-  const valid=totals.filter(t=>t.total>0).sort((a,b)=>b.total-a.total);
-  if(valid.length>=2){
-    const diff=valid[0].total-valid[1].total;
-    const ageStr=Number.isInteger(valid[0].age)?valid[0].age:valid[0].age.toFixed(1);
-    html+=`<p class="summary-note">Claiming at <strong style="color:var(--usa-blue);">age ${ageStr}</strong> yields <strong style="color:var(--usa-red);">${fmt(diff)}</strong> more than the next best${useInvest?' (investment growth included)':''}.</p>`;
+
+  const sorted=[...results].filter(r=>r.gross>0).sort((a,b)=>compareVal(b)-compareVal(a));
+  if(sorted.length>=2){
+    const diff=compareVal(sorted[0])-compareVal(sorted[1]);
+    html+=`<p class="summary-note">Claiming at <strong style="color:var(--usa-blue);">age ${ageStr(sorted[0].age)}</strong> yields <strong style="color:var(--usa-red);">${fmt(diff)}</strong> more${useTax?' (after estimated tax)':''}${useInvest?' including investment growth':''}.</p>`;
   }
+
+  if(useTax&&sorted.length){
+    const r=sorted[0];
+    const annSS=r.benefit*12;
+    const prov=otherIncome+taxExempt+annSS*0.5;
+    const t1=filing==='joint'?32000:25000, t2=filing==='joint'?44000:34000;
+    const tier=prov<=t1?'0%':prov<=t2?'up to 50%':'up to 85%';
+    html+=`<p class="summary-note" style="margin-top:5px;padding:6px 8px;background:rgba(60,59,110,0.06);border-radius:var(--radius-md);border:0.5px solid var(--border-light);">At age ${ageStr(sorted[0].age)}: provisional income ≈ <strong style="color:var(--usa-blue);">${fmt(prov)}/yr</strong> → <strong style="color:var(--usa-red);">${tier}</strong> of SS taxable · est. SS tax ≈ <strong>${fmt(r.annualTax)}/yr</strong></p>`;
+  }
+
   document.getElementById('results').innerHTML=html;
 }
-document.getElementById('inv-on').addEventListener('change',()=>{
-  document.getElementById('inv-wrap').style.display=document.getElementById('inv-on').checked?'':'none';
-});
+
 DEFAULT.forEach(r=>addRow(r.age,r.benefit));
-showFact(0);
-startTimer();
-recalc();
+showFact(0); startTimer(); recalc();
 </script>
 </body>
 </html>
