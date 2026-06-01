@@ -373,13 +373,6 @@ button:hover{background:rgba(201,168,76,0.12);}
     </div>
   </div>
 
-  <!-- Strategy box -->
-  <div class="strategy-box" id="sp-strategy" style="display:none;">
-    <div class="strategy-title"><i class="ti ti-bulb"></i> Recommended Strategy</div>
-    <div class="strategy-rec" id="sp-strategy-text"></div>
-    <div class="survivor-note" id="sp-survivor-note"></div>
-  </div>
-
   <!-- Combo grid -->
   <div class="panel">
     <p class="panel-title"><i class="ti ti-table"></i> Combined lifetime — all claiming combinations</p>
@@ -389,6 +382,113 @@ button:hover{background:rgba(201,168,76,0.12);}
 
 </div><!-- page-spousal -->
 </div><!-- app-wrap -->
+
+<!-- ═══════════════════════════════════════
+     DISCLOSURE FOOTER
+═══════════════════════════════════════ -->
+<div id="disclosure-footer" style="max-width:960px;margin:24px auto 0;background:rgba(26,25,64,0.92);border:1px solid rgba(201,168,76,0.35);border-radius:12px;padding:20px 24px;backdrop-filter:blur(4px);">
+
+  <!-- Top bar -->
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid rgba(201,168,76,0.2);">
+    <i class="ti ti-shield-check" style="font-size:20px;color:#C9A84C;flex-shrink:0;"></i>
+    <div>
+      <div style="font-size:13px;font-weight:700;color:#f0d98a;letter-spacing:.03em;">IMPORTANT DISCLOSURES</div>
+      <div style="font-size:10px;color:rgba(201,168,76,0.5);margin-top:1px;">Please read before using this tool</div>
+    </div>
+  </div>
+
+  <!-- Educational purpose -->
+  <div style="background:rgba(178,34,52,0.12);border:1px solid rgba(178,34,52,0.3);border-radius:8px;padding:12px 14px;margin-bottom:12px;">
+    <p style="font-size:12px;font-weight:700;color:#f0d98a;margin-bottom:6px;display:flex;align-items:center;gap:6px;"><i class="ti ti-info-circle" style="font-size:14px;"></i> Educational Purpose Only</p>
+    <p style="font-size:11px;color:rgba(255,252,240,0.85);line-height:1.7;margin:0;">This Social Security break-even calculator is provided <strong style="color:#f0d98a;">for educational and informational purposes only</strong>. It is not a recommendation, and it is not a source of legal or tax advice. The results of this calculation should not be the sole determining factor when deciding when to claim your Social Security benefits.</p>
+  </div>
+
+  <!-- Break-even framing -->
+  <div style="background:rgba(60,59,110,0.4);border:1px solid rgba(201,168,76,0.2);border-radius:8px;padding:12px 14px;margin-bottom:12px;">
+    <p style="font-size:11px;color:rgba(255,252,240,0.85);line-height:1.7;margin:0;">This calculator aims to address a fundamental question: <strong style="color:#f0d98a;">Which filing age for Social Security will result in the highest total payments over your lifetime?</strong> Choosing the optimal filing age is a complex decision that involves considering various personal, financial, and health factors. While this calculator can provide valuable insights, it should be just one component of your overall decision-making process.</p>
+    <p style="font-size:11px;color:rgba(255,252,240,0.85);line-height:1.7;margin-top:8px;">Before relying on this calculator, we highly recommend <a href="https://www.carrolladvisory.com/blog/the-best-break-even-calculator-for-social-security" target="_blank" style="color:#C9A84C;text-decoration:underline;">reading our article on how to effectively use a Social Security break-even calculator</a> to ensure you make a well-rounded decision.</p>
+  </div>
+
+  <!-- Two notes side by side -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px;">
+    <div style="background:rgba(60,59,110,0.3);border:0.5px solid rgba(201,168,76,0.2);border-radius:8px;padding:10px 12px;">
+      <p style="font-size:10px;font-weight:700;color:#f0d98a;margin-bottom:5px;">⚠️ Note 1 — Inflation Adjustment</p>
+      <p style="font-size:10px;color:rgba(255,252,240,0.75);line-height:1.6;margin:0;">The benefit estimate provided by the Social Security Administration does not account for inflation, but this calculator does via the COLA setting. As a result, the benefit amounts calculated here will differ from raw SSA statement amounts. If you prefer to exclude inflation from your calculations, set the COLA / Average Annual Increase to 0%.</p>
+    </div>
+    <div style="background:rgba(60,59,110,0.3);border:0.5px solid rgba(201,168,76,0.2);border-radius:8px;padding:10px 12px;">
+      <p style="font-size:10px;font-weight:700;color:#f0d98a;margin-bottom:5px;">⚠️ Note 2 — FRA Benefit / PIA</p>
+      <p style="font-size:10px;color:rgba(255,252,240,0.75);line-height:1.6;margin:0;">The SSA calculates the benefit payable by modifying the Primary Insurance Amount (PIA) with annual cost-of-living adjustments, then adjusting for age-based reductions or increases as applicable. Benefit amounts entered in this tool should come directly from your official SSA statement at <a href="https://www.ssa.gov/myaccount" target="_blank" style="color:#C9A84C;">ssa.gov/myaccount</a>.</p>
+    </div>
+  </div>
+
+  <!-- Sources table -->
+  <div style="margin-bottom:12px;">
+    <p style="font-size:10px;font-weight:700;color:#f0d98a;margin-bottom:8px;display:flex;align-items:center;gap:5px;"><i class="ti ti-book" style="font-size:12px;"></i> Sources & 2026 Values Used in This Tool</p>
+    <div style="overflow-x:auto;">
+      <table style="width:100%;border-collapse:collapse;font-size:10px;">
+        <thead>
+          <tr style="background:rgba(201,168,76,0.12);">
+            <th style="padding:6px 10px;text-align:left;color:#f0d98a;border-bottom:1px solid rgba(201,168,76,0.2);white-space:nowrap;">Value</th>
+            <th style="padding:6px 10px;text-align:left;color:#f0d98a;border-bottom:1px solid rgba(201,168,76,0.2);">2026 Figure</th>
+            <th style="padding:6px 10px;text-align:left;color:#f0d98a;border-bottom:1px solid rgba(201,168,76,0.2);">Source</th>
+            <th style="padding:6px 10px;text-align:left;color:#f0d98a;border-bottom:1px solid rgba(201,168,76,0.2);">When it can change</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:0.5px solid rgba(201,168,76,0.1);">
+            <td style="padding:6px 10px;color:rgba(255,252,240,0.85);white-space:nowrap;">COLA (default)</td>
+            <td style="padding:6px 10px;color:rgba(255,252,240,0.85);">2.8%</td>
+            <td style="padding:6px 10px;color:rgba(255,252,240,0.7);"><a href="https://www.ssa.gov/news/press/factsheets/colafacts2026.pdf" target="_blank" style="color:#C9A84C;">SSA COLA Fact Sheet 2026</a></td>
+            <td style="padding:6px 10px;color:rgba(255,252,240,0.7);">Announced each October for the following year based on CPI-W</td>
+          </tr>
+          <tr style="border-bottom:0.5px solid rgba(201,168,76,0.1);">
+            <td style="padding:6px 10px;color:rgba(255,252,240,0.85);white-space:nowrap;">Earnings test — before FRA</td>
+            <td style="padding:6px 10px;color:rgba(255,252,240,0.85);">$22,320 exempt / $1 per $2 withheld</td>
+            <td style="padding:6px 10px;color:rgba(255,252,240,0.7);"><a href="https://www.ssa.gov/benefits/retirement/planner/whileworking.html" target="_blank" style="color:#C9A84C;">SSA — Working & Receiving Benefits</a></td>
+            <td style="padding:6px 10px;color:rgba(255,252,240,0.7);">Adjusted annually based on national average wage index</td>
+          </tr>
+          <tr style="border-bottom:0.5px solid rgba(201,168,76,0.1);">
+            <td style="padding:6px 10px;color:rgba(255,252,240,0.85);white-space:nowrap;">Earnings test — FRA year</td>
+            <td style="padding:6px 10px;color:rgba(255,252,240,0.85);">$59,520 exempt / $1 per $3 withheld</td>
+            <td style="padding:6px 10px;color:rgba(255,252,240,0.7);"><a href="https://www.ssa.gov/benefits/retirement/planner/whileworking.html" target="_blank" style="color:#C9A84C;">SSA — Working & Receiving Benefits</a></td>
+            <td style="padding:6px 10px;color:rgba(255,252,240,0.7);">Adjusted annually based on national average wage index</td>
+          </tr>
+          <tr style="border-bottom:0.5px solid rgba(201,168,76,0.1);">
+            <td style="padding:6px 10px;color:rgba(255,252,240,0.85);white-space:nowrap;">Taxable wage cap</td>
+            <td style="padding:6px 10px;color:rgba(255,252,240,0.85);">$184,500</td>
+            <td style="padding:6px 10px;color:rgba(255,252,240,0.7);"><a href="https://www.ssa.gov/news/press/factsheets/colafacts2026.pdf" target="_blank" style="color:#C9A84C;">SSA COLA Fact Sheet 2026</a></td>
+            <td style="padding:6px 10px;color:rgba(255,252,240,0.7);">Adjusted annually based on national average wage index</td>
+          </tr>
+          <tr style="border-bottom:0.5px solid rgba(201,168,76,0.1);">
+            <td style="padding:6px 10px;color:rgba(255,252,240,0.85);white-space:nowrap;">SS federal tax thresholds</td>
+            <td style="padding:6px 10px;color:rgba(255,252,240,0.85);">$25K / $34K single · $32K / $44K joint</td>
+            <td style="padding:6px 10px;color:rgba(255,252,240,0.7);"><a href="https://www.irs.gov/publications/p915" target="_blank" style="color:#C9A84C;">IRS Publication 915</a></td>
+            <td style="padding:6px 10px;color:rgba(255,252,240,0.85);font-weight:600;">Unchanged since 1994 — not inflation-adjusted by law</td>
+          </tr>
+          <tr style="border-bottom:0.5px solid rgba(201,168,76,0.1);">
+            <td style="padding:6px 10px;color:rgba(255,252,240,0.85);white-space:nowrap;">Full Retirement Age (FRA)</td>
+            <td style="padding:6px 10px;color:rgba(255,252,240,0.85);">Age 67 (born 1960 or later)</td>
+            <td style="padding:6px 10px;color:rgba(255,252,240,0.7);"><a href="https://www.ssa.gov/benefits/retirement/planner/agereduction.html" target="_blank" style="color:#C9A84C;">SSA — Full Retirement Age</a></td>
+            <td style="padding:6px 10px;color:rgba(255,252,240,0.7);">Set by law — would require an Act of Congress to change</td>
+          </tr>
+          <tr>
+            <td style="padding:6px 10px;color:rgba(255,252,240,0.85);white-space:nowrap;">Delayed credit rate</td>
+            <td style="padding:6px 10px;color:rgba(255,252,240,0.85);">8% per year (FRA to age 70)</td>
+            <td style="padding:6px 10px;color:rgba(255,252,240,0.7);"><a href="https://www.ssa.gov/benefits/retirement/planner/delayret.html" target="_blank" style="color:#C9A84C;">SSA — Delayed Retirement Credits</a></td>
+            <td style="padding:6px 10px;color:rgba(255,252,240,0.7);">Set by law — would require an Act of Congress to change</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Bottom fine print -->
+  <div style="border-top:1px solid rgba(201,168,76,0.15);padding-top:10px;display:flex;align-items:flex-start;gap:8px;">
+    <i class="ti ti-building-bank" style="font-size:14px;color:rgba(201,168,76,0.4);flex-shrink:0;margin-top:1px;"></i>
+    <p style="font-size:10px;color:rgba(255,252,240,0.45);line-height:1.6;margin:0;">Carroll Advisory · This tool is updated periodically to reflect current SSA and IRS figures. Values such as the earnings test exempt amounts, COLA, and taxable wage cap are adjusted annually each October/November and this tool is updated accordingly. Always verify current figures at <a href="https://www.ssa.gov" target="_blank" style="color:rgba(201,168,76,0.5);">ssa.gov</a> and <a href="https://www.irs.gov" target="_blank" style="color:rgba(201,168,76,0.5);">irs.gov</a>. This tool does not constitute financial, legal, or tax advice. Consult a qualified advisor before making Social Security claiming decisions.</p>
+  </div>
+
+</div><!-- disclosure-footer -->
 
 <script>
 /* ══════════════════════ SHARED ══════════════════════ */
@@ -892,16 +992,14 @@ function spRecalc(){
   let bestVal=-Infinity,bestCA=claimA[0],bestCB=claimB[0],worstVal=Infinity;
   claimA.forEach((ca,ai)=>claimB.forEach((cb,bi)=>{const v=matrix[ai][bi];if(v>bestVal){bestVal=v;bestCA=ca;bestCB=cb;}if(v<worstVal)worstVal=v;}));
   const diff=bestVal-worstVal;
-  const sp=document.getElementById('sp-strategy');sp.style.display='block';
+  // strategy box removed per compliance
   const invLbl=useInvest?` including ${invRate.toFixed(1)}% investment return`:'';
   const earnLbl=useEarn?' (adjusted for earnings test)':'';
   let txt=`The <span class="highlight">optimal combination</span> is <strong>Spouse A claims at ${bestCA}</strong> and <strong>Spouse B claims at ${bestCB}</strong>, producing a combined lifetime total of approximately <strong>${fmt(bestVal)}</strong>${invLbl}${earnLbl}.`;
   txt+=` Compared to the worst combination, this strategy is worth <strong style="color:var(--green);">${fmt(diff)} more</strong> over the couple's lifetime.`;
   if(bestCA===70)txt+=`<br><br>Spouse A delaying to 70 maximizes the survivor benefit — the larger check continues for whichever spouse lives longer.`;
   if(bIsSpousal)txt+=`<br><br>Spouse B has no personal SS record entered — benefits estimated as the spousal benefit (50% of Spouse A's FRA amount). Entering their actual statement will refine this.`;
-  document.getElementById('sp-strategy-text').innerHTML=txt;
-  const biggerBen=getBenAtAge(rowsA,70)>=getBenAtAge(effRowsB,70)?'Spouse A':'Spouse B';
-  document.getElementById('sp-survivor-note').innerHTML=`<strong>⚠ Survivor note:</strong> The surviving spouse steps up to the higher of the two benefits at first death. Since <strong>${biggerBen}</strong> has the larger benefit, their claiming age most impacts the survivor's lifelong income. The later <strong>${biggerBen}</strong> claims, the higher that survivor check will be.`;
+  // strategy text and survivor note removed per compliance
 }
 
 /* ══ INIT ══ */
