@@ -845,12 +845,64 @@ function recalc(){
       <div class="c3-sub">${fmt(useTax?bestDelay.delayNet:bestDelay.delayVal)} lifetime</div>
     </div>`;
 
-  // Crossover insight
+  // Crossover insight — base + optional earnings test context
   const crossNote=document.getElementById('crossover-note');
+  const invRate2=parseFloat(document.getElementById('inv-rate').value)||0;
+  const insightParts=[];
+
+  // 1. Spend vs invest crossover (only when they disagree)
   if(bestInvest.age!==bestSpend.age){
-    const invRate2=parseFloat(document.getElementById('inv-rate').value)||0;
+    insightParts.push(`At a <strong>${invRate2.toFixed(1)}%</strong> return, investing early checks favors claiming at <strong>age ${bestInvest.age}</strong> — but spending them favors <strong>age ${bestSpend.age}</strong>. If your actual return is below ${invRate2.toFixed(1)}%, delaying likely wins. Above it, claiming early and investing may come out ahead.`);
+  }
+
+  // 2. Earnings test context — only when on and there's real withholding
+  if(useEarn&&earnRows.length){
+    // Find earliest claim row and its withheld months
+    let totalWithheld=0,effectiveClaimAge=null,firstWorkAge=null,lastWorkAge=null;
+    for(const r of rows){
+      const incR=earnRows.filter(e=>e.age>=r.age&&e.age<earnFRA);
+      if(!incR.length)continue;
+      const{totalMonthsWithheld}=applyEarningsTest(r.age,r.benefit,earnFRA,incR);
+      if(totalMonthsWithheld>0&&effectiveClaimAge===null){
+        totalWithheld=totalMonthsWithheld;
+        effectiveClaimAge=r.age+(totalMonthsWithheld/12);
+        firstWorkAge=r.age;
+      }
+    }
+    // Find the last working year entered
+    if(earnRows.length) lastWorkAge=Math.max(...earnRows.map(e=>e.age));
+    // Check if any income rows are at/after FRA
+    const postFRAIncome=earnRows.filter(e=>e.age>=earnFRA);
+
+    const earnInsightParts=[];
+
+    if(totalWithheld>0&&effectiveClaimAge!==null){
+      earnInsightParts.push(`Claiming at ${firstWorkAge} with your entered income results in <strong>${totalWithheld} months of withheld checks</strong>, pushing your effective benefit start to around age <strong>${effectiveClaimAge.toFixed(1)}</strong> — the lifetime totals above already reflect this.`);
+      // If there's a claim age row close to lastWorkAge+1 that has no withholding
+      if(lastWorkAge!==null&&lastWorkAge<earnFRA){
+        const cleanClaimAge=Math.ceil(lastWorkAge)+1;
+        const cleanRow=rows.find(r=>r.age>=cleanClaimAge&&r.age<=earnFRA);
+        if(cleanRow) earnInsightParts.push(`Waiting to claim at <strong>age ${cleanRow.age}</strong> — after your working years end — avoids withholding entirely and delivers a clean, higher check from day one.`);
+      }
+    }
+
+    if(postFRAIncome.length>0){
+      earnInsightParts.push(`Income entered at or after your FRA (<strong>age ${earnFRA}</strong>) has no effect on your SS benefit — the earnings test ends at FRA permanently.`);
+    }
+
+    // Invest scenario note: withholding reduces investable checks, raising the crossover rate
+    if(totalWithheld>0&&invRate2>0){
+      earnInsightParts.push(`Because withheld checks can't be invested, the return rate needed for early claiming to beat delaying is <em>higher</em> than it would be without the earnings test.`);
+    }
+
+    if(earnInsightParts.length){
+      insightParts.push('<strong>While still working:</strong> '+earnInsightParts.join(' '));
+    }
+  }
+
+  if(insightParts.length){
     crossNote.style.display='block';
-    crossNote.innerHTML=`<strong>Key insight:</strong> At a <strong>${invRate2.toFixed(1)}%</strong> investment return, investing early checks makes <strong>age ${bestInvest.age}</strong> optimal — but spending them makes <strong>age ${bestSpend.age}</strong> optimal. If your actual investment return is lower than ${invRate2.toFixed(1)}%, delaying likely wins. If higher, claiming early and investing could come out ahead.`;
+    crossNote.innerHTML='<strong>Key insight</strong><br>'+insightParts.join('<br><br>');
   } else {
     crossNote.style.display='none';
   }
