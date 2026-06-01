@@ -405,7 +405,7 @@ button:hover{background:rgba(201,168,76,0.12);}
   <!-- Combo grid -->
   <div class="panel">
     <p class="panel-title"><i class="ti ti-table"></i> Combined lifetime — all claiming combinations</p>
-    <p style="font-size:10px;color:var(--text-muted);margin:0 0 10px;">Total combined SS income including survivor benefit step-up. <span style="background:var(--green-bg);color:var(--green);padding:1px 5px;border-radius:4px;font-weight:700;">Green = highest</span> &nbsp;<span style="background:rgba(178,34,52,0.07);color:#8B1A1A;padding:1px 5px;border-radius:4px;">Red = lowest</span></p>
+    <p style="font-size:10px;color:var(--text-muted);margin:0 0 10px;">Total combined SS income including survivor benefit step-up. <span style="background:var(--green-bg);color:var(--green);padding:1px 5px;border-radius:4px;font-weight:700;">Green = highest total</span> &nbsp;<span style="background:rgba(178,34,52,0.07);color:#8B1A1A;padding:1px 5px;border-radius:4px;">Red = lowest</span></p>
     <div id="combo-grid"><p style="font-size:12px;color:var(--text-muted);">Enter DOBs and benefit amounts above.</p></div>
   </div>
 
@@ -1099,7 +1099,7 @@ function recalc(){
       const pct=maxV>0?(v/maxV*100):0;
       const isWin=Math.abs(v-maxV)<1;
       const bc=BAR_COLORS[i%BAR_COLORS.length],tc=BAR_TEXT[i%BAR_TEXT.length];
-      html+=`<div class="res-row"><span class="res-age">Age ${ageStr(r.age)}</span><div class="bar-track"><div class="res-bar" style="width:${pct.toFixed(1)}%;background:${bc};color:${tc};">${pct>28?'$'+r.benefit.toLocaleString()+'/mo':''}</div></div><span class="res-total" style="color:${isWin?'var(--green)':'var(--text-primary)'};">${fmt(v)}</span> ${isWin?'<span class="best-badge">best</span>':'<span style="min-width:32px;"></span>'}</div>`;
+      html+=`<div class="res-row"><span class="res-age">Age ${ageStr(r.age)}</span><div class="bar-track"><div class="res-bar" style="width:${pct.toFixed(1)}%;background:${bc};color:${tc};">${pct>28?'$'+r.benefit.toLocaleString()+'/mo':''}</div></div><span class="res-total" style="color:${isWin?'var(--green)':'var(--text-primary)'};">${fmt(v)}</span> <span style="min-width:32px;"></span></div>`;
     });
     const sorted=[...vals].sort((a,b)=>(useTaxLocal?b[key+'Net']-a[key+'Net']:b[key+'Val']-a[key+'Val']));
     if(sorted.length>=2){
@@ -1123,7 +1123,7 @@ function recalc(){
   const winAge=allAges.filter(a=>a===allAges[0]).length;
   document.getElementById('compare-3-wrap').style.display='block';
   document.getElementById('compare-3').innerHTML=`
-    <div class="c3-card ${bestSpend.age===bestInvest.age&&bestSpend.age===bestDelay.age?'winner':''}">
+    <div class="c3-card">
       <div class="c3-label">Spend checks</div>
       <div class="c3-val">Age ${bestSpend.age}</div>
       <div class="c3-sub">${fmt(useTax?bestSpend.rawNet:bestSpend.rawVal)} lifetime</div>
@@ -1834,16 +1834,16 @@ function widRecalc(){
 
   strategies.forEach((s,idx)=>{
     const isBest=s.total===bestTotal;
-    html+=`<div class="wid-strategy-card ${isBest?'best':''}">
-      <div class="wid-strat-title ${isBest?'best':''}">
-        ${isBest?'<i class="ti ti-star-filled" style="font-size:12px;"></i>':''} Strategy ${s.id}: ${s.title}
+    html+=`<div class="wid-strategy-card">
+      <div class="wid-strat-title">
+        Strategy ${s.id}: ${s.title}
       </div>
       <div class="wid-strat-body">
         <p style="margin-bottom:6px;">${s.desc}</p>
         <p style="font-size:10px;color:var(--text-muted);">${s.phase1}${s.phase2?` &rarr; then: ${s.phase2}`:''}</p>
       </div>
-      <div class="wid-strat-total ${isBest?'best':''}">Estimated lifetime total: ${fmt(s.total)}</div>
-      ${isBest?`<p style="font-size:10px;color:var(--green);margin-top:4px;">Based on the numbers entered, this strategy produces the most income over your lifetime to age ${life}.</p>`:''}
+      <div class="wid-strat-total">Estimated lifetime total: ${fmt(s.total)}</div>
+      
     </div>`;
   });
 
