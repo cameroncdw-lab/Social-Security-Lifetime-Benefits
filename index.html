@@ -8,57 +8,19 @@
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%233C3B6E'/><text x='16' y='22' font-size='18' text-anchor='middle' fill='%23C9A84C' font-family='serif' font-weight='bold'>$</text></svg>">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
-
 :root{
-  --usa-red:#B22234;
-  --usa-blue:#3C3B6E;
-  --usa-navy:#1a1940;
-  --usa-gold:#C9A84C;
-  --usa-gold-light:#f0d98a;
-  --usa-cream:#fdf8ee;
-  --usa-red-light:rgba(178,34,52,0.08);
-  --usa-blue-light:rgba(60,59,110,0.08);
-  --bg-primary:#fdf8ee;
-  --bg-card:rgba(255,252,240,0.92);
-  --bg-card-solid:#fffcf0;
-  --text-primary:#1a1940;
-  --text-secondary:#4a4870;
-  --text-muted:#7a78a0;
-  --border-light:rgba(201,168,76,0.25);
-  --border-mid:rgba(201,168,76,0.45);
-  --radius-md:8px;
-  --radius-lg:12px;
+  --usa-red:#B22234;--usa-blue:#3C3B6E;--usa-navy:#1a1940;--usa-gold:#C9A84C;
+  --usa-gold-light:#f0d98a;--usa-cream:#fdf8ee;--usa-red-light:rgba(178,34,52,0.08);
+  --usa-blue-light:rgba(60,59,110,0.08);--bg-primary:#fdf8ee;
+  --bg-card:rgba(255,252,240,0.92);--bg-card-solid:#fffcf0;
+  --text-primary:#1a1940;--text-secondary:#4a4870;--text-muted:#7a78a0;
+  --border-light:rgba(201,168,76,0.25);--border-mid:rgba(201,168,76,0.45);
+  --radius-md:8px;--radius-lg:12px;
 }
-
-body{
-  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
-  min-height:100vh;
-  background-color:#1a1940;
-  background-image:
-    radial-gradient(ellipse at 20% 50%, rgba(60,59,110,0.6) 0%, transparent 60%),
-    radial-gradient(ellipse at 80% 20%, rgba(178,34,52,0.15) 0%, transparent 50%),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='500' viewBox='0 0 900 500'%3E%3Cdefs%3E%3Cfilter id='g'%3E%3CfeGaussianBlur stdDeviation='1.5'/%3E%3C/filter%3E%3C/defs%3E%3Crect width='900' height='500' fill='%231a1940'/%3E%3Crect x='0' y='0' width='900' height='500' fill='rgba(201,168,76,0.03)'/%3E%3Cg opacity='0.13'%3E%3Crect x='40' y='60' width='110' height='380' fill='none' stroke='%23C9A84C' stroke-width='1.2'/%3E%3Crect x='55' y='45' width='80' height='15' fill='%23C9A84C'/%3E%3Cpolygon points='95,10 55,45 135,45' fill='%23C9A84C'/%3E%3Crect x='62' y='80' width='12' height='280' fill='%23C9A84C'/%3E%3Crect x='89' y='80' width='12' height='280' fill='%23C9A84C'/%3E%3Crect x='116' y='80' width='12' height='280' fill='%23C9A84C'/%3E%3Crect x='30' y='440' width='130' height='18' rx='2' fill='%23C9A84C'/%3E%3C/g%3E%3Cg opacity='0.11' transform='translate(360,40)'%3E%3Cellipse cx='90' cy='90' rx='88' ry='88' fill='none' stroke='%23C9A84C' stroke-width='1.5'/%3E%3Cellipse cx='90' cy='90' rx='60' ry='60' fill='none' stroke='%23C9A84C' stroke-width='0.8'/%3E%3Cpolygon points='90,30 105,75 155,75 115,100 130,145 90,120 50,145 65,100 25,75 75,75' fill='none' stroke='%23C9A84C' stroke-width='1'/%3E%3Cline x1='90' y1='2' x2='90' y2='178' stroke='%23C9A84C' stroke-width='0.6' opacity='0.5'/%3E%3Cline x1='2' y1='90' x2='178' y2='90' stroke='%23C9A84C' stroke-width='0.6' opacity='0.5'/%3E%3C/g%3E%3Cg opacity='0.12' transform='translate(700,80)'%3E%3Crect x='10' y='30' width='150' height='100' rx='3' fill='none' stroke='%23C9A84C' stroke-width='1.2'/%3E%3Crect x='0' y='130' width='170' height='20' rx='2' fill='%23C9A84C' opacity='0.6'/%3E%3Cpath d='M10 30 Q85 0 160 30' stroke='%23C9A84C' stroke-width='1.2' fill='none'/%3E%3Crect x='25' y='30' width='4' height='100' fill='%23C9A84C' opacity='0.5'/%3E%3Crect x='83' y='30' width='4' height='100' fill='%23C9A84C' opacity='0.5'/%3E%3Crect x='141' y='30' width='4' height='100' fill='%23C9A84C' opacity='0.5'/%3E%3Cellipse cx='85' cy='80' rx='30' ry='30' fill='none' stroke='%23C9A84C' stroke-width='0.8' opacity='0.7'/%3E%3C/g%3E%3Cg opacity='0.07'%3E%3Crect x='100' y='130' width='700' height='260' rx='8' fill='none' stroke='%23C9A84C' stroke-width='2'/%3E%3Crect x='100' y='130' width='700' height='260' rx='8' fill='none' stroke='%23C9A84C' stroke-width='0.5' stroke-dasharray='4,8'/%3E%3Ccircle cx='230' cy='260' r='70' fill='none' stroke='%23C9A84C' stroke-width='1'/%3E%3Ccircle cx='230' cy='260' r='45' fill='none' stroke='%23C9A84C' stroke-width='0.6'/%3E%3Cline x1='160' y1='260' x2='300' y2='260' stroke='%23C9A84C' stroke-width='0.5'/%3E%3Cline x1='230' y1='190' x2='230' y2='330' stroke='%23C9A84C' stroke-width='0.5'/%3E%3Ccircle cx='670' cy='260' r='70' fill='none' stroke='%23C9A84C' stroke-width='1'/%3E%3Cpath d='M640 240 L660 220 L680 240 L700 220 L720 240' stroke='%23C9A84C' stroke-width='1' fill='none'/%3E%3Ctext x='450' y='175' font-size='22' text-anchor='middle' fill='%23C9A84C' font-family='serif' font-weight='bold' opacity='0.8'%3EONE DOLLAR%3C/text%3E%3Ctext x='450' y='360' font-size='14' text-anchor='middle' fill='%23C9A84C' font-family='serif' opacity='0.6'%3ETHE UNITED STATES OF AMERICA%3C/text%3E%3C/g%3E%3Cg opacity='0.06'%3E%3Crect x='0' y='0' width='900' height='12' fill='%23B22234'/%3E%3Crect x='0' y='488' width='900' height='12' fill='%23B22234'/%3E%3Crect x='0' y='24' width='900' height='8' fill='%23B22234' opacity='0.5'/%3E%3Crect x='0' y='468' width='900' height='8' fill='%23B22234' opacity='0.5'/%3E%3C/g%3E%3C/svg%3E");
-  background-size:cover;
-  background-attachment:fixed;
-  padding:20px;
-}
-
-.app-wrap{max-width:900px;margin:0 auto;}
-
-.hero{
-  border:1px solid var(--usa-gold);
-  border-radius:var(--radius-lg);
-  background:var(--usa-navy);
-  padding:16px 22px;
-  margin-bottom:14px;
-  display:flex;align-items:center;gap:16px;
-  position:relative;overflow:hidden;
-}
-.hero::before{
-  content:'';position:absolute;inset:0;
-  background:repeating-linear-gradient(90deg,transparent 0,transparent 34px,rgba(201,168,76,0.06) 34px,rgba(201,168,76,0.06) 36px);
-  pointer-events:none;
-}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;min-height:100vh;background-color:#1a1940;background-image:radial-gradient(ellipse at 20% 50%,rgba(60,59,110,0.6) 0%,transparent 60%),radial-gradient(ellipse at 80% 20%,rgba(178,34,52,0.15) 0%,transparent 50%);background-attachment:fixed;padding:20px;}
+.app-wrap{max-width:960px;margin:0 auto;}
+.hero{border:1px solid var(--usa-gold);border-radius:var(--radius-lg);background:var(--usa-navy);padding:16px 22px;margin-bottom:14px;display:flex;align-items:center;gap:16px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0,transparent 34px,rgba(201,168,76,0.06) 34px,rgba(201,168,76,0.06) 36px);pointer-events:none;}
 .hero-seal{flex-shrink:0;}
 .hero-title{font-size:18px;font-weight:600;color:var(--usa-gold-light);letter-spacing:.02em;}
 .hero-sub{font-size:12px;color:rgba(201,168,76,0.55);margin-top:3px;}
@@ -66,89 +28,42 @@ body{
 .est-badge{font-size:10px;color:rgba(201,168,76,0.45);letter-spacing:.08em;text-transform:uppercase;}
 .flag-dots{display:flex;gap:4px;justify-content:flex-end;margin-bottom:4px;}
 .fdot-flag{width:11px;height:11px;border-radius:50%;}
+.stripe-rule{height:5px;border-radius:3px;margin-bottom:14px;background:repeating-linear-gradient(90deg,var(--usa-red) 0,var(--usa-red) 18px,rgba(255,255,255,0.7) 18px,rgba(255,255,255,0.7) 26px,var(--usa-blue) 26px,var(--usa-blue) 44px,rgba(255,255,255,0.7) 44px,rgba(255,255,255,0.7) 52px);opacity:.65;}
 
-.stripe-rule{
-  height:5px;border-radius:3px;margin-bottom:14px;
-  background:repeating-linear-gradient(90deg,var(--usa-red) 0,var(--usa-red) 18px,rgba(255,255,255,0.7) 18px,rgba(255,255,255,0.7) 26px,var(--usa-blue) 26px,var(--usa-blue) 44px,rgba(255,255,255,0.7) 44px,rgba(255,255,255,0.7) 52px);
-  opacity:.65;
-}
+/* PAGE TABS */
+.page-tabs{display:flex;gap:6px;margin-bottom:14px;border-bottom:2px solid var(--border-mid);padding-bottom:0;}
+.page-tab{padding:9px 18px;font-size:13px;font-weight:600;color:var(--text-muted);background:rgba(255,252,240,0.12);border:1px solid var(--border-light);border-bottom:none;border-radius:var(--radius-md) var(--radius-md) 0 0;cursor:pointer;letter-spacing:.02em;transition:all .2s;display:flex;align-items:center;gap:6px;}
+.page-tab:hover{color:var(--text-primary);background:rgba(255,252,240,0.22);}
+.page-tab.active{background:var(--bg-card-solid);color:var(--usa-blue);border-color:var(--border-mid);border-bottom:2px solid var(--bg-card-solid);margin-bottom:-2px;}
+.page-content{display:none;}
+.page-content.active{display:block;}
 
 .two-col{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:14px;align-items:start;}
-
-.panel{
-  background:var(--bg-card);
-  border:1px solid var(--border-mid);
-  border-radius:var(--radius-lg);
-  padding:14px 16px;
-  margin-bottom:12px;
-  backdrop-filter:blur(4px);
-}
-.panel-title{
-  font-size:12px;font-weight:600;color:var(--usa-blue);
-  margin:0 0 10px;
-  display:flex;align-items:center;gap:6px;
-  border-bottom:2px solid var(--usa-red);
-  padding-bottom:7px;
-  text-transform:uppercase;letter-spacing:.05em;
-}
+.panel{background:var(--bg-card);border:1px solid var(--border-mid);border-radius:var(--radius-lg);padding:14px 16px;margin-bottom:12px;backdrop-filter:blur(4px);}
+.panel-title{font-size:12px;font-weight:600;color:var(--usa-blue);margin:0 0 10px;display:flex;align-items:center;gap:6px;border-bottom:2px solid var(--usa-red);padding-bottom:7px;text-transform:uppercase;letter-spacing:.05em;}
 .panel-title i{font-size:14px;}
 
-input[type=range]{
-  -webkit-appearance:none;appearance:none;
-  height:3px;border-radius:2px;
-  background:rgba(60,59,110,0.2);
-  outline:none;cursor:pointer;flex:1;
-}
-input[type=range]::-webkit-slider-thumb{
-  -webkit-appearance:none;width:16px;height:16px;border-radius:50%;
-  background:var(--usa-blue);cursor:pointer;
-  border:2px solid var(--usa-gold);
-}
-input[type=number]{
-  height:34px;padding:0 8px;
-  border:1px solid var(--border-mid);
-  border-radius:var(--radius-md);
-  background:rgba(255,252,240,0.9);
-  color:var(--text-primary);font-size:13px;
-  font-family:inherit;
-}
-input[type=number]:focus{outline:none;border-color:var(--usa-blue);box-shadow:0 0 0 2px rgba(60,59,110,0.15);}
+input[type=range]{-webkit-appearance:none;appearance:none;height:3px;border-radius:2px;background:rgba(60,59,110,0.2);outline:none;cursor:pointer;flex:1;}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;border-radius:50%;background:var(--usa-blue);cursor:pointer;border:2px solid var(--usa-gold);}
+input[type=number],input[type=date],input[type=text]{height:34px;padding:0 8px;border:1px solid var(--border-mid);border-radius:var(--radius-md);background:rgba(255,252,240,0.9);color:var(--text-primary);font-size:13px;font-family:inherit;}
+input[type=number]:focus,input[type=date]:focus{outline:none;border-color:var(--usa-blue);box-shadow:0 0 0 2px rgba(60,59,110,0.15);}
 input[type=checkbox]{width:14px;height:14px;cursor:pointer;accent-color:var(--usa-blue);}
-select{
-  height:34px;padding:0 8px;
-  border:1px solid var(--border-mid);
-  border-radius:var(--radius-md);
-  background:rgba(255,252,240,0.9);
-  color:var(--text-primary);font-size:13px;
-  font-family:inherit;cursor:pointer;
-}
+select{height:34px;padding:0 8px;border:1px solid var(--border-mid);border-radius:var(--radius-md);background:rgba(255,252,240,0.9);color:var(--text-primary);font-size:13px;font-family:inherit;cursor:pointer;}
 select:focus{outline:none;border-color:var(--usa-blue);}
-
-button{
-  height:30px;padding:0 12px;
-  border:1px solid var(--border-mid);
-  border-radius:var(--radius-md);
-  background:transparent;color:var(--text-primary);
-  font-size:12px;font-family:inherit;cursor:pointer;
-  display:inline-flex;align-items:center;gap:4px;
-}
+button{height:30px;padding:0 12px;border:1px solid var(--border-mid);border-radius:var(--radius-md);background:transparent;color:var(--text-primary);font-size:12px;font-family:inherit;cursor:pointer;display:inline-flex;align-items:center;gap:4px;}
 button:hover{background:rgba(201,168,76,0.12);}
 button:active{transform:scale(0.98);}
 
 .inp-row{display:flex;align-items:center;gap:7px;margin-bottom:7px;}
-.age-inp{width:56px;}
-.ben-inp{width:86px;}
+.age-inp{width:56px;}.ben-inp{width:86px;}
 .del-btn{padding:2px 6px;border-color:rgba(178,34,52,0.3);color:var(--usa-red);height:28px;}
 .del-btn:hover{background:var(--usa-red-light);}
-
 .ctrl-row{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
 .ctrl-lbl{font-size:11px;color:var(--text-secondary);min-width:108px;}
 .ctrl-val{font-size:12px;font-weight:600;min-width:48px;color:var(--usa-blue);}
 .note-small{font-size:10px;color:var(--text-muted);margin:1px 0 7px;}
-
 .toggle-row{display:flex;align-items:center;gap:7px;margin:5px 0;cursor:pointer;}
 .toggle-row span{font-size:12px;color:var(--text-primary);}
-
 .divider{border:none;border-top:1px solid var(--border-light);margin:9px 0;}
 
 .res-row{display:flex;align-items:center;gap:7px;margin-bottom:9px;}
@@ -160,17 +75,14 @@ button:active{transform:scale(0.98);}
 .best-badge{font-size:10px;padding:2px 6px;border-radius:var(--radius-md);background:rgba(178,34,52,0.1);color:var(--usa-red);border:0.5px solid rgba(178,34,52,0.25);min-width:32px;text-align:center;}
 .summary-note{font-size:11px;color:var(--text-secondary);margin-top:3px;line-height:1.5;}
 
-/* Tax section */
 .tax-panel-inner{background:rgba(60,59,110,0.04);border:1px solid var(--border-light);border-radius:var(--radius-md);padding:10px 12px;margin-top:8px;}
 .tax-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
 .tax-field label{font-size:10px;color:var(--text-muted);display:block;margin-bottom:3px;}
-.tax-info-box{background:rgba(178,34,52,0.06);border:0.5px solid rgba(178,34,52,0.2);border-radius:var(--radius-md);padding:8px 10px;margin-top:8px;}
 .tax-tiers{display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px;margin-top:7px;}
 .tier-card{background:rgba(255,252,240,0.7);border:0.5px solid var(--border-light);border-radius:var(--radius-md);padding:6px 8px;text-align:center;}
 .tier-pct{font-size:14px;font-weight:700;color:var(--usa-blue);}
 .tier-lbl{font-size:9px;color:var(--text-muted);line-height:1.4;margin-top:2px;}
 
-/* Fact card */
 .fact-card{border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--usa-gold);background:var(--bg-card);backdrop-filter:blur(4px);}
 .fact-header{background:var(--usa-navy);padding:10px 14px;display:flex;align-items:center;gap:8px;border-bottom:2px solid var(--usa-gold);}
 .fact-header-txt{font-size:12px;font-weight:600;color:var(--usa-gold-light);text-transform:uppercase;letter-spacing:.05em;}
@@ -184,12 +96,53 @@ button:active{transform:scale(0.98);}
 .dot-fact{width:5px;height:5px;border-radius:50%;background:rgba(60,59,110,0.2);cursor:pointer;transition:all .2s;}
 .dot-fact.on{background:var(--usa-blue);width:12px;border-radius:3px;}
 .fact-inner{transition:opacity .5s;}
-
 .info-note{margin-top:10px;padding:9px 11px;border-radius:var(--radius-md);border:0.5px solid rgba(178,34,52,0.25);background:rgba(178,34,52,0.06);font-size:10px;color:var(--usa-red);line-height:1.55;}
 
-@media(max-width:600px){
+/* ── SPOUSAL TAB ── */
+.spouse-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:12px;}
+.spouse-card{background:var(--bg-card);border:1px solid var(--border-mid);border-radius:var(--radius-lg);padding:14px 16px;backdrop-filter:blur(4px);}
+.spouse-header{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;padding-bottom:8px;margin-bottom:12px;border-bottom:2px solid;}
+.spouse-a .spouse-header{color:var(--usa-blue);border-color:var(--usa-blue);}
+.spouse-b .spouse-header{color:var(--usa-red);border-color:var(--usa-red);}
+.sfield{margin-bottom:10px;}
+.sfield label{font-size:10px;color:var(--text-muted);display:block;margin-bottom:3px;font-weight:500;}
+.sfield input,.sfield select{width:100%;}
+.age-display{font-size:22px;font-weight:700;color:var(--usa-blue);line-height:1;}
+.age-display-red{color:var(--usa-red);}
+.age-sub{font-size:10px;color:var(--text-muted);margin-top:2px;}
+.age-gap-badge{display:inline-flex;align-items:center;gap:5px;background:rgba(201,168,76,0.12);border:1px solid var(--border-mid);border-radius:var(--radius-md);padding:5px 10px;font-size:11px;color:var(--text-secondary);margin:0 0 12px;}
+
+.combo-grid-wrap{overflow-x:auto;margin-top:4px;}
+.combo-table{border-collapse:collapse;width:100%;font-size:11px;}
+.combo-table th{background:var(--usa-navy);color:var(--usa-gold-light);font-size:10px;font-weight:600;padding:5px 8px;text-align:center;white-space:nowrap;}
+.combo-table td{padding:5px 8px;text-align:center;border:0.5px solid var(--border-light);white-space:nowrap;cursor:default;}
+.combo-table tr:hover td{background:rgba(201,168,76,0.08);}
+.cell-best{background:rgba(29,158,117,0.14)!important;font-weight:700;color:#1D6B52;}
+.cell-worst{background:rgba(178,34,52,0.07)!important;color:#8B1A1A;}
+.cell-label{background:rgba(60,59,110,0.08);font-weight:600;color:var(--text-secondary);}
+
+.strategy-box{background:linear-gradient(135deg,rgba(60,59,110,0.08),rgba(201,168,76,0.06));border:1.5px solid var(--usa-gold);border-radius:var(--radius-lg);padding:14px 16px;margin-bottom:12px;}
+.strategy-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--usa-blue);margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.strategy-rec{font-size:12px;line-height:1.7;color:var(--text-primary);}
+.strategy-rec strong{color:var(--usa-blue);}
+.strategy-rec .highlight{color:var(--usa-red);font-weight:700;}
+
+.earn-panel{background:rgba(60,59,110,0.04);border:1px solid var(--border-light);border-radius:var(--radius-md);padding:10px 12px;margin-top:10px;}
+.earn-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.earn-field label{font-size:10px;color:var(--text-muted);display:block;margin-bottom:3px;}
+.earn-result{margin-top:8px;padding:8px 10px;background:rgba(255,252,240,0.7);border:0.5px solid var(--border-light);border-radius:var(--radius-md);font-size:11px;color:var(--text-secondary);line-height:1.6;}
+.earn-result strong{color:var(--usa-blue);}
+
+.survivor-note{padding:8px 10px;background:rgba(178,34,52,0.06);border:0.5px solid rgba(178,34,52,0.2);border-radius:var(--radius-md);font-size:10px;color:#6B1A2A;line-height:1.6;margin-top:8px;}
+
+.spousal-settings{background:var(--bg-card);border:1px solid var(--border-mid);border-radius:var(--radius-lg);padding:14px 16px;margin-bottom:12px;}
+
+@media(max-width:640px){
   .two-col{grid-template-columns:1fr;}
   .tax-grid{grid-template-columns:1fr;}
+  .spouse-grid{grid-template-columns:1fr;}
+  .earn-grid{grid-template-columns:1fr;}
+  .page-tab{font-size:11px;padding:7px 10px;}
 }
 </style>
 </head>
@@ -223,6 +176,18 @@ button:active{transform:scale(0.98);}
 
 <div class="stripe-rule"></div>
 
+<!-- PAGE TABS -->
+<div class="page-tabs">
+  <button class="page-tab active" onclick="switchPage('single')" id="ptab-single">
+    <i class="ti ti-user"></i> Individual Calculator
+  </button>
+  <button class="page-tab" onclick="switchPage('spousal')" id="ptab-spousal">
+    <i class="ti ti-heart"></i> Spousal Strategy
+  </button>
+</div>
+
+<!-- ══════════ PAGE 1: INDIVIDUAL ══════════ -->
+<div class="page-content active" id="page-single">
 <div class="two-col">
 <div>
 
@@ -235,20 +200,17 @@ button:active{transform:scale(0.98);}
 
   <div class="panel">
     <p class="panel-title"><i class="ti ti-sliders"></i> Settings</p>
-
     <div class="ctrl-row">
       <span class="ctrl-lbl">Life expectancy</span>
       <input type="range" id="life" min="63" max="110" step="0.5" value="82" oninput="recalc()">
       <span class="ctrl-val" id="life-v">82</span>
     </div>
-
     <div class="ctrl-row">
       <span class="ctrl-lbl">COLA (annual)</span>
       <input type="range" id="cola" min="0" max="6" step="0.1" value="2.5" oninput="recalc()">
       <span class="ctrl-val" id="cola-v">2.5%</span>
     </div>
     <p class="note-small">2026 COLA = 2.8% · historical avg ≈ 2.6% · Source: SSA</p>
-
     <label class="toggle-row">
       <input type="checkbox" id="inv-on" onchange="recalc()">
       <span>Add investment return on early checks</span>
@@ -265,62 +227,25 @@ button:active{transform:scale(0.98);}
 
   <div class="panel">
     <p class="panel-title"><i class="ti ti-receipt-tax"></i> Federal tax on SS benefits</p>
-
     <p style="font-size:10px;color:var(--text-muted);margin:0 0 8px;">The IRS taxes SS benefits based on your <em>provisional income</em> — your other income plus 50% of your SS benefit. Up to 85% of your benefit can be taxable.</p>
-
     <div class="tax-tiers">
-      <div class="tier-card">
-        <div class="tier-pct">0%</div>
-        <div class="tier-lbl">Single &lt;$25K<br>Joint &lt;$32K</div>
-      </div>
-      <div class="tier-card">
-        <div class="tier-pct" style="color:var(--usa-red);">50%</div>
-        <div class="tier-lbl">Single $25–34K<br>Joint $32–44K</div>
-      </div>
-      <div class="tier-card">
-        <div class="tier-pct" style="color:#8B1A1A;">85%</div>
-        <div class="tier-lbl">Single &gt;$34K<br>Joint &gt;$44K</div>
-      </div>
+      <div class="tier-card"><div class="tier-pct">0%</div><div class="tier-lbl">Single &lt;$25K<br>Joint &lt;$32K</div></div>
+      <div class="tier-card"><div class="tier-pct" style="color:var(--usa-red);">50%</div><div class="tier-lbl">Single $25–34K<br>Joint $32–44K</div></div>
+      <div class="tier-card"><div class="tier-pct" style="color:#8B1A1A;">85%</div><div class="tier-lbl">Single &gt;$34K<br>Joint &gt;$44K</div></div>
     </div>
-
     <p style="font-size:9px;color:var(--text-muted);margin:6px 0 8px;">These thresholds haven't been inflation-adjusted since 1994. Source: IRS Pub. 915; SmartAsset 2026.</p>
-
     <label class="toggle-row">
       <input type="checkbox" id="tax-on" onchange="recalc()">
       <span>Show after-tax estimates</span>
     </label>
-
     <div id="tax-wrap" style="display:none;" class="tax-panel-inner">
       <div class="tax-grid">
-        <div class="tax-field">
-          <label>Filing status</label>
-          <select id="filing" onchange="recalc()">
-            <option value="single">Single</option>
-            <option value="joint">Married filing jointly</option>
-          </select>
-        </div>
-        <div class="tax-field">
-          <label>Other annual income (non-SS)</label>
-          <input type="number" id="other-income" value="20000" min="0" step="1000" style="width:100%;" oninput="recalc()">
-        </div>
-        <div class="tax-field">
-          <label>Your marginal tax rate</label>
-          <select id="tax-rate" onchange="recalc()">
-            <option value="0.10">10%</option>
-            <option value="0.12">12%</option>
-            <option value="0.22" selected>22%</option>
-            <option value="0.24">24%</option>
-            <option value="0.32">32%</option>
-            <option value="0.35">35%</option>
-            <option value="0.37">37%</option>
-          </select>
-        </div>
-        <div class="tax-field">
-          <label>Tax-exempt interest income</label>
-          <input type="number" id="tax-exempt" value="0" min="0" step="500" style="width:100%;" oninput="recalc()">
-        </div>
+        <div class="tax-field"><label>Filing status</label><select id="filing" onchange="recalc()"><option value="single">Single</option><option value="joint">Married filing jointly</option></select></div>
+        <div class="tax-field"><label>Other annual income (non-SS)</label><input type="number" id="other-income" value="20000" min="0" step="1000" style="width:100%;" oninput="recalc()"></div>
+        <div class="tax-field"><label>Your marginal tax rate</label><select id="tax-rate" onchange="recalc()"><option value="0.10">10%</option><option value="0.12">12%</option><option value="0.22" selected>22%</option><option value="0.24">24%</option><option value="0.32">32%</option><option value="0.35">35%</option><option value="0.37">37%</option></select></div>
+        <div class="tax-field"><label>Tax-exempt interest income</label><input type="number" id="tax-exempt" value="0" min="0" step="500" style="width:100%;" oninput="recalc()"></div>
       </div>
-      <p class="note-small" style="margin-top:7px;line-height:1.5;">Provisional income = other income + tax-exempt interest + 50% of annual SS benefit. Taxable portion × marginal rate = estimated annual SS tax. This is an estimate — consult a tax advisor for your actual liability.</p>
+      <p class="note-small" style="margin-top:7px;line-height:1.5;">Provisional income = other income + tax-exempt interest + 50% of annual SS benefit. Taxable portion × marginal rate = estimated annual SS tax.</p>
     </div>
   </div>
 
@@ -330,7 +255,6 @@ button:active{transform:scale(0.98);}
   </div>
 
 </div>
-
 <div>
   <div class="fact-card">
     <div class="fact-header">
@@ -356,16 +280,138 @@ button:active{transform:scale(0.98);}
       <button class="fact-nav-btn" onclick="nextFact()" aria-label="Next"><i class="ti ti-arrow-right" aria-hidden="true"></i></button>
     </div>
   </div>
-
   <div class="info-note" style="margin-top:10px;">
     <i class="ti ti-info-circle" style="font-size:12px;vertical-align:-2px;margin-right:3px;" aria-hidden="true"></i>
     COLA compounds monthly. Investment mode grows each check forward from receipt date to life expectancy. Tax estimate uses IRS provisional income formula (Pub. 915) — not a substitute for professional tax advice.
   </div>
 </div>
 </div>
-</div>
+</div><!-- end page-single -->
+
+<!-- ══════════ PAGE 2: SPOUSAL STRATEGY ══════════ -->
+<div class="page-content" id="page-spousal">
+
+  <!-- Spouse info cards -->
+  <div class="spouse-grid">
+    <div class="spouse-card spouse-a">
+      <div class="spouse-header">Spouse A (Higher Earner)</div>
+      <div class="sfield"><label>Date of birth</label><input type="date" id="dob-a" oninput="spRecalc()"></div>
+      <div style="margin-bottom:12px;">
+        <div class="age-display" id="age-display-a">—</div>
+        <div class="age-sub" id="fra-display-a">Enter DOB to see age & FRA</div>
+      </div>
+      <p style="font-size:10px;color:var(--text-muted);margin:0 0 7px;">Monthly benefit amounts from SS statement:</p>
+      <div id="sp-rows-a"></div>
+      <button onclick="spAddRow('a')" style="border-color:rgba(60,59,110,0.35);color:var(--usa-blue);margin-top:3px;font-size:11px;height:26px;"><i class="ti ti-plus"></i> Add age</button>
+    </div>
+    <div class="spouse-card spouse-b">
+      <div class="spouse-header">Spouse B (Lower/Non-Earner)</div>
+      <div class="sfield"><label>Date of birth</label><input type="date" id="dob-b" oninput="spRecalc()"></div>
+      <div style="margin-bottom:12px;">
+        <div class="age-display age-display-red" id="age-display-b">—</div>
+        <div class="age-sub" id="fra-display-b">Enter DOB to see age & FRA</div>
+      </div>
+      <p style="font-size:10px;color:var(--text-muted);margin:0 0 7px;">Monthly benefit amounts from SS statement (if any):</p>
+      <div id="sp-rows-b"></div>
+      <button onclick="spAddRow('b')" style="border-color:rgba(178,34,52,0.35);color:var(--usa-red);margin-top:3px;font-size:11px;height:26px;"><i class="ti ti-plus"></i> Add age</button>
+      <p class="note-small" style="margin-top:7px;">If Spouse B has no work record, leave blank — spousal benefit (50% of A's FRA amount) will be used.</p>
+    </div>
+  </div>
+
+  <!-- Age gap display -->
+  <div id="age-gap-row" style="display:none;margin-bottom:12px;">
+    <span class="age-gap-badge"><i class="ti ti-arrows-horizontal"></i><span id="age-gap-text"></span></span>
+    <span class="note-small" style="display:inline;margin-left:8px;" id="age-gap-note"></span>
+  </div>
+
+  <!-- Settings for spousal tab -->
+  <div class="spousal-settings">
+    <p class="panel-title"><i class="ti ti-sliders"></i> Assumptions</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;align-items:end;">
+      <div>
+        <div class="ctrl-row" style="margin-bottom:2px;">
+          <span class="ctrl-lbl">COLA (annual)</span>
+          <input type="range" id="sp-cola" min="0" max="6" step="0.1" value="2.5" oninput="spRecalc()">
+          <span class="ctrl-val" id="sp-cola-v">2.5%</span>
+        </div>
+      </div>
+      <div>
+        <label style="font-size:10px;color:var(--text-muted);display:block;margin-bottom:3px;">Spouse A life expectancy</label>
+        <input type="number" id="sp-life-a" value="85" min="62" max="110" style="width:80px;" oninput="spRecalc()"> <span style="font-size:11px;color:var(--text-muted);">yrs</span>
+      </div>
+      <div>
+        <label style="font-size:10px;color:var(--text-muted);display:block;margin-bottom:3px;">Spouse B life expectancy</label>
+        <input type="number" id="sp-life-b" value="87" min="62" max="110" style="width:80px;" oninput="spRecalc()"> <span style="font-size:11px;color:var(--text-muted);">yrs</span>
+      </div>
+    </div>
+    <p class="note-small" style="margin-top:6px;">Women outlive men by avg 5 years. Life expectancy at age 65: men ≈ 83, women ≈ 85.6. Source: SSA 2024.</p>
+  </div>
+
+  <!-- Working in 60s section -->
+  <div class="panel">
+    <p class="panel-title"><i class="ti ti-briefcase"></i> Still working in your 60s? — Earnings test</p>
+    <p style="font-size:11px;color:var(--text-secondary);margin:0 0 10px;line-height:1.6;">If you claim SS before your Full Retirement Age (FRA) and continue working, SSA withholds $1 of benefits for every $2 you earn above the annual exempt amount. <strong>These withheld benefits are NOT lost</strong> — they are credited back as a higher monthly check once you reach FRA.</p>
+
+    <label class="toggle-row">
+      <input type="checkbox" id="earn-on" onchange="spRecalc()">
+      <span>Calculate earnings test impact</span>
+    </label>
+    <div id="earn-wrap" style="display:none;" class="earn-panel">
+      <div class="earn-grid">
+        <div class="earn-field">
+          <label>Which spouse is still working?</label>
+          <select id="earn-who" onchange="spRecalc()">
+            <option value="a">Spouse A</option>
+            <option value="b">Spouse B</option>
+            <option value="both">Both</option>
+          </select>
+        </div>
+        <div class="earn-field">
+          <label>Annual earned income – Spouse A ($)</label>
+          <input type="number" id="earn-a" value="50000" min="0" step="1000" oninput="spRecalc()">
+        </div>
+        <div class="earn-field">
+          <label>Annual earned income – Spouse B ($)</label>
+          <input type="number" id="earn-b" value="30000" min="0" step="1000" oninput="spRecalc()">
+        </div>
+        <div class="earn-field">
+          <label>Plan to work until age</label>
+          <input type="number" id="earn-until" value="65" min="60" max="75" oninput="spRecalc()">
+        </div>
+      </div>
+      <div class="earn-result" id="earn-result">Enter values to see impact.</div>
+    </div>
+    <p class="note-small" style="margin-top:8px;">2026 exempt amount: <strong>$22,320/yr</strong> (before FRA year). In the year you reach FRA: <strong>$59,520/yr</strong>, withheld at $1 for every $3 over. At FRA the withholding stops completely. Source: SSA.gov</p>
+  </div>
+
+  <!-- Strategy recommendation -->
+  <div class="strategy-box" id="sp-strategy" style="display:none;">
+    <div class="strategy-title"><i class="ti ti-bulb"></i> Recommended Strategy</div>
+    <div class="strategy-rec" id="sp-strategy-text"></div>
+    <div class="survivor-note" id="sp-survivor-note" style="margin-top:10px;"></div>
+  </div>
+
+  <!-- Combination grid -->
+  <div class="panel">
+    <p class="panel-title"><i class="ti ti-table"></i> Combined lifetime benefits — all claiming combinations</p>
+    <p style="font-size:10px;color:var(--text-muted);margin:0 0 10px;">Shows total combined SS income for both spouses including survivor benefit. <span style="background:rgba(29,158,117,0.14);color:#1D6B52;padding:1px 5px;border-radius:4px;font-weight:700;">Green = highest</span> &nbsp;<span style="background:rgba(178,34,52,0.07);color:#8B1A1A;padding:1px 5px;border-radius:4px;">Red = lowest</span></p>
+    <div id="combo-grid"><p style="font-size:12px;color:var(--text-muted);">Enter DOBs and benefit amounts above to see the combination grid.</p></div>
+  </div>
+
+</div><!-- end page-spousal -->
+
+</div><!-- app-wrap -->
 
 <script>
+/* ══ PAGE SWITCHING ══ */
+function switchPage(pg){
+  document.querySelectorAll('.page-content').forEach(el=>el.classList.remove('active'));
+  document.querySelectorAll('.page-tab').forEach(el=>el.classList.remove('active'));
+  document.getElementById('page-'+pg).classList.add('active');
+  document.getElementById('ptab-'+pg).classList.add('active');
+}
+
+/* ══ FACTS ══ */
 const FACTS=[
   {cat:"Claiming age",text:"Age 62 is the most popular time to claim — about half of new retirees still claim before full retirement age, despite permanently reducing their monthly benefit by up to 30%.",src:"Source: SSA benefit data; Motley Fool analysis"},
   {cat:"Optimal timing",text:"A 2022 National Bureau of Economic Research study found over 90% of workers aged 45–62 would maximize lifetime benefits by waiting until age 70. Yet fewer than 1% actually do.",src:"Source: NBER Working Paper, 2022"},
@@ -381,61 +427,105 @@ const FACTS=[
   {cat:"Delaying = 8%/yr",text:"For every month past your full retirement age you delay (up to 70), your benefit grows 2/3 of 1% — that's 8% per year, guaranteed. Hard to match with any other investment.",src:"Source: SSA benefit calculation rules"},
   {cat:"SS taxation",text:"Up to 85% of your Social Security benefit may be federally taxable if your provisional income (AGI + tax-exempt interest + 50% of SS) exceeds $34,000 single / $44,000 joint. These thresholds haven't changed since 1994.",src:"Source: IRS Publication 915; SmartAsset 2026"},
   {cat:"Indiana",text:"Indiana has about 1.4 million SS beneficiaries. The average retired worker in Indiana receives roughly $1,850/month — slightly below the national average.",src:"Source: SSA state-level benefit data"},
-  {cat:"International: Netherlands",text:"The Netherlands consistently ranks among the world's top pension systems. Combined employee/employer SS taxes run up to 17.9% — nearly triple the U.S. rate — with a higher income replacement rate.",src:"Source: GoBalanceAM; Yahoo Finance"},
-  {cat:"International: Canada",text:"Canada's retirement system has three pillars: Old Age Security (gov-funded), Canada Pension Plan (4.95% payroll), and private workplace pensions. The lower payroll rate is offset by broader employer pension coverage.",src:"Source: Alliance Asset Management"},
-  {cat:"International: Nordic",text:"Denmark, Sweden, Norway, and Finland are world leaders in social protection — broad public benefits, high coverage, well-funded pensions — but also carry much higher income tax rates.",src:"Source: DisabilityHelp.org; OECD"},
   {cat:"Spousal benefit",text:"A non-working spouse can claim up to 50% of the working spouse's full retirement age (FRA) benefit. Delaying past FRA doesn't increase the spousal benefit — it's capped at 50% of the FRA amount.",src:"Source: SSA spousal benefit rules, ssa.gov"},
+  {cat:"Survivor benefit",text:"When a spouse dies, the survivor can step up to the deceased spouse's benefit if it's larger. This is why the higher earner delaying to 70 is so powerful — it permanently raises the survivor's lifetime income.",src:"Source: SSA survivor benefit rules"},
+  {cat:"Earnings test",text:"If you claim before FRA and keep working, SSA withholds $1 for every $2 earned above $22,320/yr (2026). At FRA, they recalculate and permanently increase your benefit to credit the withheld months.",src:"Source: SSA.gov, retirement earnings test"},
+  {cat:"Divorce benefit",text:"If you were married at least 10 years and are now divorced, you may be eligible for up to 50% of your ex-spouse's FRA benefit — without affecting their benefit or new spouse's benefit.",src:"Source: SSA spousal and divorced spouse rules"},
 ];
-
-let factIdx=0, factTimer=null;
-function showFact(i){
-  factIdx=(i+FACTS.length)%FACTS.length;
-  const el=document.getElementById('fact-inner');
-  el.style.opacity=0;
-  setTimeout(()=>{
-    document.getElementById('f-cat').textContent=FACTS[factIdx].cat;
-    document.getElementById('f-text').textContent=FACTS[factIdx].text;
-    document.getElementById('f-src').textContent=FACTS[factIdx].src;
-    document.getElementById('fact-counter').textContent=(factIdx+1)+' / '+FACTS.length;
-    buildDots(); el.style.opacity=1;
-  },300);
-}
-function buildDots(){
-  const d=document.getElementById('fact-dots'); d.innerHTML='';
-  const show=Math.min(FACTS.length,9);
-  const start=Math.max(0,Math.min(factIdx-4,FACTS.length-show));
-  for(let i=start;i<start+show;i++){
-    const s=document.createElement('span');
-    s.className='dot-fact'+(i===factIdx?' on':'');
-    const idx=i; s.onclick=()=>{clearInterval(factTimer);showFact(idx);startTimer();};
-    d.appendChild(s);
-  }
-}
+let factIdx=0,factTimer=null;
+function showFact(i){factIdx=(i+FACTS.length)%FACTS.length;const el=document.getElementById('fact-inner');el.style.opacity=0;setTimeout(()=>{document.getElementById('f-cat').textContent=FACTS[factIdx].cat;document.getElementById('f-text').textContent=FACTS[factIdx].text;document.getElementById('f-src').textContent=FACTS[factIdx].src;document.getElementById('fact-counter').textContent=(factIdx+1)+' / '+FACTS.length;buildDots();el.style.opacity=1;},300);}
+function buildDots(){const d=document.getElementById('fact-dots');d.innerHTML='';const show=Math.min(FACTS.length,9);const start=Math.max(0,Math.min(factIdx-4,FACTS.length-show));for(let i=start;i<start+show;i++){const s=document.createElement('span');s.className='dot-fact'+(i===factIdx?' on':'');const idx=i;s.onclick=()=>{clearInterval(factTimer);showFact(idx);startTimer();};d.appendChild(s);}}
 function nextFact(){clearInterval(factTimer);showFact(factIdx+1);startTimer();}
 function prevFact(){clearInterval(factTimer);showFact(factIdx-1);startTimer();}
 function startTimer(){factTimer=setInterval(()=>showFact(factIdx+1),12000);}
 
-const DEFAULT=[
-  {age:62,benefit:712},{age:63,benefit:758},{age:64,benefit:809},
-  {age:65,benefit:876},{age:66,benefit:944},{age:67,benefit:1011},
-  {age:68,benefit:1038},{age:69,benefit:1119},{age:70,benefit:1254}
-];
+/* ══ INDIVIDUAL CALCULATOR ══ */
+const DEFAULT=[{age:62,benefit:712},{age:63,benefit:758},{age:64,benefit:809},{age:65,benefit:876},{age:66,benefit:944},{age:67,benefit:1011},{age:68,benefit:1038},{age:69,benefit:1119},{age:70,benefit:1254}];
 let rowCount=0;
-function addRow(age,benefit){
-  const c=document.getElementById('input-rows'),i=rowCount++;
-  const d=document.createElement('div'); d.className='inp-row'; d.id='r'+i;
-  d.innerHTML=`<span style="font-size:11px;color:var(--text-muted);min-width:24px;">Age</span>
-    <input type="number" class="age-inp" id="a${i}" value="${age||''}" min="55" max="75" step="0.5" oninput="recalc()">
-    <span style="font-size:11px;color:var(--text-muted);">$</span>
-    <input type="number" class="ben-inp" id="b${i}" value="${benefit||''}" min="0" step="1" placeholder="monthly" oninput="recalc()">
-    <button class="del-btn" onclick="delRow(${i})" aria-label="Remove"><i class="ti ti-x" aria-hidden="true"></i></button>`;
+function addRow(age,benefit){const c=document.getElementById('input-rows'),i=rowCount++;const d=document.createElement('div');d.className='inp-row';d.id='r'+i;d.innerHTML=`<span style="font-size:11px;color:var(--text-muted);min-width:24px;">Age</span><input type="number" class="age-inp" id="a${i}" value="${age||''}" min="55" max="75" step="0.5" oninput="recalc()"><span style="font-size:11px;color:var(--text-muted);">$</span><input type="number" class="ben-inp" id="b${i}" value="${benefit||''}" min="0" step="1" placeholder="monthly" oninput="recalc()"><button class="del-btn" onclick="delRow(${i})" aria-label="Remove"><i class="ti ti-x" aria-hidden="true"></i></button>`;c.appendChild(d);}
+function delRow(i){const e=document.getElementById('r'+i);if(e)e.remove();recalc();}
+function getData(){const rows=[];for(let i=0;i<rowCount;i++){const ae=document.getElementById('a'+i),be=document.getElementById('b'+i);if(!ae||!be)continue;const a=parseFloat(ae.value),b=parseFloat(be.value);if(!isNaN(a)&&!isNaN(b)&&b>0)rows.push({age:a,benefit:b});}return rows.sort((a,b)=>a.age-b.age);}
+
+function calcTotal(claimAge,monthly,deathAge,colaRate,useInvest,invRate){
+  if(deathAge<=claimAge)return 0;
+  const totalMonths=Math.round((deathAge-claimAge)*12);
+  const colaM=Math.pow(1+colaRate/100,1/12)-1;
+  const invM=Math.pow(1+invRate/100,1/12)-1;
+  if(!useInvest){let total=0,check=monthly;for(let mo=0;mo<totalMonths;mo++){total+=check;check*=(1+colaM);}return total;}
+  let fv=0,check=monthly;for(let mo=0;mo<totalMonths;mo++){fv+=check*Math.pow(1+invM,totalMonths-1-mo);check*=(1+colaM);}return fv;
+}
+
+function calcAnnualTax(annualSS,otherIncome,taxExemptInt,filing,marginalRate){
+  const half=annualSS*0.5,provisional=otherIncome+taxExemptInt+half;
+  const t1=filing==='joint'?32000:25000,t2=filing==='joint'?44000:34000,capAmt=filing==='joint'?6000:4500;
+  let taxable=0;
+  if(provisional<=t1)taxable=0;
+  else if(provisional<=t2)taxable=Math.min(0.5*annualSS,0.5*(provisional-t1));
+  else{const tier2base=Math.min(capAmt,0.5*annualSS);taxable=Math.min(0.85*annualSS,tier2base+0.85*(provisional-t2));}
+  return taxable*marginalRate;
+}
+
+const BAR_COLORS=['#3C3B6E','#B22234','#5B59A0','#8B1A1A','#2A2870','#7a5c00','#1a472a'];
+const BAR_TEXT=['#e8e6ff','#ffe8e8','#e5e3ff','#ffe0e0','#d8d5ff','#fff4cc','#d6f0de'];
+function fmt(n){return'$'+Math.round(n).toLocaleString();}
+function ageStr(a){return Number.isInteger(a)?String(a):a.toFixed(1);}
+
+function recalc(){
+  const lifeAge=parseFloat(document.getElementById('life').value);
+  document.getElementById('life-v').textContent=Number.isInteger(lifeAge)?lifeAge:lifeAge.toFixed(1);
+  const cola=parseFloat(document.getElementById('cola').value);
+  document.getElementById('cola-v').textContent=cola.toFixed(1)+'%';
+  const useInvest=document.getElementById('inv-on').checked;
+  document.getElementById('inv-wrap').style.display=useInvest?'':'none';
+  const invRate=parseFloat(document.getElementById('inv-rate').value)||5;
+  if(document.getElementById('inv-v'))document.getElementById('inv-v').textContent=invRate.toFixed(1)+'%';
+  const useTax=document.getElementById('tax-on').checked;
+  document.getElementById('tax-wrap').style.display=useTax?'':'none';
+  const otherIncome=useTax?parseFloat(document.getElementById('other-income').value)||0:0;
+  const taxExempt=useTax?parseFloat(document.getElementById('tax-exempt').value)||0:0;
+  const filing=useTax?document.getElementById('filing').value:'single';
+  const marginalRate=useTax?parseFloat(document.getElementById('tax-rate').value):0;
+  const rows=getData();
+  if(!rows.length)return;
+  const results=rows.map(r=>{const gross=calcTotal(r.age,r.benefit,lifeAge,cola,useInvest,invRate);const years=Math.max(0,lifeAge-r.age);const annualSS=r.benefit*12;const annualTax=useTax?calcAnnualTax(annualSS,otherIncome,taxExempt,filing,marginalRate):0;const totalTax=annualTax*years;return{age:r.age,benefit:r.benefit,gross,net:gross-totalTax,annualTax,years};});
+  const compareVal=r=>useTax?r.net:r.gross;
+  const maxVal=Math.max(...results.map(compareVal));
+  let html='';
+  results.forEach((r,i)=>{
+    if(r.gross<=0){html+=`<div class="res-row"><span class="res-age">Age ${ageStr(r.age)}</span><div class="bar-track" style="flex:1;"></div><span class="res-total" style="color:var(--text-muted);">—</span>${useTax?'<span class="res-aftertax"></span>':''}<span style="min-width:32px;"></span></div>`;return;}
+    const val=compareVal(r),pct=maxVal>0?(val/maxVal*100):0,isWin=Math.abs(val-maxVal)<1;
+    const bc=BAR_COLORS[i%BAR_COLORS.length],tc=BAR_TEXT[i%BAR_TEXT.length];
+    html+=`<div class="res-row"><span class="res-age">Age ${ageStr(r.age)}</span><div class="bar-track"><div class="res-bar" style="width:${pct.toFixed(1)}%;background:${bc};color:${tc};">${pct>30?'$'+r.benefit.toLocaleString()+'/mo':''}</div></div><span class="res-total">${fmt(r.gross)}</span>${useTax?`<span class="res-aftertax">${fmt(r.net)} after tax</span>`:''} ${isWin?'<span class="best-badge">best</span>':'<span style="min-width:32px;"></span>'}</div>`;
+  });
+  const sorted=[...results].filter(r=>r.gross>0).sort((a,b)=>compareVal(b)-compareVal(a));
+  if(sorted.length>=2){const diff=compareVal(sorted[0])-compareVal(sorted[1]);html+=`<p class="summary-note">Claiming at <strong style="color:var(--usa-blue);">age ${ageStr(sorted[0].age)}</strong> yields <strong style="color:var(--usa-red);">${fmt(diff)}</strong> more${useTax?' (after estimated tax)':''}${useInvest?' including investment growth':''}.</p>`;}
+  if(useTax&&sorted.length){const r=sorted[0];const annSS=r.benefit*12;const prov=otherIncome+taxExempt+annSS*0.5;const t1=filing==='joint'?32000:25000,t2=filing==='joint'?44000:34000;const tier=prov<=t1?'0%':prov<=t2?'up to 50%':'up to 85%';html+=`<p class="summary-note" style="margin-top:5px;padding:6px 8px;background:rgba(60,59,110,0.06);border-radius:var(--radius-md);border:0.5px solid var(--border-light);">At age ${ageStr(sorted[0].age)}: provisional income ≈ <strong style="color:var(--usa-blue);">${fmt(prov)}/yr</strong> → <strong style="color:var(--usa-red);">${tier}</strong> of SS taxable · est. SS tax ≈ <strong>${fmt(r.annualTax)}/yr</strong></p>`;}
+  document.getElementById('results').innerHTML=html;
+}
+
+/* ══ SPOUSAL TAB ══ */
+let spRowCountA=0, spRowCountB=0;
+
+const SP_DEFAULT_A=[{age:62,benefit:1800},{age:63,benefit:1920},{age:64,benefit:2050},{age:65,benefit:2230},{age:66,benefit:2410},{age:67,benefit:2590},{age:68,benefit:2740},{age:69,benefit:2960},{age:70,benefit:3240}];
+const SP_DEFAULT_B=[{age:62,benefit:700},{age:63,benefit:746},{age:64,benefit:795},{age:65,benefit:864},{age:66,benefit:932},{age:67,benefit:1000},{age:68,benefit:1056},{age:69,benefit:1140},{age:70,benefit:1248}];
+
+function spAddRow(who, age, benefit){
+  const which=who==='a'?'A':'B';
+  const color=who==='a'?'var(--usa-blue)':'var(--usa-red)';
+  const cnt=who==='a'?spRowCountA++:spRowCountB++;
+  const id=`sp-${who}-${cnt}`;
+  const c=document.getElementById(`sp-rows-${who}`);
+  const d=document.createElement('div');d.className='inp-row';d.id=id;
+  d.innerHTML=`<span style="font-size:11px;color:var(--text-muted);min-width:24px;">Age</span><input type="number" class="age-inp" id="spa-${who}-${cnt}" value="${age||''}" min="55" max="75" step="0.5" oninput="spRecalc()"><span style="font-size:11px;color:var(--text-muted);">$</span><input type="number" class="ben-inp" id="spb-${who}-${cnt}" value="${benefit||''}" min="0" step="1" placeholder="monthly" oninput="spRecalc()"><button class="del-btn" onclick="spDelRow('${id}')" style="border-color:rgba(${who==='a'?'60,59,110':'178,34,52'},0.3);color:${color};"><i class="ti ti-x"></i></button>`;
   c.appendChild(d);
 }
-function delRow(i){const e=document.getElementById('r'+i);if(e)e.remove();recalc();}
-function getData(){
+function spDelRow(id){const e=document.getElementById(id);if(e)e.remove();spRecalc();}
+
+function spGetData(who){
   const rows=[];
-  for(let i=0;i<rowCount;i++){
-    const ae=document.getElementById('a'+i),be=document.getElementById('b'+i);
+  const cnt=who==='a'?spRowCountA:spRowCountB;
+  for(let i=0;i<cnt;i++){
+    const ae=document.getElementById(`spa-${who}-${i}`),be=document.getElementById(`spb-${who}-${i}`);
     if(!ae||!be)continue;
     const a=parseFloat(ae.value),b=parseFloat(be.value);
     if(!isNaN(a)&&!isNaN(b)&&b>0)rows.push({age:a,benefit:b});
@@ -443,130 +533,317 @@ function getData(){
   return rows.sort((a,b)=>a.age-b.age);
 }
 
-/* ── Core math ── */
-function calcTotal(claimAge, monthly, deathAge, colaRate, useInvest, invRate){
-  if(deathAge<=claimAge)return 0;
-  const totalMonths=Math.round((deathAge-claimAge)*12);
-  const colaM=Math.pow(1+colaRate/100,1/12)-1;
-  const invM=Math.pow(1+invRate/100,1/12)-1;
-
-  if(!useInvest){
-    let total=0, check=monthly;
-    for(let mo=0;mo<totalMonths;mo++){ total+=check; check*=(1+colaM); }
-    return total;
-  }
-
-  /* Investment mode: each check grows from date received to death age.
-     Month 0 check compounds for (totalMonths-1) more months, etc. */
-  let fv=0, check=monthly;
-  for(let mo=0;mo<totalMonths;mo++){
-    fv += check * Math.pow(1+invM, totalMonths-1-mo);
-    check *= (1+colaM);
-  }
-  return fv;
+function calcAgeFromDob(dobStr){
+  if(!dobStr)return null;
+  const dob=new Date(dobStr);
+  const today=new Date();
+  let age=today.getFullYear()-dob.getFullYear();
+  const m=today.getMonth()-dob.getMonth();
+  if(m<0||(m===0&&today.getDate()<dob.getDate()))age--;
+  return age;
 }
 
-/* ── SS tax estimate (IRS Pub 915 provisional income formula) ── */
-function calcAnnualTax(annualSS, otherIncome, taxExemptInt, filing, marginalRate){
-  const half=annualSS*0.5;
-  const provisional=otherIncome+taxExemptInt+half;
-  const t1=filing==='joint'?32000:25000;
-  const t2=filing==='joint'?44000:34000;
-  const capAmt=filing==='joint'?6000:4500;
-
-  let taxable=0;
-  if(provisional<=t1){ taxable=0; }
-  else if(provisional<=t2){
-    taxable=Math.min(0.5*annualSS, 0.5*(provisional-t1));
-  } else {
-    const tier2base=Math.min(capAmt, 0.5*annualSS);
-    const tier2extra=0.85*(provisional-t2);
-    taxable=Math.min(0.85*annualSS, tier2base+tier2extra);
-  }
-  return taxable * marginalRate;
+function calcFRA(dobStr){
+  if(!dobStr)return null;
+  const dob=new Date(dobStr);
+  const birthYear=dob.getFullYear();
+  if(birthYear<=1937)return 65;
+  if(birthYear<=1942){const months=Math.min(6,(birthYear-1937)*2);return 65+months/12;}
+  if(birthYear===1943||birthYear<=1954)return 66;
+  if(birthYear<=1959){const months=Math.min(6,(birthYear-1954)*2);return 66+months/12;}
+  return 67;
 }
 
-const BAR_COLORS=['#3C3B6E','#B22234','#5B59A0','#8B1A1A','#2A2870','#7a5c00','#1a472a'];
-const BAR_TEXT  =['#e8e6ff','#ffe8e8','#e5e3ff','#ffe0e0','#d8d5ff','#fff4cc','#d6f0de'];
+function fraStr(fra){
+  if(fra===null)return '';
+  if(Number.isInteger(fra))return `FRA: age ${fra}`;
+  const yrs=Math.floor(fra);
+  const mos=Math.round((fra-yrs)*12);
+  return `FRA: age ${yrs} and ${mos} month${mos!==1?'s':''}`;
+}
 
-function fmt(n){return'$'+Math.round(n).toLocaleString();}
-function ageStr(a){return Number.isInteger(a)?String(a):a.toFixed(1);}
+/* Calculate lifetime SS total for one person, simple version with COLA */
+function spCalcLifetime(claimAge, monthlyBenefit, deathAge, cola){
+  if(!claimAge||!monthlyBenefit||deathAge<=claimAge)return 0;
+  const months=Math.round((deathAge-claimAge)*12);
+  const colaM=Math.pow(1+cola/100,1/12)-1;
+  let total=0,check=monthlyBenefit;
+  for(let mo=0;mo<months;mo++){total+=check;check*=(1+colaM);}
+  return total;
+}
 
-function recalc(){
-  const lifeAge=parseFloat(document.getElementById('life').value);
-  document.getElementById('life-v').textContent=Number.isInteger(lifeAge)?lifeAge:lifeAge.toFixed(1);
+/* Get benefit at a given claim age by interpolating from the data rows */
+function getBenefitAtAge(rows, targetAge){
+  if(!rows.length)return 0;
+  // Exact match
+  const exact=rows.find(r=>r.age===targetAge);
+  if(exact)return exact.benefit;
+  // Interpolate
+  const below=rows.filter(r=>r.age<targetAge).sort((a,b)=>b.age-a.age)[0];
+  const above=rows.filter(r=>r.age>targetAge).sort((a,b)=>a.age-b.age)[0];
+  if(!below)return above?above.benefit:0;
+  if(!above)return below.benefit;
+  const ratio=(targetAge-below.age)/(above.age-below.age);
+  return below.benefit+(above.benefit-below.benefit)*ratio;
+}
 
-  const cola=parseFloat(document.getElementById('cola').value);
-  document.getElementById('cola-v').textContent=cola.toFixed(1)+'%';
+/* Spousal benefit = 50% of A's FRA benefit, capped */
+function getSpousalBenefit(rowsA, fraA){
+  const fraAmt=getBenefitAtAge(rowsA, fraA||67);
+  return fraAmt*0.5;
+}
 
-  const useInvest=document.getElementById('inv-on').checked;
-  document.getElementById('inv-wrap').style.display=useInvest?'':'none';
-  const invRate=parseFloat(document.getElementById('inv-rate').value)||5;
-  if(document.getElementById('inv-v'))document.getElementById('inv-v').textContent=invRate.toFixed(1)+'%';
+function spRecalc(){
+  const dobA=document.getElementById('dob-a').value;
+  const dobB=document.getElementById('dob-b').value;
+  const cola=parseFloat(document.getElementById('sp-cola').value)||2.5;
+  document.getElementById('sp-cola-v').textContent=cola.toFixed(1)+'%';
+  const lifeA=parseFloat(document.getElementById('sp-life-a').value)||85;
+  const lifeB=parseFloat(document.getElementById('sp-life-b').value)||87;
 
-  const useTax=document.getElementById('tax-on').checked;
-  document.getElementById('tax-wrap').style.display=useTax?'':'none';
+  // Update age displays
+  const ageA=calcAgeFromDob(dobA);
+  const ageB=calcAgeFromDob(dobB);
+  const fraA=calcFRA(dobA);
+  const fraB=calcFRA(dobB);
 
-  const otherIncome=useTax?parseFloat(document.getElementById('other-income').value)||0:0;
-  const taxExempt=useTax?parseFloat(document.getElementById('tax-exempt').value)||0:0;
-  const filing=useTax?document.getElementById('filing').value:'single';
-  const marginalRate=useTax?parseFloat(document.getElementById('tax-rate').value):0;
+  if(ageA!==null){
+    document.getElementById('age-display-a').textContent=`Age ${ageA}`;
+    document.getElementById('fra-display-a').textContent=fraStr(fraA);
+  }else{document.getElementById('age-display-a').textContent='—';document.getElementById('fra-display-a').textContent='Enter DOB to see age & FRA';}
+  if(ageB!==null){
+    document.getElementById('age-display-b').textContent=`Age ${ageB}`;
+    document.getElementById('fra-display-b').textContent=fraStr(fraB);
+  }else{document.getElementById('age-display-b').textContent='—';document.getElementById('fra-display-b').textContent='Enter DOB to see age & FRA';}
 
-  const rows=getData();
-  if(!rows.length)return;
+  // Age gap
+  const gapRow=document.getElementById('age-gap-row');
+  if(ageA!==null&&ageB!==null){
+    gapRow.style.display='block';
+    const gap=Math.abs(ageA-ageB);
+    const older=ageA>=ageB?'Spouse A':'Spouse B';
+    document.getElementById('age-gap-text').textContent=`${gap}-year age gap · ${older} is older`;
+    let gapNote='';
+    if(gap>=5)gapNote='With a larger age gap, the older spouse\'s survivor benefit has greater impact — delaying the higher earner\'s claim is especially valuable.';
+    else if(gap>=2)gapNote='Moderate age gap — coordinating claim ages can meaningfully affect combined lifetime income.';
+    else gapNote='Close in age — their benefits will likely run in parallel for most of retirement.';
+    document.getElementById('age-gap-note').textContent=gapNote;
+  }else{gapRow.style.display='none';}
 
-  const results=rows.map(r=>{
-    const gross=calcTotal(r.age,r.benefit,lifeAge,cola,useInvest,invRate);
-    const years=Math.max(0,lifeAge-r.age);
-    const annualSS=r.benefit*12;
-    const annualTax=useTax?calcAnnualTax(annualSS,otherIncome,taxExempt,filing,marginalRate):0;
-    const totalTax=annualTax*years;
-    return{age:r.age,benefit:r.benefit,gross,net:gross-totalTax,annualTax,years};
-  });
+  // Earnings test
+  const earnOn=document.getElementById('earn-on').checked;
+  document.getElementById('earn-wrap').style.display=earnOn?'':'none';
+  if(earnOn)calcEarningsTest(ageA,ageB,fraA,fraB);
 
-  const compareVal=r=>useTax?r.net:r.gross;
-  const maxVal=Math.max(...results.map(compareVal));
+  // Get rows
+  const rowsA=spGetData('a');
+  const rowsB=spGetData('b');
+
+  if(!rowsA.length||(!rowsB.length&&!fraA)){
+    document.getElementById('combo-grid').innerHTML='<p style="font-size:12px;color:var(--text-muted);">Enter DOBs and benefit amounts above to see the combination grid.</p>';
+    document.getElementById('sp-strategy').style.display='none';
+    return;
+  }
+
+  // Determine Spouse B's effective benefit rows
+  // If B has no rows, use spousal benefit (50% of A's FRA) for all B ages
+  const spousalBen=getSpousalBenefit(rowsA,fraA||67);
+  let effectiveRowsB=rowsB;
+  if(!rowsB.length){
+    // Build synthetic B rows from spousal benefit
+    const claimAges=rowsA.map(r=>r.age);
+    effectiveRowsB=claimAges.map(a=>({age:a, benefit:Math.min(spousalBen, getBenefitAtAge(rowsA,a)*0.5)}));
+  }
+
+  // Build combination grid
+  buildComboGrid(rowsA, effectiveRowsB, lifeA, lifeB, cola, rowsB.length===0);
+  buildStrategy(rowsA, effectiveRowsB, lifeA, lifeB, cola, fraA, fraB, ageA, ageB, rowsB.length===0);
+}
+
+function calcEarningsTest(ageA, ageB, fraA, fraB){
+  const who=document.getElementById('earn-who').value;
+  const earnA=parseFloat(document.getElementById('earn-a').value)||0;
+  const earnB=parseFloat(document.getElementById('earn-b').value)||0;
+  const untilAge=parseFloat(document.getElementById('earn-until').value)||65;
+  const EXEMPT=22320, RATE=0.5;
 
   let html='';
-  results.forEach((r,i)=>{
-    if(r.gross<=0){
-      html+=`<div class="res-row"><span class="res-age">Age ${ageStr(r.age)}</span><div class="bar-track" style="flex:1;"></div><span class="res-total" style="color:var(--text-muted);">—</span>${useTax?'<span class="res-aftertax"></span>':''}<span style="min-width:32px;"></span></div>`;
-      return;
-    }
-    const val=compareVal(r);
-    const pct=maxVal>0?(val/maxVal*100):0;
-    const isWin=Math.abs(val-maxVal)<1;
-    const bc=BAR_COLORS[i%BAR_COLORS.length];
-    const tc=BAR_TEXT[i%BAR_TEXT.length];
-    html+=`<div class="res-row">
-      <span class="res-age">Age ${ageStr(r.age)}</span>
-      <div class="bar-track"><div class="res-bar" style="width:${pct.toFixed(1)}%;background:${bc};color:${tc};">${pct>30?'$'+r.benefit.toLocaleString()+'/mo':''}</div></div>
-      <span class="res-total">${fmt(r.gross)}</span>
-      ${useTax?`<span class="res-aftertax">${fmt(r.net)} after tax</span>`:''}
-      ${isWin?'<span class="best-badge">best</span>':'<span style="min-width:32px;"></span>'}
-    </div>`;
-  });
+  const calc=(earn,fra,age,label)=>{
+    if(earn<=EXEMPT){return`<div><strong>${label}:</strong> Income of $${earn.toLocaleString()} is below the $22,320 exempt amount — no withholding. You can claim early and work without penalty.</div>`;}
+    const excess=earn-EXEMPT;
+    const annualWithheld=excess*RATE;
+    const monthsWithheld=Math.min(annualWithheld/((earn||1000)/12*0.1), 12);
+    const yearsUntilFRA=fra?Math.max(0,fra-age):2;
+    const totalWithheld=annualWithheld*Math.min(yearsUntilFRA, untilAge-age);
+    return`<div style="margin-bottom:6px;"><strong>${label}:</strong> Earning $${earn.toLocaleString()}/yr = <span style="color:var(--usa-red);">~$${Math.round(annualWithheld).toLocaleString()}/yr withheld</span> before FRA. Total withheld before FRA: ~$${Math.round(totalWithheld).toLocaleString()}. <span style="color:#1D6B52;font-weight:600;">These dollars are NOT lost</span> — SSA credits them back as a permanently higher monthly check at FRA. Effective claim age moves out ~${Math.round(totalWithheld/((earn||1)/12))} months.</div>`;
+  };
 
-  const sorted=[...results].filter(r=>r.gross>0).sort((a,b)=>compareVal(b)-compareVal(a));
-  if(sorted.length>=2){
-    const diff=compareVal(sorted[0])-compareVal(sorted[1]);
-    html+=`<p class="summary-note">Claiming at <strong style="color:var(--usa-blue);">age ${ageStr(sorted[0].age)}</strong> yields <strong style="color:var(--usa-red);">${fmt(diff)}</strong> more${useTax?' (after estimated tax)':''}${useInvest?' including investment growth':''}.</p>`;
-  }
-
-  if(useTax&&sorted.length){
-    const r=sorted[0];
-    const annSS=r.benefit*12;
-    const prov=otherIncome+taxExempt+annSS*0.5;
-    const t1=filing==='joint'?32000:25000, t2=filing==='joint'?44000:34000;
-    const tier=prov<=t1?'0%':prov<=t2?'up to 50%':'up to 85%';
-    html+=`<p class="summary-note" style="margin-top:5px;padding:6px 8px;background:rgba(60,59,110,0.06);border-radius:var(--radius-md);border:0.5px solid var(--border-light);">At age ${ageStr(sorted[0].age)}: provisional income ≈ <strong style="color:var(--usa-blue);">${fmt(prov)}/yr</strong> → <strong style="color:var(--usa-red);">${tier}</strong> of SS taxable · est. SS tax ≈ <strong>${fmt(r.annualTax)}/yr</strong></p>`;
-  }
-
-  document.getElementById('results').innerHTML=html;
+  if(who==='a'||who==='both') html+=calc(earnA,fraA,ageA||63,'Spouse A');
+  if(who==='b'||who==='both') html+=calc(earnB,fraB,ageB||63,'Spouse B');
+  document.getElementById('earn-result').innerHTML=html||'No data.';
 }
 
+function buildComboGrid(rowsA, rowsB, lifeA, lifeB, cola, bIsSpousal){
+  // For each combination of (A claim age, B claim age) compute combined lifetime
+  // Survivor benefit: when the first spouse dies, the survivor gets the higher of their own or the deceased's benefit
+  const claimA=rowsA.map(r=>r.age);
+  const claimB=rowsB.map(r=>r.age);
+  if(!claimA.length||!claimB.length){
+    document.getElementById('combo-grid').innerHTML='<p style="font-size:12px;color:var(--text-muted);">Add benefit rows for both spouses to see the grid.</p>';
+    return;
+  }
+
+  // Build matrix
+  const matrix=[];
+  let globalMin=Infinity,globalMax=-Infinity;
+  claimA.forEach(ca=>{
+    const row=[];
+    claimB.forEach(cb=>{
+      const benA=getBenefitAtAge(rowsA,ca);
+      const benB=getBenefitAtAge(rowsB,cb);
+
+      // Phase 1: both alive until first death
+      // Assume A dies at lifeA, B dies at lifeB
+      const firstDeath=Math.min(lifeA,lifeB);
+      const secondDeath=Math.max(lifeA,lifeB);
+      const survivorIsA=lifeA>lifeB;
+
+      // Both collecting from their respective claim ages until first death
+      const startA=Math.max(ca,cb); // earliest both could be collecting (conservative: use each's own)
+      const totalA_phase1=spCalcLifetime(ca, benA, firstDeath, cola);
+      const totalB_phase1=spCalcLifetime(cb, benB, firstDeath, cola);
+
+      // Phase 2: survivor collects higher of their own or deceased's benefit
+      // We need to figure out what each benefit is at time of death (COLA-adjusted)
+      const yearsA=Math.max(0,firstDeath-ca);
+      const yearsB=Math.max(0,firstDeath-cb);
+      const benA_atDeath=benA*Math.pow(1+cola/100,yearsA);
+      const benB_atDeath=benB*Math.pow(1+cola/100,yearsB);
+
+      let survivorBen;
+      if(survivorIsA){
+        // A survives: gets higher of own or B's benefit
+        survivorBen=Math.max(benA_atDeath, benB_atDeath);
+        // A's own benefit at first death vs B's at first death
+      }else{
+        // B survives: gets higher of own or A's benefit
+        survivorBen=Math.max(benB_atDeath, benA_atDeath);
+      }
+
+      // Survivor collects from firstDeath to secondDeath
+      const survivorYears=Math.max(0,secondDeath-firstDeath);
+      const survivorMonths=Math.round(survivorYears*12);
+      const colaM=Math.pow(1+cola/100,1/12)-1;
+      let survivorTotal=0,check=survivorBen;
+      for(let mo=0;mo<survivorMonths;mo++){survivorTotal+=check;check*=(1+colaM);}
+
+      const combined=totalA_phase1+totalB_phase1+survivorTotal;
+      row.push({ca,cb,combined,benA,benB});
+      if(combined>globalMax)globalMax=combined;
+      if(combined<globalMin)globalMin=combined;
+    });
+    matrix.push(row);
+  });
+
+  // Build HTML table
+  let html='<div class="combo-grid-wrap"><table class="combo-table"><thead><tr>';
+  html+=`<th style="background:var(--usa-navy);">A claim age →<br><span style="font-weight:400;font-size:9px;opacity:.7;">B claim age ↓</span></th>`;
+  claimA.forEach(ca=>html+=`<th>Spouse A<br>claims ${ca}</th>`);
+  html+='</tr></thead><tbody>';
+
+  claimB.forEach((cb,bi)=>{
+    html+=`<tr><td class="cell-label">Spouse B<br>claims ${cb}</td>`;
+    matrix.forEach((row,ai)=>{
+      const {combined}=row[bi];
+      const isBest=Math.abs(combined-globalMax)<1;
+      const isWorst=Math.abs(combined-globalMin)<1&&!isBest;
+      html+=`<td class="${isBest?'cell-best':isWorst?'cell-worst':''}">${fmt(combined)}</td>`;
+    });
+    html+='</tr>';
+  });
+  html+='</tbody></table></div>';
+  if(bIsSpousal)html+=`<p style="font-size:10px;color:var(--text-muted);margin-top:6px;"><i class="ti ti-info-circle" style="font-size:11px;vertical-align:-2px;"></i> Spouse B has no SS statement entered — Spouse B's benefit shown uses the spousal benefit (50% of Spouse A's FRA amount).</p>`;
+  html+=`<p style="font-size:10px;color:var(--text-muted);margin-top:5px;">Includes survivor benefit step-up: surviving spouse collects the higher of the two benefits after the first death. Life expectancy: Spouse A = ${document.getElementById('sp-life-a').value}, Spouse B = ${document.getElementById('sp-life-b').value}.</p>`;
+  document.getElementById('combo-grid').innerHTML=html;
+}
+
+function buildStrategy(rowsA, rowsB, lifeA, lifeB, cola, fraA, fraB, ageA, ageB, bIsSpousal){
+  const claimA=rowsA.map(r=>r.age);
+  const claimB=rowsB.map(r=>r.age);
+  if(!claimA.length||!claimB.length)return;
+
+  // Find best combo
+  let bestVal=-Infinity,bestCA=claimA[0],bestCB=claimB[0];
+  const firstDeath=Math.min(lifeA,lifeB),secondDeath=Math.max(lifeA,lifeB),survivorIsA=lifeA>lifeB;
+
+  claimA.forEach(ca=>{
+    claimB.forEach(cb=>{
+      const benA=getBenefitAtAge(rowsA,ca),benB=getBenefitAtAge(rowsB,cb);
+      const totalA=spCalcLifetime(ca,benA,firstDeath,cola);
+      const totalB=spCalcLifetime(cb,benB,firstDeath,cola);
+      const yearsA=Math.max(0,firstDeath-ca),yearsB=Math.max(0,firstDeath-cb);
+      const benA_d=benA*Math.pow(1+cola/100,yearsA),benB_d=benB*Math.pow(1+cola/100,yearsB);
+      const survivorBen=survivorIsA?Math.max(benA_d,benB_d):Math.max(benB_d,benA_d);
+      const survMonths=Math.round(Math.max(0,secondDeath-firstDeath)*12);
+      const colaM=Math.pow(1+cola/100,1/12)-1;
+      let survTotal=0,check=survivorBen;
+      for(let mo=0;mo<survMonths;mo++){survTotal+=check;check*=(1+colaM);}
+      const combined=totalA+totalB+survTotal;
+      if(combined>bestVal){bestVal=combined;bestCA=ca;bestCB=cb;}
+    });
+  });
+
+  // Also compute worst for reference
+  let worstVal=Infinity;
+  claimA.forEach(ca=>{claimB.forEach(cb=>{
+    const benA=getBenefitAtAge(rowsA,ca),benB=getBenefitAtAge(rowsB,cb);
+    const totalA=spCalcLifetime(ca,benA,firstDeath,cola);
+    const totalB=spCalcLifetime(cb,benB,firstDeath,cola);
+    const yearsA=Math.max(0,firstDeath-ca),yearsB=Math.max(0,firstDeath-cb);
+    const benA_d=benA*Math.pow(1+cola/100,yearsA),benB_d=benB*Math.pow(1+cola/100,yearsB);
+    const survivorBen=survivorIsA?Math.max(benA_d,benB_d):Math.max(benB_d,benA_d);
+    const survMonths=Math.round(Math.max(0,secondDeath-firstDeath)*12);
+    const colaM=Math.pow(1+cola/100,1/12)-1;
+    let survTotal=0,check=survivorBen;
+    for(let mo=0;mo<survMonths;mo++){survTotal+=check;check*=(1+colaM);}
+    const combined=totalA+totalB+survTotal;
+    if(combined<worstVal)worstVal=combined;
+  });});
+  const diff=bestVal-worstVal;
+
+  const box=document.getElementById('sp-strategy');
+  box.style.display='block';
+
+  const higherBenA=getBenefitAtAge(rowsA,70)>getBenefitAtAge(rowsB,70)?'Spouse A':'Spouse B';
+
+  let txt=`Based on the entered benefits and life expectancies (Spouse A to <strong>${lifeA}</strong>, Spouse B to <strong>${lifeB}</strong>), the <span class="highlight">optimal combination</span> is <strong>Spouse A claims at ${bestCA}</strong> and <strong>Spouse B claims at ${bestCB}</strong>, producing a combined lifetime total of approximately <strong>${fmt(bestVal)}</strong>.`;
+  txt+=` Compared to the least optimal combination, this strategy is worth <strong style="color:#1D6B52;">${fmt(diff)} more</strong> over the couple's lifetime.`;
+
+  if(bestCA===70)txt+=` <br><br>Spouse A delaying to 70 maximizes the survivor benefit — whichever spouse outlives the other will receive this larger check for the rest of their life.`;
+  else if(bestCA<=63)txt+=` <br><br>With these life expectancy assumptions, Spouse A claiming earlier produces a higher combined total — though if either spouse lives significantly longer, delaying may become more advantageous.`;
+
+  if(bIsSpousal)txt+=` <br><br>Since Spouse B has no personal SS record entered, their benefit is estimated as the spousal benefit (50% of Spouse A's FRA amount). If Spouse B does have a work history, entering their statement amounts may change the recommendation.`;
+
+  document.getElementById('sp-strategy-text').innerHTML=txt;
+
+  // Survivor note
+  const survivorLabel=survivorIsA?'Spouse A':'Spouse B';
+  const higherAt70_A=getBenefitAtAge(rowsA,70);
+  const higherAt70_B=getBenefitAtAge(rowsB,70);
+  const biggerBenefit=higherAt70_A>higherAt70_B?'Spouse A':'Spouse B';
+  document.getElementById('sp-survivor-note').innerHTML=`<strong>⚠ Survivor benefit note:</strong> When the first spouse passes, the survivor steps up to the higher of the two benefits. Since <strong>${biggerBenefit}</strong> has the larger benefit, their claiming age has the biggest impact on the surviving spouse's long-term income. The later <strong>${biggerBenefit}</strong> claims, the higher the survivor check will be — for the rest of the surviving spouse's life.`;
+}
+
+/* ── INIT ── */
 DEFAULT.forEach(r=>addRow(r.age,r.benefit));
-showFact(0); startTimer(); recalc();
+SP_DEFAULT_A.forEach(r=>spAddRow('a',r.age,r.benefit));
+SP_DEFAULT_B.forEach(r=>spAddRow('b',r.age,r.benefit));
+
+// Set default DOBs (example couple: Spouse A born 1960, Spouse B born 1963)
+document.getElementById('dob-a').value='1960-06-15';
+document.getElementById('dob-b').value='1963-03-22';
+
+showFact(0);startTimer();recalc();spRecalc();
 </script>
 </body>
 </html>
