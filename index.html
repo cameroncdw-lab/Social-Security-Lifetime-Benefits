@@ -120,6 +120,33 @@ button:hover{background:rgba(201,168,76,0.12);}
 .dot-fact{width:5px;height:5px;border-radius:50%;background:rgba(60,59,110,0.2);cursor:pointer;transition:all .2s;}
 .dot-fact.on{background:var(--usa-blue);width:12px;border-radius:3px;}
 .fact-inner{transition:opacity .5s;}
+/* WIDOW TAB */
+.wid-strategy-card{border-radius:var(--radius-lg);border:1px solid var(--border-mid);padding:12px 14px;margin-bottom:10px;background:rgba(255,252,240,0.5);}
+.wid-strategy-card.best{border-color:var(--green);background:var(--green-bg);}
+.wid-strategy-card.survivor{border-color:rgba(178,34,52,0.3);background:rgba(178,34,52,0.04);}
+.wid-strat-title{font-size:11px;font-weight:700;color:var(--text-primary);margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.wid-strat-title.best{color:var(--green);}
+.wid-strat-title.survivor{color:var(--usa-red);}
+.wid-strat-body{font-size:11px;color:var(--text-secondary);line-height:1.7;}
+.wid-strat-total{font-size:14px;font-weight:700;color:var(--usa-blue);margin-top:6px;}
+.wid-strat-total.best{color:var(--green);}
+/* DIVORCED TAB */
+.elig-box{border-radius:var(--radius-md);padding:9px 12px;font-size:11px;line-height:1.6;margin-bottom:0;}
+.elig-ok{background:var(--green-bg);border:1px solid rgba(29,158,117,0.3);color:#1a4a3a;}
+.elig-warn{background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.35);color:#5a4a00;}
+.elig-no{background:rgba(178,34,52,0.08);border:1px solid rgba(178,34,52,0.25);color:#6B1A2A;}
+.div-compare-row{display:flex;align-items:center;gap:8px;margin-bottom:10px;padding:8px 10px;border-radius:var(--radius-md);border:0.5px solid var(--border-light);background:rgba(255,252,240,0.5);}
+.div-compare-row.winner{border-color:var(--green);background:var(--green-bg);}
+.div-compare-row.survivor-row{border-color:rgba(178,34,52,0.25);background:rgba(178,34,52,0.05);}
+.div-age-lbl{font-size:12px;font-weight:600;min-width:52px;color:var(--text-primary);}
+.div-bar-wrap{flex:1;}
+.div-bar-own{height:10px;border-radius:2px;background:var(--usa-blue);margin-bottom:3px;}
+.div-bar-ex{height:10px;border-radius:2px;background:var(--usa-red);}
+.div-val{font-size:11px;font-weight:600;min-width:76px;text-align:right;}
+.div-badge{font-size:9px;padding:2px 6px;border-radius:4px;white-space:nowrap;}
+.div-badge-own{background:rgba(60,59,110,0.1);color:var(--usa-blue);}
+.div-badge-ex{background:rgba(178,34,52,0.1);color:var(--usa-red);}
+.div-badge-win{background:var(--green-bg);color:var(--green);font-weight:700;}
 .info-note{margin-top:10px;padding:9px 11px;border-radius:var(--radius-md);border:0.5px solid rgba(178,34,52,0.25);background:rgba(178,34,52,0.06);font-size:10px;color:var(--usa-red);line-height:1.55;}
 /* SPOUSAL */
 .spouse-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:12px;}
@@ -184,7 +211,9 @@ button:hover{background:rgba(201,168,76,0.12);}
 
 <div class="page-tabs">
   <button class="page-tab active" onclick="switchPage('single')" id="ptab-single"><i class="ti ti-user"></i> Individual Calculator</button>
-  <button class="page-tab" onclick="switchPage('spousal')" id="ptab-spousal"><i class="ti ti-heart"></i> Spousal Strategy</button>
+  <button class="page-tab" onclick="switchPage('spousal')" id="ptab-spousal"><i class="ti ti-heart"></i> Spousal Calculator</button>
+  <button class="page-tab" onclick="switchPage('divorced')" id="ptab-divorced"><i class="ti ti-heart-broken"></i> Divorced Spouse</button>
+  <button class="page-tab" onclick="switchPage('widow')" id="ptab-widow"><i class="ti ti-candle"></i> Widow / Widower</button>
 </div>
 
 <!-- ════════════════════════════════════════
@@ -215,7 +244,7 @@ button:hover{background:rgba(201,168,76,0.12);}
   <!-- Earnings test -->
   <div class="panel">
     <p class="panel-title"><i class="ti ti-briefcase"></i> Still working while collecting?</p>
-    <p style="font-size:11px;color:var(--text-secondary);line-height:1.65;margin-bottom:8px;">If you claim <strong>before FRA</strong> and keep earning, SSA withholds $1 for every $2 you earn above <strong>$22,320/yr</strong> (2026). In your FRA calendar year the limit rises to <strong>$59,520</strong> ($1 per $3). <span style="color:var(--green);font-weight:600;">These withheld months are NOT lost</span> — at FRA your monthly benefit is permanently raised to credit them back.</p>
+    <p style="font-size:11px;color:var(--text-secondary);line-height:1.65;margin-bottom:8px;">If you claim <strong>before FRA</strong> and keep earning above the limit, SSA withholds $1 for every $2 you earn above <strong>$22,320/yr</strong> (2026) by simply not sending those checks — you never receive them during that period, so you cannot spend or invest them. In your FRA calendar year the threshold rises to <strong>$59,520</strong> ($1 per $3). <span style="color:var(--green);font-weight:600;">The withheld months are not permanently lost</span> — at FRA your monthly benefit is raised to credit them back as a higher check going forward. The lifetime totals and bars below already account for this reduced cash flow during the working years.</p>
     <label class="toggle-row"><input type="checkbox" id="earn-on" onchange="recalc()"><span>Apply earnings test to my lifetime total</span></label>
     <div id="earn-wrap" style="display:none;" class="earn-inner">
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
@@ -223,7 +252,7 @@ button:hover{background:rgba(201,168,76,0.12);}
         <input type="number" id="earn-fra" value="67" min="65" max="67" step="0.1" style="width:60px;" oninput="recalc()">
         <span style="font-size:10px;color:var(--text-muted);">(born 1960 or later = 67)</span>
       </div>
-      <p style="font-size:10px;color:var(--text-muted);margin:0 0 6px;">Enter your annual earned income for each year you work while collecting. The tool automatically applies withholding to each claiming age — so every bar in the chart below reflects what you'd actually receive in your pocket that year:</p>
+      <p style="font-size:10px;color:var(--text-muted);margin:0 0 6px;"><strong>Earned income only</strong> — wages, salary, or self-employment net earnings. Do <strong>not</strong> include capital gains, dividends, interest, rental income, pensions, IRA/401k withdrawals, or Social Security itself. Only earned income triggers the withholding test. The tool applies withholding to each claiming age automatically — every bar reflects what you'd actually receive in your pocket:</p>
       <div id="earn-income-rows"></div>
       <button onclick="addEarnRow()" style="border-color:rgba(60,59,110,0.35);color:var(--usa-blue);font-size:11px;height:26px;margin-top:3px;"><i class="ti ti-plus"></i> Add year</button>
       <div id="earn-table-wrap" style="margin-top:10px;"></div>
@@ -380,7 +409,245 @@ button:hover{background:rgba(201,168,76,0.12);}
     <div id="combo-grid"><p style="font-size:12px;color:var(--text-muted);">Enter DOBs and benefit amounts above.</p></div>
   </div>
 
+
 </div><!-- page-spousal -->
+
+<!-- ════════════════════════════════════════
+     TAB 3 — DIVORCED SPOUSE
+════════════════════════════════════════ -->
+<div class="page-content" id="page-divorced">
+
+  <!-- What this really means -->
+  <div class="panel" style="background:var(--usa-navy);border-color:var(--usa-gold);">
+    <p class="panel-title" style="color:var(--usa-gold-light);border-color:var(--usa-gold);"><i class="ti ti-info-circle"></i> What divorced spouse benefits really mean</p>
+    <p style="font-size:11px;color:rgba(255,252,240,0.85);line-height:1.75;margin-bottom:8px;">If you were married for at least 10 years and have not remarried, you may be able to collect a Social Security benefit based on your ex-spouse's record — even if they have already remarried, and even if your divorce was decades ago. <strong style="color:var(--usa-gold-light);">Your claim does not reduce or affect your ex-spouse's benefit in any way.</strong></p>
+    <p style="font-size:11px;color:rgba(255,252,240,0.85);line-height:1.75;margin-bottom:8px;">The amount you receive is based on <strong style="color:var(--usa-gold-light);">your ex's FRA benefit — not the amount they actually collect.</strong> So if your ex claimed early at 62 and gets $1,400/month, their FRA benefit might have been $2,000 — and you would be eligible for up to $1,000 (50% of the $2,000 FRA amount). Their decision to claim early does not reduce what you can receive.</p>
+    <p style="font-size:11px;color:rgba(255,252,240,0.85);line-height:1.75;margin-bottom:8px;">SSA compares your own earned benefit against the divorced spouse benefit and pays you whichever is higher — you do not receive both added together. If your own benefit at FRA is already larger than 50% of your ex's FRA benefit, you would simply collect your own. If the divorced spouse benefit is larger, SSA pays the difference on top of your own benefit to bring you up to that amount.</p>
+    <p style="font-size:11px;color:rgba(255,252,240,0.85);line-height:1.75;margin-bottom:8px;"><strong style="color:var(--usa-gold-light);">If you claim before your own FRA, the divorced spouse benefit is reduced</strong> — just like your own benefit would be. Claiming at 62 instead of your FRA reduces the divorced spouse benefit by roughly 30–35%. Waiting until your FRA gets you the full 50% of your ex's FRA amount.</p>
+    <div style="background:rgba(178,34,52,0.2);border:0.5px solid rgba(178,34,52,0.5);border-radius:var(--radius-md);padding:9px 12px;font-size:10px;color:rgba(255,220,220,0.95);line-height:1.65;">
+      <strong>SSA will not proactively tell you about this benefit when you apply.</strong> They process whatever you ask for. Many people who qualify never claim it simply because they did not know to ask. This tool helps you understand your options before you contact SSA.
+    </div>
+  </div>
+
+  <!-- Step 1: situation -->
+  <div class="panel">
+    <p class="panel-title"><i class="ti ti-list-check"></i> Step 1 — Your situation</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:12px;">
+      <div class="sfield">
+        <label>Is your ex-spouse living or deceased?</label>
+        <select id="div-ex-status" onchange="divRecalc()">
+          <option value="living">Living</option>
+          <option value="deceased">Deceased</option>
+        </select>
+      </div>
+      <div class="sfield"><label>Years you were married</label><input type="number" id="div-years" value="12" min="0" max="60" oninput="divRecalc()"></div>
+      <div class="sfield"><label>Your current age</label><input type="number" id="div-age" value="64" min="50" max="100" oninput="divRecalc()"></div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:12px;">
+      <div class="sfield">
+        <label>Your current marital status</label>
+        <select id="div-remarried" onchange="divRecalc()">
+          <option value="no">Not remarried</option>
+          <option value="before60">Remarried before age 60</option>
+          <option value="after60">Remarried at age 60 or later</option>
+        </select>
+      </div>
+      <div class="sfield" id="div-divorce-yrs-wrap">
+        <label>Years since divorce</label>
+        <input type="number" id="div-since-divorce" value="3" min="0" max="80" oninput="divRecalc()">
+      </div>
+      <div class="sfield" id="div-ex-age-wrap">
+        <label>Ex-spouse's current age (if living)</label>
+        <input type="number" id="div-ex-age" value="66" min="50" max="100" oninput="divRecalc()">
+      </div>
+    </div>
+    <!-- Remarriage warning box -->
+    <div id="div-remarriage-note" style="display:none;"></div>
+    <!-- Eligibility result -->
+    <div id="div-eligibility"></div>
+  </div>
+
+  <!-- Step 2: benefits — shown after eligibility confirmed -->
+  <div id="div-step2" style="display:none;">
+
+    <!-- Ex filed? -->
+    <div class="panel" id="div-ex-filed-panel">
+      <p class="panel-title"><i class="ti ti-user-check"></i> Step 2 — Ex-spouse's Social Security</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:10px;">
+        <div class="sfield" id="div-ex-filed-wrap">
+          <label>Has your ex-spouse started collecting SS yet?</label>
+          <select id="div-ex-filed" onchange="divRecalc()">
+            <option value="yes">Yes — already collecting</option>
+            <option value="no">No — not yet filed</option>
+            <option value="unknown">Not sure</option>
+          </select>
+        </div>
+        <div class="sfield">
+          <label>Ex's birth year</label>
+          <input type="number" id="div-ex-birthyr" value="1958" min="1940" max="1975" style="width:100%;" oninput="divRecalc()">
+        </div>
+      </div>
+      <div id="div-ex-filed-note" style="margin-bottom:10px;"></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+        <div>
+          <p style="font-size:10px;font-weight:600;color:var(--text-muted);margin-bottom:6px;">Ex's FRA benefit — enter if known:</p>
+          <div class="sfield"><label>Ex's monthly benefit at their FRA ($)</label><input type="number" id="div-ex-fra" value="" min="0" step="10" placeholder="from their SS statement" style="width:100%;" oninput="divRecalc()"></div>
+        </div>
+        <div>
+          <p style="font-size:10px;font-weight:600;color:var(--text-muted);margin-bottom:6px;">Don't have their statement? Estimate from earnings:</p>
+          <div class="sfield"><label>Ex's avg. annual earned income (career)</label><input type="number" id="div-ex-earn" value="" min="0" step="1000" placeholder="e.g. 75000" style="width:100%;" oninput="divRecalc()"></div>
+        </div>
+      </div>
+      <div id="div-ex-estimate"></div>
+    </div>
+
+    <!-- Your own benefit -->
+    <div class="panel">
+      <p class="panel-title" style="color:var(--usa-blue);border-color:var(--usa-blue);"><i class="ti ti-user"></i> Step 3 — Your own SS benefit</p>
+      <p style="font-size:10px;color:var(--text-muted);margin:0 0 8px;">From your own SS statement at <a href="https://www.ssa.gov/myaccount" target="_blank" style="color:var(--usa-gold);">ssa.gov/myaccount</a>. Enter the monthly amounts at each age you are considering claiming.</p>
+      <div id="div-own-rows"></div>
+      <button onclick="divAddOwnRow()" style="border-color:rgba(60,59,110,0.35);color:var(--usa-blue);font-size:11px;height:26px;margin-top:3px;"><i class="ti ti-plus"></i> Add age</button>
+    </div>
+
+    <!-- Settings -->
+    <div class="panel">
+      <p class="panel-title"><i class="ti ti-sliders"></i> Settings</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;align-items:end;">
+        <div>
+          <label style="font-size:10px;color:var(--text-muted);display:block;margin-bottom:3px;"><strong>Your</strong> life expectancy (years)</label>
+          <div class="ctrl-row" style="margin-bottom:0;"><input type="range" id="div-life" min="63" max="110" step="0.5" value="85" oninput="divRecalc()"><span class="ctrl-val" id="div-life-v" style="margin-left:6px;">85</span></div>
+          <p class="note-small">How long <em>you</em> expect to live — affects which benefit produces more over your lifetime.</p>
+        </div>
+        <div>
+          <label style="font-size:10px;color:var(--text-muted);display:block;margin-bottom:3px;"><strong>Ex-spouse's</strong> life expectancy (years) <span id="div-ex-life-label-note" style="font-style:italic;"></span></label>
+          <input type="number" id="div-ex-life" value="82" min="63" max="110" style="width:74px;" oninput="divRecalc()">
+          <p class="note-small">Only used to project the survivor scenario — when the ex might pass and trigger the survivor step-up.</p>
+        </div>
+        <div>
+          <div class="ctrl-row" style="margin-bottom:2px;"><span class="ctrl-lbl">COLA/yr</span><input type="range" id="div-cola" min="0" max="6" step="0.1" value="2.5" oninput="divRecalc()"><span class="ctrl-val" id="div-cola-v">2.5%</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Results -->
+    <div class="panel">
+      <p class="panel-title"><i class="ti ti-chart-bar"></i> Benefit comparison & next steps</p>
+      <div id="div-results"><p style="font-size:12px;color:var(--text-muted);">Complete the steps above to see your comparison.</p></div>
+    </div>
+
+  </div><!-- div-step2 -->
+
+
+</div><!-- page-divorced -->
+
+<!-- ════════════════════════════════════════
+     TAB 4 — WIDOW / WIDOWER
+════════════════════════════════════════ -->
+<div class="page-content" id="page-widow">
+
+  <!-- What this means plain English -->
+  <div class="panel" style="background:var(--usa-navy);border-color:var(--usa-gold);">
+    <p class="panel-title" style="color:var(--usa-gold-light);border-color:var(--usa-gold);"><i class="ti ti-info-circle"></i> What widow/widower benefits really mean</p>
+    <p style="font-size:11px;color:rgba(255,252,240,0.85);line-height:1.75;margin-bottom:8px;">If your spouse has passed away, you may be entitled to receive <strong style="color:var(--usa-gold-light);">their Social Security benefit</strong> — up to 100% of what they were receiving (or would have received at FRA). This is separate from and often larger than your own earned benefit.</p>
+    <p style="font-size:11px;color:rgba(255,252,240,0.85);line-height:1.75;margin-bottom:8px;">The most important thing to understand: <strong style="color:var(--usa-gold-light);">you do not have to claim both benefits at the same time.</strong> You can claim one early and switch to the other later — this is one of the most valuable and least-known strategies in Social Security. For example, you could claim your own benefit at 62 and switch to the survivor benefit at FRA, or claim the survivor benefit early and let your own benefit grow until 70.</p>
+    <div style="background:rgba(178,34,52,0.2);border:0.5px solid rgba(178,34,52,0.5);border-radius:var(--radius-md);padding:9px 12px;font-size:10px;color:rgba(255,220,220,0.95);line-height:1.65;">
+      <strong>SSA will not automatically tell you about this strategy.</strong> When you call or visit to apply, they process what you ask for. It is your responsibility to know your options and ask the right questions — which is exactly what this tool is for.
+    </div>
+  </div>
+
+  <!-- Step 1 -->
+  <div class="panel">
+    <p class="panel-title"><i class="ti ti-list-check"></i> Step 1 — Your situation</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:12px;">
+      <div class="sfield"><label>Your current age</label><input type="number" id="wid-age" value="62" min="50" max="100" oninput="widRecalc()"></div>
+      <div class="sfield"><label>Your gender</label>
+        <select id="wid-gender" onchange="widRecalc()">
+          <option value="female">Female</option>
+          <option value="male">Male</option>
+        </select>
+      </div>
+      <div class="sfield"><label>Your current marital status</label>
+        <select id="wid-remarried" onchange="widRecalc()">
+          <option value="no">Not remarried</option>
+          <option value="before60">Remarried before age 60</option>
+          <option value="after60">Remarried at age 60 or later</option>
+        </select>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:10px;">
+      <div class="sfield"><label>Years you were married</label><input type="number" id="wid-years" value="15" min="0" max="80" oninput="widRecalc()"></div>
+      <div class="sfield"><label>Your FRA (age)</label><input type="number" id="wid-fra" value="67" min="65" max="67" step="0.5" oninput="widRecalc()"></div>
+      <div class="sfield"><label>Are you disabled?</label>
+        <select id="wid-disabled" onchange="widRecalc()">
+          <option value="no">No</option>
+          <option value="yes">Yes — receiving disability</option>
+        </select>
+      </div>
+    </div>
+    <div id="wid-eligibility"></div>
+  </div>
+
+  <!-- Step 2: benefits -->
+  <div id="wid-step2" style="display:none;">
+
+    <!-- Deceased spouse info -->
+    <div class="panel">
+      <p class="panel-title" style="color:var(--usa-red);border-color:var(--usa-red);"><i class="ti ti-user"></i> Step 2 — Your deceased spouse</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:10px;">
+        <div class="sfield"><label>Did they claim SS before passing?</label>
+          <select id="wid-sp-claimed" onchange="widRecalc()">
+            <option value="yes">Yes — they were collecting</option>
+            <option value="no">No — they had not yet filed</option>
+          </select>
+        </div>
+        <div class="sfield"><label>Their age at death</label><input type="number" id="wid-sp-death-age" value="68" min="40" max="100" oninput="widRecalc()"></div>
+        <div class="sfield"><label>Their FRA (age)</label><input type="number" id="wid-sp-fra" value="67" min="65" max="67" step="0.5" oninput="widRecalc()"></div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+        <div>
+          <p style="font-size:10px;font-weight:600;color:var(--text-muted);margin-bottom:6px;">If known — enter their actual monthly benefit:</p>
+          <div class="sfield"><label>Their monthly SS benefit at time of death ($)</label><input type="number" id="wid-sp-benefit" value="" min="0" step="10" placeholder="from their award letter" style="width:100%;" oninput="widRecalc()"></div>
+          <p class="note-small">If they had not yet claimed, enter what their benefit would have been at their FRA.</p>
+        </div>
+        <div>
+          <p style="font-size:10px;font-weight:600;color:var(--text-muted);margin-bottom:6px;">Don't have their amount? Estimate from earnings:</p>
+          <div class="sfield"><label>Their avg. annual career earnings ($)</label><input type="number" id="wid-sp-earn" value="" min="0" step="1000" placeholder="e.g. 80000" style="width:100%;" oninput="widRecalc()"></div>
+        </div>
+      </div>
+      <div id="wid-sp-estimate"></div>
+    </div>
+
+    <!-- Your own benefit -->
+    <div class="panel">
+      <p class="panel-title" style="color:var(--usa-blue);border-color:var(--usa-blue);"><i class="ti ti-user"></i> Step 3 — Your own SS benefit</p>
+      <p style="font-size:10px;color:var(--text-muted);margin:0 0 8px;">From your own statement at <a href="https://www.ssa.gov/myaccount" target="_blank" style="color:var(--usa-gold);">ssa.gov/myaccount</a>. Enter monthly amounts at each age you are considering claiming.</p>
+      <div id="wid-own-rows"></div>
+      <button onclick="widAddOwnRow()" style="border-color:rgba(60,59,110,0.35);color:var(--usa-blue);font-size:11px;height:26px;margin-top:3px;"><i class="ti ti-plus"></i> Add age</button>
+    </div>
+
+    <!-- Settings -->
+    <div class="panel">
+      <p class="panel-title"><i class="ti ti-sliders"></i> Settings</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+        <div>
+          <label style="font-size:10px;color:var(--text-muted);display:block;margin-bottom:3px;"><strong>Your</strong> life expectancy — affects which strategy produces more over your lifetime</label>
+          <div class="ctrl-row" style="margin-bottom:0;"><input type="range" id="wid-life" min="63" max="110" step="0.5" value="85" oninput="widRecalc()"><span class="ctrl-val" id="wid-life-v" style="margin-left:6px;">85</span></div>
+        </div>
+        <div>
+          <div class="ctrl-row" style="margin-bottom:2px;"><span class="ctrl-lbl">COLA/yr</span><input type="range" id="wid-cola" min="0" max="6" step="0.1" value="2.5" oninput="widRecalc()"><span class="ctrl-val" id="wid-cola-v">2.5%</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Results -->
+    <div class="panel">
+      <p class="panel-title"><i class="ti ti-chart-bar"></i> What this means for you</p>
+      <div id="wid-results"><p style="font-size:12px;color:var(--text-muted);">Complete the steps above to see your options.</p></div>
+    </div>
+
+  </div><!-- wid-step2 -->
+
+</div><!-- page-widow -->
 </div><!-- app-wrap -->
 
 <!-- ═══════════════════════════════════════
@@ -764,12 +1031,39 @@ function recalc(){
       ?(incRows.length?calcRawWithEarnings(r.age,r.benefit,lifeAge,cola,earnFRA,incRows):calcRaw(r.age,r.benefit,lifeAge,cola))
       :calcDelayCost(base.age,base.benefit,r.age,r.benefit,lifeAge,cola,invRate);
 
-    // Tax
-    const years=Math.max(0,lifeAge-r.age);
-    const annTax=useTax?calcAnnualTax(r.benefit*12,otherInc,taxExempt,filing,margRate):0;
-    const taxTotal=annTax*years;
+    // Tax — for years with earnings test withholding, scale SS tax by
+    // the fraction of checks actually received that year (fewer checks = less taxable SS).
+    // Post-FRA uses adjustedAtFRA benefit; non-withheld years use full benefit.
+    let taxTotal=0;
+    if(useTax){
+      const totalYears=Math.max(0,lifeAge-r.age);
+      if(incRows.length){
+        const{schedule,adjustedAtFRA}=applyEarningsTest(r.age,r.benefit,earnFRA,incRows);
+        const schedMap={};schedule.forEach(s=>schedMap[s.age]=s);
+        // Year-by-year tax through life expectancy
+        for(let yr=0;yr<totalYears;yr++){
+          const curAge=r.age+yr;
+          const fracYear=Math.min(1,totalYears-yr);
+          let annualSS;
+          if(curAge<earnFRA){
+            const s=schedMap[Math.floor(curAge)];
+            const moRcvd=s?s.moReceived:12;
+            annualSS=r.benefit*(moRcvd/12)*12*fracYear;
+          } else {
+            annualSS=adjustedAtFRA*12*fracYear;
+          }
+          taxTotal+=calcAnnualTax(annualSS,otherInc,taxExempt,filing,margRate);
+        }
+      } else {
+        // No earnings test — flat annual tax across all years
+        const annTax=calcAnnualTax(r.benefit*12,otherInc,taxExempt,filing,margRate);
+        taxTotal=annTax*totalYears;
+      }
+    }
 
-    return{age:r.age,benefit:r.benefit,rawVal,invVal,delayVal,rawNet:rawVal-taxTotal,invNet:invVal-taxTotal,delayNet:delayVal-taxTotal,annTax};
+    // annTax used only for the provisional income display note — use full-year flat rate for that
+    const annTaxDisplay=useTax?calcAnnualTax(r.benefit*12,otherInc,taxExempt,filing,margRate):0;
+    return{age:r.age,benefit:r.benefit,rawVal,invVal,delayVal,rawNet:rawVal-taxTotal,invNet:invVal-taxTotal,delayNet:delayVal-taxTotal,annTax:annTaxDisplay};
   });
 
   // Build earnings test table — show for the earliest claim age that has withholding,
@@ -1054,6 +1348,526 @@ function spRecalc(){
   // strategy text and survivor note removed per compliance
 }
 
+/* ══════════════════════ TAB 3 — DIVORCED ══════════════════════ */
+let divOwnCount=0;
+
+function divAddOwnRow(age,benefit){
+  const i=divOwnCount++;const id='dor'+i;
+  const c=document.getElementById('div-own-rows');
+  const d=document.createElement('div');d.className='inp-row';d.id=id;
+  d.innerHTML=`<span style="font-size:11px;color:var(--text-muted);min-width:24px;">Age</span><input type="number" class="age-inp" id="doa${i}" value="${age||''}" min="62" max="75" step="0.5" oninput="divRecalc()"><span style="font-size:11px;color:var(--text-muted);">$</span><input type="number" class="ben-inp" id="divben${i}" value="${benefit||''}" min="0" step="1" placeholder="monthly" oninput="divRecalc()"><button class="del-btn" onclick="divDelOwnRow('${id}')"><i class="ti ti-x"></i></button>`;
+  c.appendChild(d);
+}
+function divDelOwnRow(id){const e=document.getElementById(id);if(e)e.remove();divRecalc();}
+function divGetOwnRows(){
+  const rows=[];
+  for(let i=0;i<divOwnCount;i++){
+    const ae=document.getElementById('doa'+i),be=document.getElementById('divben'+i);
+    if(!ae||!be)continue;
+    const a=parseFloat(ae.value),b=parseFloat(be.value);
+    if(!isNaN(a)&&!isNaN(b)&&b>0)rows.push({age:a,benefit:b});
+  }
+  return rows.sort((a,b)=>a.age-b.age);
+}
+
+function estimateBenefitFromEarnings(annualEarnings){
+  if(!annualEarnings||annualEarnings<=0)return 0;
+  const capped=Math.min(annualEarnings,184500);
+  const aime=capped/12;
+  const bp1=1174,bp2=7078;
+  let pia=0;
+  if(aime<=bp1)pia=aime*0.90;
+  else if(aime<=bp2)pia=bp1*0.90+(aime-bp1)*0.32;
+  else pia=bp1*0.90+(bp2-bp1)*0.32+(aime-bp2)*0.15;
+  return Math.round(pia);
+}
+
+function divGetExFRABenefit(){
+  const direct=parseFloat(document.getElementById('div-ex-fra').value);
+  if(!isNaN(direct)&&direct>0)return{benefit:direct,estimated:false};
+  const earn=parseFloat(document.getElementById('div-ex-earn').value);
+  if(!isNaN(earn)&&earn>0)return{benefit:estimateBenefitFromEarnings(earn),estimated:true};
+  return{benefit:0,estimated:false};
+}
+
+function divGetExFRA(){
+  const yr=parseFloat(document.getElementById('div-ex-birthyr').value)||1958;
+  if(yr>=1960)return 67;
+  if(yr>=1955)return 66.5;
+  if(yr>=1954)return 66;
+  return 66;
+}
+
+function divRecalc(){
+  const exStatus=document.getElementById('div-ex-status').value;
+  const years=parseFloat(document.getElementById('div-years').value)||0;
+  const myAge=parseFloat(document.getElementById('div-age').value)||64;
+  const remarried=document.getElementById('div-remarried').value;
+  const sinceDivorce=parseFloat(document.getElementById('div-since-divorce').value)||0;
+  const exAge=parseFloat(document.getElementById('div-ex-age').value)||66;
+  const life=parseFloat(document.getElementById('div-life').value)||85;
+  const exLife=parseFloat(document.getElementById('div-ex-life').value)||82;
+  const cola=parseFloat(document.getElementById('div-cola').value)||2.5;
+  document.getElementById('div-life-v').textContent=life;
+  document.getElementById('div-cola-v').textContent=cola.toFixed(1)+'%';
+
+  // Update ex life expectancy label note based on status
+  const exLifeNote=document.getElementById('div-ex-life-label-note');
+  if(exStatus==='deceased'){
+    exLifeNote.textContent='(not used — ex already deceased)';
+    document.getElementById('div-ex-life').disabled=true;
+    document.getElementById('div-ex-age-wrap').style.display='none';
+    document.getElementById('div-divorce-yrs-wrap').style.display='none';
+    document.getElementById('div-ex-filed-wrap').style.display='none';
+  } else {
+    exLifeNote.textContent='';
+    document.getElementById('div-ex-life').disabled=false;
+    document.getElementById('div-ex-age-wrap').style.display='';
+    document.getElementById('div-divorce-yrs-wrap').style.display='';
+    document.getElementById('div-ex-filed-wrap').style.display='';
+  }
+
+  // ── Remarriage warning ──
+  const remarriageBox=document.getElementById('div-remarriage-note');
+  if(remarried==='before60'){
+    remarriageBox.style.display='block';
+    remarriageBox.innerHTML=`<div class="elig-box elig-warn" style="margin-bottom:10px;">
+      <strong>⚠ Important — Remarriage before age 60:</strong> You are generally not eligible for divorced spouse benefits while remarried, regardless of how long you were previously married. <strong>However:</strong> if your current marriage ends (through divorce or your current spouse's death), your eligibility on your ex's record can be restored. Also note: if you are currently collecting divorced spouse benefits and you remarry, those benefits stop immediately — but can be reinstated if the new marriage ends.
+    </div>`;
+  } else if(remarried==='after60'){
+    remarriageBox.style.display='block';
+    remarriageBox.innerHTML=`<div class="elig-box elig-warn" style="margin-bottom:10px;">
+      <strong>Note — Remarriage at 60 or later:</strong> Remarrying at 60 or later does <em>not</em> affect your eligibility for divorced <strong>survivor</strong> benefits (if ex is deceased or passes later). However, it does disqualify you from regular divorced spouse benefits while that marriage continues. Consult SSA to confirm your specific situation.
+    </div>`;
+  } else {
+    remarriageBox.style.display='none';
+    remarriageBox.innerHTML='';
+  }
+
+  // ── Core eligibility logic ──
+  const marriageOk=years>=10;
+  const notRemarried=remarried==='no';
+  const survivorRemarriageOk=remarried==='no'||remarried==='after60';
+
+  let eligible=false;
+  let survivorEligible=false;
+  let eligHtml='';
+
+  if(exStatus==='deceased'){
+    // Survivor rules: age 60+, married 10+, not remarried before 60
+    survivorEligible=marriageOk&&survivorRemarriageOk;
+    const ageOk=myAge>=60;
+    if(!marriageOk){
+      eligHtml=`<div class="elig-box elig-no"><strong>Not eligible for survivor benefits.</strong> Marriage must have lasted at least 10 years. (Entered: ${years} years)</div>`;
+    } else if(remarried==='before60'){
+      eligHtml=`<div class="elig-box elig-no"><strong>Not eligible for divorced survivor benefits.</strong> Remarrying before age 60 disqualifies you from survivor benefits on an ex-spouse's record. If your current marriage ends, eligibility may be restored.</div>`;
+    } else if(!ageOk){
+      eligHtml=`<div class="elig-box elig-warn"><strong>Not yet eligible.</strong> Divorced survivor benefits require you to be at least age 60 (or 50 if disabled). You can claim in ${60-myAge} year(s).</div>`;
+    } else {
+      eligible=true;
+      eligHtml=`<div class="elig-box elig-ok"><strong>✓ Potentially eligible for divorced survivor benefits.</strong> Married ${years} years, ex has passed, you are age ${myAge}. You may claim up to <strong>100% of your ex's SS benefit</strong> — significantly more than the 50% available while the ex was living.<br><span style="font-size:10px;opacity:.8;display:block;margin-top:4px;">Confirm with SSA at <a href="https://www.ssa.gov/benefits/survivors" target="_blank" style="color:var(--green);">ssa.gov/benefits/survivors</a></span></div>`;
+    }
+  } else {
+    // Living ex rules: age 62+, married 10+, not remarried, ex age 62+ or divorced 2+ years
+    const ageOk=myAge>=62;
+    const exAgeOk=exAge>=62||sinceDivorce>=2;
+    survivorEligible=marriageOk&&survivorRemarriageOk;
+
+    if(!marriageOk){
+      eligHtml=`<div class="elig-box elig-no"><strong>Not eligible.</strong> Marriage must have lasted at least 10 years. (Entered: ${years} years)</div>`;
+    } else if(remarried==='before60'){
+      eligHtml=`<div class="elig-box elig-no"><strong>Not eligible while remarried before age 60.</strong> Divorced spouse benefits require you to be currently unmarried. If your current marriage ends, eligibility may be restored.</div>`;
+    } else if(!ageOk){
+      eligHtml=`<div class="elig-box elig-warn"><strong>Not yet eligible.</strong> You must be at least age 62. You can claim in ${62-myAge} year(s).</div>`;
+    } else if(!exAgeOk){
+      eligHtml=`<div class="elig-box elig-warn"><strong>Not yet eligible.</strong> Your ex-spouse must be at least 62, OR you must have been divorced at least 2 years. (Ex age: ${exAge}, divorced ${sinceDivorce} year(s) ago.) Check again in ${Math.max(0,Math.ceil(2-sinceDivorce))} year(s) or when ex turns 62.</div>`;
+    } else {
+      eligible=true;
+      const survivorNote=survivorEligible?`<br>✓ <strong>Survivor benefit:</strong> If your ex passes away, you could step up to <strong>100%</strong> of their benefit — as long as you remain unmarried (or remarried after 60).`:'';
+      eligHtml=`<div class="elig-box elig-ok"><strong>✓ Potentially eligible for divorced spouse benefits.</strong> Married ${years} years, ex is age ${exAge}, divorced ${sinceDivorce} year(s) ago, currently unmarried.${survivorNote}<br><span style="font-size:10px;opacity:.8;display:block;margin-top:4px;">Your ex does not need to have filed — and your claim does not reduce or affect their benefit in any way. Confirm eligibility at <a href="https://www.ssa.gov/benefits/retirement/planner/divspouse.html" target="_blank" style="color:var(--green);">ssa.gov</a></span></div>`;
+    }
+  }
+  document.getElementById('div-eligibility').innerHTML=eligHtml;
+
+  // ── Show/hide step 2 ──
+  document.getElementById('div-step2').style.display=(eligible)?'':'none';
+  if(!eligible)return;
+
+  // ── Ex filed? Note ──
+  if(exStatus==='living'){
+    const exFiled=document.getElementById('div-ex-filed').value;
+    let filedNote='';
+    if(exFiled==='no'&&sinceDivorce<2){
+      filedNote=`<div class="elig-box elig-warn">Your ex has not yet filed AND you have been divorced less than 2 years. You cannot claim on their record yet. Once you have been divorced 2 full years, you can claim regardless of whether they have filed.</div>`;
+    } else if(exFiled==='no'&&sinceDivorce>=2){
+      filedNote=`<div class="elig-box elig-ok" style="font-size:10px;">Your ex has not filed yet, but since you've been divorced ${sinceDivorce} years (2+ years required), you can still claim on their record now.</div>`;
+    } else if(exFiled==='yes'){
+      filedNote=`<div class="elig-box elig-ok" style="font-size:10px;">Your ex is already collecting SS — no restrictions on when you can claim based on their filing status.</div>`;
+    }
+    document.getElementById('div-ex-filed-note').innerHTML=filedNote;
+  } else {
+    document.getElementById('div-ex-filed-note').innerHTML='';
+  }
+
+  // ── Ex's benefit ──
+  const{benefit:exFRABen,estimated}=divGetExFRABenefit();
+  const exFRA=divGetExFRA();
+  if(estimated&&exFRABen>0){
+    document.getElementById('div-ex-estimate').innerHTML=`<p style="font-size:10px;color:var(--text-muted);padding:7px 10px;background:rgba(201,168,76,0.08);border-radius:var(--radius-md);margin-top:8px;">Estimated FRA benefit: <strong style="color:var(--usa-blue);">${fmt(exFRABen)}/mo</strong> — rough estimate based on career earnings using SSA's 2026 bend-point formula. Actual benefit depends on full 35-year earnings history. For precision, your ex (or you, if eligible) can check at <a href="https://www.ssa.gov/myaccount" target="_blank" style="color:var(--usa-gold);">ssa.gov/myaccount</a>.</p>`;
+  } else {
+    document.getElementById('div-ex-estimate').innerHTML='';
+  }
+
+  if(!exFRABen){
+    document.getElementById('div-results').innerHTML='<p style="font-size:12px;color:var(--text-muted);">Enter your ex-spouse FRA benefit amount (or career earnings estimate) above to see the comparison.</p>';
+    return;
+  }
+
+  // ── Build results ──
+  const ownRows=divGetOwnRows();
+  if(!ownRows.length){
+    document.getElementById('div-results').innerHTML='<p style="font-size:12px;color:var(--text-muted);">Add your own benefit amounts in Step 3 above.</p>';
+    return;
+  }
+
+  // Divorced spousal benefit = 50% of ex's FRA (living) or 100% (deceased survivor)
+  const divFRABen=exStatus==='deceased'?exFRABen:exFRABen*0.5;
+  const divLabel=exStatus==='deceased'?'Divorced survivor (100% of ex)':'Divorced spousal (50% of ex FRA)';
+
+  // My FRA — approximate from age (simplified; could add DOB)
+  const myFRA=myAge<=62?67:67;
+
+  let html='';
+
+  // ── Legend ──
+  html+=`<div style="display:flex;gap:16px;font-size:10px;color:var(--text-muted);margin-bottom:10px;">
+    <span style="display:flex;align-items:center;gap:4px;"><span style="width:10px;height:10px;border-radius:2px;background:var(--usa-blue);display:inline-block;"></span>Your own benefit</span>
+    <span style="display:flex;align-items:center;gap:4px;"><span style="width:10px;height:10px;border-radius:2px;background:var(--usa-red);display:inline-block;"></span>${divLabel}</span>
+  </div>`;
+
+  const maxBarVal=Math.max(divFRABen,...ownRows.map(r=>r.benefit));
+  let overallBestVal=0,overallBestAge=null,overallBestSource='';
+
+  ownRows.forEach(r=>{
+    // Apply early claiming reduction to divorced benefit if claiming before YOUR FRA
+    const moEarly=Math.max(0,(myFRA-r.age)*12);
+    const redPct=moEarly<=36?moEarly*0.005:36*0.005+(moEarly-36)*0.00417;
+    const divBenAtAge=exStatus==='deceased'
+      // Survivor: reduced differently — 28.5% max reduction if claimed at 60
+      ? exFRABen*Math.max(0.715,1-Math.max(0,(myFRA-r.age)*12)*0.00476)
+      : Math.max(0,divFRABen*(1-redPct));
+
+    const ownLifetime=calcRaw(r.age,r.benefit,life,cola);
+    const divLifetime=calcRaw(r.age,divBenAtAge,life,cola);
+    // SSA pays the HIGHER of own vs divorced — you can't double-dip
+    const effectiveBen=Math.max(r.benefit,divBenAtAge);
+    const effectiveLifetime=Math.max(ownLifetime,divLifetime);
+    const source=r.benefit>=divBenAtAge?'Your own':'Divorced '+(exStatus==='deceased'?'survivor':'spousal');
+
+    if(effectiveLifetime>overallBestVal){overallBestVal=effectiveLifetime;overallBestAge=r.age;overallBestSource=source;}
+
+    html+=`<div class="div-compare-row ${ownLifetime<divLifetime?'winner':''}">
+      <span class="div-age-lbl">Age ${r.age}</span>
+      <div class="div-bar-wrap">
+        <div style="display:flex;align-items:center;gap:4px;margin-bottom:3px;">
+          <div class="div-bar-own" style="width:${Math.round(r.benefit/maxBarVal*160)}px;min-width:3px;"></div>
+          <span style="font-size:10px;color:var(--usa-blue);">${fmt(r.benefit)}/mo own · ${fmt(ownLifetime)} lifetime</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:4px;">
+          <div class="div-bar-ex" style="width:${Math.round(divBenAtAge/maxBarVal*160)}px;min-width:3px;"></div>
+          <span style="font-size:10px;color:var(--usa-red);">${fmt(divBenAtAge)}/mo ${divLabel}${moEarly>0?' (reduced for early claim)':''} · ${fmt(divLifetime)} lifetime</span>
+        </div>
+      </div>
+      <div style="text-align:right;min-width:90px;">
+        <div style="font-size:12px;font-weight:700;color:${r.benefit<divBenAtAge?'var(--usa-red)':'var(--usa-blue)'};">${fmt(effectiveBen)}/mo</div>
+        <div class="div-badge ${r.benefit>=divBenAtAge?'div-badge-own':'div-badge-ex'}">${source} higher</div>
+      </div>
+    </div>`;
+  });
+
+  // ── Survivor scenario (if ex still living) ──
+  if(exStatus==='living'&&survivorEligible){
+    const yearsToExDeath=Math.max(0,exLife-exAge);
+    const myAgeAtExDeath=myAge+yearsToExDeath;
+    if(myAgeAtExDeath<life){
+      const survivorBenAtDeath=exFRABen*Math.pow(1+cola/100,yearsToExDeath);
+      const survivorLifetime=calcRaw(myAgeAtExDeath,survivorBenAtDeath,life,cola);
+      html+=`<div class="div-compare-row survivor-row" style="margin-top:8px;">
+        <span class="div-age-lbl" style="color:var(--usa-red);font-size:10px;">Survivor<br>scenario</span>
+        <div style="flex:1;font-size:11px;color:var(--text-secondary);line-height:1.65;">
+          If your ex passes at their estimated age <strong>${exLife}</strong> (you would be ~${Math.round(myAgeAtExDeath)}), you could step up to <strong style="color:var(--usa-red);">${fmt(survivorBenAtDeath)}/mo</strong> — the full 100% of their COLA-adjusted benefit. Estimated lifetime survivor income from that point: <strong>${fmt(survivorLifetime)}</strong>. This would replace whatever you were collecting at the time.
+        </div>
+      </div>`;
+    }
+  }
+
+  // ── Remarriage warning on benefits ──
+  html+=`<div style="background:rgba(178,34,52,0.06);border:0.5px solid rgba(178,34,52,0.2);border-radius:var(--radius-md);padding:9px 12px;margin-top:10px;font-size:10px;color:#5a1a2a;line-height:1.65;">
+    <strong>⚠ If you remarry after claiming divorced spouse benefits:</strong> Your divorced spouse benefit stops immediately upon remarriage. You would then potentially be eligible for a spousal benefit based on your new spouse's record (if married 1+ year). If the new marriage later ends, your divorced spouse benefit on the original ex's record can be reinstated — or you may be able to claim a divorced spousal benefit on the new ex's record if that marriage lasted 10+ years.
+  </div>`;
+
+  // ── Next steps ──
+  html+=`<div style="margin-top:12px;background:rgba(60,59,110,0.06);border:1px solid var(--border-light);border-radius:var(--radius-lg);padding:12px 14px;">
+    <p style="font-size:11px;font-weight:700;color:var(--usa-blue);margin-bottom:8px;display:flex;align-items:center;gap:6px;"><i class="ti ti-checklist" style="font-size:13px;"></i> Suggested next steps</p>
+    <ol style="font-size:11px;color:var(--text-secondary);line-height:1.9;padding-left:16px;">
+      <li>Create or log into your account at <a href="https://www.ssa.gov/myaccount" target="_blank" style="color:var(--usa-blue);">ssa.gov/myaccount</a> to see your own benefit estimates at every age.</li>
+      <li>${exStatus==='deceased'?'Contact SSA to apply for divorced survivor benefits — call 1-800-772-1213 or visit your local SSA office.':'Contact SSA to verify your eligibility and confirm the ex-spouse FRA benefit amount — SSA can do this without your ex being involved.'}</li>
+      <li>Compare the numbers above: SSA will automatically pay you the <strong>higher</strong> of your own benefit or the divorced ${exStatus==='deceased'?'survivor':'spousal'} benefit — you do not receive both, but you do need to apply and indicate your ex-spouse's record.</li>
+      ${survivorEligible&&exStatus==='living'?'<li>Keep the survivor scenario in mind — if your ex predeceases you, your monthly income could increase significantly. Timing your own claim with this in mind may matter.</li>':''}
+      <li>Consult a qualified financial advisor or Social Security specialist before filing — the interaction between your own benefit, the divorced benefit, and Medicare timing can significantly affect your outcome.</li>
+    </ol>
+  </div>`;
+
+  html+=`<p class="note-small" style="margin-top:8px;">Source: <a href="https://www.ssa.gov/benefits/retirement/planner/divspouse.html" target="_blank" style="color:var(--usa-gold);">SSA — Benefits for Divorced Spouses</a> · <a href="https://www.ssa.gov/benefits/survivors" target="_blank" style="color:var(--usa-gold);">SSA — Survivor Benefits</a> · For educational purposes only — not financial, legal, or tax advice.</p>`;
+
+  document.getElementById('div-results').innerHTML=html;
+}
+
+
+/* ══════════════════════ TAB 4 — WIDOW / WIDOWER ══════════════════════ */
+let widOwnCount=0;
+
+function widAddOwnRow(age,benefit){
+  const i=widOwnCount++;const id='wor'+i;
+  const c=document.getElementById('wid-own-rows');
+  const d=document.createElement('div');d.className='inp-row';d.id=id;
+  d.innerHTML=`<span style="font-size:11px;color:var(--text-muted);min-width:24px;">Age</span><input type="number" class="age-inp" id="woa${i}" value="${age||''}" min="60" max="75" step="0.5" oninput="widRecalc()"><span style="font-size:11px;color:var(--text-muted);">$</span><input type="number" class="ben-inp" id="wob${i}" value="${benefit||''}" min="0" step="1" placeholder="monthly" oninput="widRecalc()"><button class="del-btn" onclick="widDelOwnRow('${id}')"><i class="ti ti-x"></i></button>`;
+  c.appendChild(d);
+}
+function widDelOwnRow(id){const e=document.getElementById(id);if(e)e.remove();widRecalc();}
+function widGetOwnRows(){
+  const rows=[];
+  for(let i=0;i<widOwnCount;i++){
+    const ae=document.getElementById('woa'+i),be=document.getElementById('wob'+i);
+    if(!ae||!be)continue;
+    const a=parseFloat(ae.value),b=parseFloat(be.value);
+    if(!isNaN(a)&&!isNaN(b)&&b>0)rows.push({age:a,benefit:b});
+  }
+  return rows.sort((a,b)=>a.age-b.age);
+}
+
+/* Calculate the survivor benefit amount the widow/er would receive.
+   Rules:
+   - If spouse claimed before their FRA: widow gets the higher of
+     (a) what spouse was actually receiving, or
+     (b) 82.5% of spouse FRA benefit (the floor)
+   - If spouse had not yet claimed or claimed at/after FRA: widow gets
+     100% of spouse FRA benefit (or their delayed benefit if they waited past FRA)
+   - Widow claiming before their own FRA: benefit is reduced
+     (max reduction ~28.5% if claimed at 60) */
+function calcSurvivorBenefit(widAge,widFRA,spBenefit,spFRA,spDeathAge,spClaimed){
+  if(!spBenefit)return 0;
+
+  // Determine the base survivor benefit
+  let survivorBase;
+  if(spClaimed==='yes'&&spDeathAge<spFRA){
+    // Spouse claimed early — widow gets higher of what they received or 82.5% of FRA amount
+    // We approximate FRA amount from the benefit using early reduction formula
+    const spMonthsEarly=Math.max(0,(spFRA-spDeathAge)*12);
+    const spRedPct=spMonthsEarly<=36?spMonthsEarly*0.005:36*0.005+(spMonthsEarly-36)*0.00417;
+    const spFRAAmount=spBenefit/(1-spRedPct);
+    const floor=spFRAAmount*0.825;
+    survivorBase=Math.max(spBenefit,floor);
+  } else if(spClaimed==='yes'&&spDeathAge>=spFRA){
+    // Spouse claimed at or after FRA — widow gets what they were receiving
+    survivorBase=spBenefit;
+  } else {
+    // Spouse had not yet claimed — widow gets 100% of their FRA benefit
+    survivorBase=spBenefit;
+  }
+
+  // Apply widow early claiming reduction if claiming before their own FRA
+  if(widAge>=widFRA) return survivorBase; // full benefit
+  // Reduction: from FRA to 60, benefit reduces from 100% to 71.5% (28.5% reduction)
+  // Linear: each month before FRA = 28.5% / ((FRA-60)*12) reduction
+  const widMonthsEarly=Math.max(0,(widFRA-widAge)*12);
+  const maxEarlyMonths=(widFRA-60)*12;
+  const reductionPct=(widMonthsEarly/maxEarlyMonths)*0.285;
+  return survivorBase*(1-reductionPct);
+}
+
+function widRecalc(){
+  const myAge=parseFloat(document.getElementById('wid-age').value)||62;
+  const remarried=document.getElementById('wid-remarried').value;
+  const years=parseFloat(document.getElementById('wid-years').value)||0;
+  const myFRA=parseFloat(document.getElementById('wid-fra').value)||67;
+  const disabled=document.getElementById('wid-disabled').value==='yes';
+  const life=parseFloat(document.getElementById('wid-life').value)||85;
+  const cola=parseFloat(document.getElementById('wid-cola').value)||2.5;
+  document.getElementById('wid-life-v').textContent=life;
+  document.getElementById('wid-cola-v').textContent=cola.toFixed(1)+'%';
+
+  // Minimum age for widow benefits: 60 (50 if disabled)
+  const minAge=disabled?50:60;
+  const marriageMinMonths=9; // 9 months required (not 10 years like divorced)
+  const marriageMonths=years*12;
+
+  // Eligibility
+  let eligible=false;
+  let eligHtml='';
+
+  if(remarried==='before60'){
+    eligHtml=`<div class="elig-box elig-no"><strong>Not eligible while remarried before age 60.</strong> Remarrying before age 60 disqualifies you from widow/widower benefits. If your current marriage ends through divorce or death, eligibility may be restored.</div>`;
+  } else if(marriageMonths<marriageMinMonths){
+    eligHtml=`<div class="elig-box elig-no"><strong>Not eligible.</strong> You must have been married for at least 9 months. (Entered: ${Math.round(marriageMonths)} months)</div>`;
+  } else if(myAge<minAge){
+    eligHtml=`<div class="elig-box elig-warn"><strong>Not yet eligible.</strong> Widow/widower benefits require you to be at least age ${minAge}${disabled?' (age 50 applies because you are disabled)':''}. You can claim in approximately ${Math.ceil(minAge-myAge)} year(s).</div>`;
+  } else {
+    eligible=true;
+    const remarriageNote=remarried==='after60'?'<br>You remarried after 60 — this does not affect your eligibility for widow/widower benefits.':'';
+    eligHtml=`<div class="elig-box elig-ok"><strong>&#10003; Potentially eligible for widow/widower benefits.</strong> Married ${years} years${disabled?' and receiving disability':''}, age ${myAge}.${remarriageNote}<br><span style="font-size:10px;opacity:.8;display:block;margin-top:4px;">Note: marriage duration of 9 months applies unless death was accidental or occurred in military service. Confirm at <a href="https://www.ssa.gov/benefits/survivors" target="_blank" style="color:var(--green);">ssa.gov/benefits/survivors</a></span></div>`;
+  }
+  document.getElementById('wid-eligibility').innerHTML=eligHtml;
+  document.getElementById('wid-step2').style.display=eligible?'':'none';
+  if(!eligible)return;
+
+  // Get spouse benefit
+  const spClaimed=document.getElementById('wid-sp-claimed').value;
+  const spDeathAge=parseFloat(document.getElementById('wid-sp-death-age').value)||68;
+  const spFRA=parseFloat(document.getElementById('wid-sp-fra').value)||67;
+  let spBenefit=parseFloat(document.getElementById('wid-sp-benefit').value)||0;
+  const spEarn=parseFloat(document.getElementById('wid-sp-earn').value)||0;
+
+  // Estimate from earnings if no benefit entered
+  let spEstimated=false;
+  if(!spBenefit&&spEarn>0){
+    spBenefit=estimateBenefitFromEarnings(spEarn);
+    spEstimated=true;
+  }
+
+  if(spEstimated&&spBenefit>0){
+    document.getElementById('wid-sp-estimate').innerHTML=`<p style="font-size:10px;color:var(--text-muted);padding:7px 10px;background:rgba(201,168,76,0.08);border-radius:var(--radius-md);margin-top:8px;">Estimated ${spClaimed==='no'?'FRA benefit':'benefit at FRA'}: <strong style="color:var(--usa-blue);">${fmt(spBenefit)}/mo</strong> — rough estimate using SSA 2026 bend-point formula. Actual benefit depends on full 35-year earnings history.</p>`;
+  } else {
+    document.getElementById('wid-sp-estimate').innerHTML='';
+  }
+
+  if(!spBenefit){
+    document.getElementById('wid-results').innerHTML='<p style="font-size:12px;color:var(--text-muted);">Enter your spouse benefit amount (or their career earnings for an estimate) above.</p>';
+    return;
+  }
+
+  const ownRows=widGetOwnRows();
+  if(!ownRows.length){
+    document.getElementById('wid-results').innerHTML='<p style="font-size:12px;color:var(--text-muted);">Add your own benefit amounts in Step 3 above to see the full strategy comparison.</p>';
+    return;
+  }
+
+  // ── Plain English "what this means" box ──
+  const survivorAtFRA=calcSurvivorBenefit(myFRA,myFRA,spBenefit,spFRA,spDeathAge,spClaimed);
+  const survivorAtMyAge=calcSurvivorBenefit(myAge,myFRA,spBenefit,spFRA,spDeathAge,spClaimed);
+  const ownAtFRA=ownRows.find(r=>Math.abs(r.age-myFRA)<0.6)?.benefit||ownRows[ownRows.length-1]?.benefit||0;
+  const ownAt62=ownRows.find(r=>r.age<=62)?.benefit||ownRows[0]?.benefit||0;
+  const ownAt70=ownRows.find(r=>r.age>=70)?.benefit||ownRows[ownRows.length-1]?.benefit||0;
+
+  let meaning=`<div style="background:rgba(60,59,110,0.07);border:1px solid var(--border-mid);border-radius:var(--radius-lg);padding:12px 14px;margin-bottom:14px;">
+    <p style="font-size:11px;font-weight:700;color:var(--usa-blue);margin-bottom:8px;display:flex;align-items:center;gap:6px;"><i class="ti ti-bulb" style="font-size:13px;"></i> What this means for you</p>
+    <p style="font-size:11px;color:var(--text-secondary);line-height:1.75;margin-bottom:6px;">Based on what you entered, you have two potential SS benefits available: <strong style="color:var(--usa-blue);">your own earned benefit</strong> (up to ${fmt(ownAt70)}/mo at age 70) and a <strong style="color:var(--usa-red);">widow/widower survivor benefit</strong> (up to ${fmt(survivorAtFRA)}/mo if you wait until your FRA of ${myFRA}). SSA will not pay both at the same time — you receive the higher of the two at any given point.</p>
+    <p style="font-size:11px;color:var(--text-secondary);line-height:1.75;margin-bottom:6px;">The key advantage you have is the ability to <strong>claim one benefit early and switch to the other later</strong> when it grows larger. The two main strategies are shown below. Neither is automatically better — it depends on which benefit is larger and when each peaks.</p>
+    ${spClaimed==='yes'&&spDeathAge<spFRA?`<p style="font-size:10px;color:var(--text-muted);line-height:1.6;margin:0;">Because your spouse claimed before their FRA (age ${spFRA}), their survivor benefit has a floor of 82.5% of their FRA amount — so your survivor benefit is protected from being reduced all the way down to their early-claiming amount.</p>`:''}
+  </div>`;
+
+  // ── Strategy comparison ──
+  // Strategy A: Claim survivor benefit early, let own benefit grow to 70
+  // Strategy B: Claim own benefit early (or at 62), switch to survivor at FRA
+  // Strategy C: Take whichever is higher right now (simple)
+
+  let strategies=[];
+
+  // Strategy A — Claim survivor now, switch to own at 70
+  const survivorNow=calcSurvivorBenefit(myAge,myFRA,spBenefit,spFRA,spDeathAge,spClaimed);
+  const ownAt70Val=ownAt70;
+  const switchAge=70;
+  if(myAge<switchAge&&ownAt70Val>survivorNow){
+    const survivorPhase=calcRaw(myAge,survivorNow,switchAge,cola);
+    const ownPhase=calcRaw(switchAge,ownAt70Val,life,cola);
+    const totalA=survivorPhase+ownPhase;
+    strategies.push({
+      id:'A',
+      title:'Claim survivor benefit now, switch to your own at 70',
+      desc:`Claim the survivor benefit now at ${fmt(survivorNow)}/mo${myAge<myFRA?' (reduced because you are under your FRA)':''}. Let your own benefit grow untouched until age 70, when it reaches ${fmt(ownAt70Val)}/mo — then switch. This works best when your own benefit at 70 will be significantly larger than the survivor benefit.`,
+      phase1:`Survivor: ${fmt(survivorNow)}/mo from age ${myAge} to ${switchAge}`,
+      phase2:`Your own: ${fmt(ownAt70Val)}/mo from age ${switchAge} to ${life}`,
+      total:totalA,
+      switchAge
+    });
+  }
+
+  // Strategy B — Claim own at 62, switch to survivor at FRA
+  const ownEarlyVal=ownAt62;
+  const survivorAtFRAVal=survivorAtFRA;
+  const switchAgeFRA=myFRA;
+  if(ownEarlyVal>0&&survivorAtFRAVal>ownEarlyVal){
+    const ownEarlyPhase=calcRaw(myAge,ownEarlyVal,switchAgeFRA,cola);
+    const survivorPhase2=calcRaw(switchAgeFRA,survivorAtFRAVal,life,cola);
+    const totalB=ownEarlyPhase+survivorPhase2;
+    strategies.push({
+      id:'B',
+      title:`Claim your own benefit now, switch to survivor at your FRA (${myFRA})`,
+      desc:`Start your own benefit now at ${fmt(ownEarlyVal)}/mo. At your FRA of ${myFRA}, switch to the full survivor benefit of ${fmt(survivorAtFRAVal)}/mo. This works best when the survivor benefit is larger than your own benefit and you want income in the meantime.`,
+      phase1:`Your own: ${fmt(ownEarlyVal)}/mo from age ${myAge} to ${myFRA}`,
+      phase2:`Survivor: ${fmt(survivorAtFRAVal)}/mo from age ${myFRA} to ${life}`,
+      total:totalB,
+      switchAge:switchAgeFRA
+    });
+  }
+
+  // Strategy C — Just take whichever is higher right now and keep it
+  const higherNow=Math.max(survivorNow,ownRows[0]?.benefit||0);
+  const higherSource=survivorNow>=(ownRows[0]?.benefit||0)?'survivor':'own';
+  const totalC=calcRaw(myAge,higherNow,life,cola);
+  strategies.push({
+    id:'C',
+    title:`Claim the higher benefit now and keep it (${higherSource==='survivor'?'survivor':'your own'})`,
+    desc:`Simply take whichever benefit is higher right now — ${higherSource==='survivor'?`the survivor benefit at ${fmt(survivorNow)}/mo`:`your own benefit at ${fmt(ownRows[0]?.benefit||0)}/mo`} — and keep collecting it for life. Simpler, but may leave money on the table compared to the switch strategies above.`,
+    phase1:`${higherSource==='survivor'?'Survivor':'Your own'}: ${fmt(higherNow)}/mo from age ${myAge} to ${life}`,
+    phase2:null,
+    total:totalC,
+    switchAge:null
+  });
+
+  // Sort by total
+  strategies.sort((a,b)=>b.total-a.total);
+  const bestTotal=strategies[0].total;
+
+  let html=meaning;
+  html+=`<p style="font-size:11px;font-weight:600;color:var(--text-secondary);margin-bottom:8px;">Lifetime comparison to age ${life} — all strategies</p>`;
+
+  strategies.forEach((s,idx)=>{
+    const isBest=s.total===bestTotal;
+    html+=`<div class="wid-strategy-card ${isBest?'best':''}">
+      <div class="wid-strat-title ${isBest?'best':''}">
+        ${isBest?'<i class="ti ti-star-filled" style="font-size:12px;"></i>':''} Strategy ${s.id}: ${s.title}
+      </div>
+      <div class="wid-strat-body">
+        <p style="margin-bottom:6px;">${s.desc}</p>
+        <p style="font-size:10px;color:var(--text-muted);">${s.phase1}${s.phase2?` &rarr; then: ${s.phase2}`:''}</p>
+      </div>
+      <div class="wid-strat-total ${isBest?'best':''}">Estimated lifetime total: ${fmt(s.total)}</div>
+      ${isBest?`<p style="font-size:10px;color:var(--green);margin-top:4px;">Based on the numbers entered, this strategy produces the most income over your lifetime to age ${life}.</p>`:''}
+    </div>`;
+  });
+
+  // Remarriage note
+  html+=`<div style="background:rgba(178,34,52,0.06);border:0.5px solid rgba(178,34,52,0.2);border-radius:var(--radius-md);padding:9px 12px;margin-top:4px;font-size:10px;color:#5a1a2a;line-height:1.65;">
+    <strong>&#9888; If you remarry:</strong> Remarrying before age 60 permanently ends your widow/widower benefit. Remarrying at 60 or later does not affect it. If you are currently collecting and remarry before 60, benefits stop — and generally cannot be reinstated unless that marriage also ends.
+  </div>`;
+
+  // Next steps
+  html+=`<div style="margin-top:12px;background:rgba(60,59,110,0.06);border:1px solid var(--border-light);border-radius:var(--radius-lg);padding:12px 14px;">
+    <p style="font-size:11px;font-weight:700;color:var(--usa-blue);margin-bottom:8px;display:flex;align-items:center;gap:6px;"><i class="ti ti-checklist" style="font-size:13px;"></i> What to do next</p>
+    <ol style="font-size:11px;color:var(--text-secondary);line-height:1.9;padding-left:16px;">
+      <li>Log into <a href="https://www.ssa.gov/myaccount" target="_blank" style="color:var(--usa-blue);">ssa.gov/myaccount</a> to get your exact own benefit amounts at each age.</li>
+      <li>Contact SSA at <strong>1-800-772-1213</strong> or visit your local office to apply. <strong>Tell them you want to explore both your own benefit and your survivor benefit options</strong> — SSA will not automatically show you both paths unless you ask.</li>
+      <li>When you contact SSA, specifically ask: "Can I claim one benefit now and switch to the other later?" and "Which combination produces the most income over my lifetime?"</li>
+      <li>Consider consulting a financial advisor who specializes in Social Security before filing — once you start collecting and more than 12 months have passed, changing your election becomes very difficult.</li>
+    </ol>
+  </div>`;
+
+  html+=`<p class="note-small" style="margin-top:8px;">Sources: <a href="https://www.ssa.gov/benefits/survivors" target="_blank" style="color:var(--usa-gold);">SSA — Survivor Benefits</a> · <a href="https://www.ssa.gov/benefits/survivors/ifyouarethesurvivingspouse.html" target="_blank" style="color:var(--usa-gold);">SSA — If You Are the Surviving Spouse</a> · For educational purposes only.</p>`;
+
+  document.getElementById('wid-results').innerHTML=html;
+}
+
 /* ══ INIT ══ */
 DEFAULT.forEach(r=>addRow(r.age,r.benefit));
 SP_DEF_A.forEach(r=>spAddRow('a',r.age,r.benefit));
@@ -1062,8 +1876,11 @@ document.getElementById('dob-a').value='1960-06-15';
 document.getElementById('dob-b').value='1963-03-22';
 // Default working example rows for individual tab
 [[62,55000],[63,55000],[64,30000]].forEach(([a,i])=>addEarnRow(a,i));
+// Default divorced tab rows
+[{age:62,benefit:712},{age:65,benefit:876},{age:67,benefit:1011},{age:70,benefit:1254}].forEach(r=>divAddOwnRow(r.age,r.benefit));
 
-showFact(0);startTimer();recalc();spRecalc();
+[{age:62,benefit:712},{age:65,benefit:876},{age:67,benefit:1011},{age:70,benefit:1254}].forEach(r=>widAddOwnRow(r.age,r.benefit));
+showFact(0);startTimer();recalc();spRecalc();divRecalc();widRecalc();
 </script>
 </body>
 </html>
